@@ -2,16 +2,20 @@ package com.smartshop.dao.product;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Table(name="product_image")
-public class ProductImage {
+public class ProductImage implements Serializable {
 
     /*Fields*/
-    @Column(name="productId")
+    @Id
+    @Column(name="product_id")
     private String productId;
 
+    @Id
     @Column(name="path")
     private String path;
 

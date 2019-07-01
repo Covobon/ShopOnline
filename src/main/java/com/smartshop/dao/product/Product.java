@@ -9,6 +9,7 @@ import java.util.List;
 public class Product {
     /*Define fields*/
 
+    @Id
     @Column(name="product_id")
     private String productId;
 

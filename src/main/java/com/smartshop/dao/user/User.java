@@ -1,7 +1,5 @@
 package com.smartshop.dao.user;
 
-import org.hibernate.annotations.Columns;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +9,7 @@ import java.util.List;
 public class User {
 
     /*Define fields*/
+    @Id
     @Column(name = "user_name")
     private String userName;
 

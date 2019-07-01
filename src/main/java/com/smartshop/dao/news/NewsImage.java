@@ -2,15 +2,21 @@ package com.smartshop.dao.news;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="news_image")
-public class NewsImage {
+public class NewsImage implements Serializable {
     /*Fields*/
+    @Id
     @Column(name="new_id")
     private int newId;
 
+    @Id
     @Column(name="path")
     private String path;
 

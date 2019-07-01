@@ -2,16 +2,20 @@ package com.smartshop.dao.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Table(name="user_role")
-public class UserRole {
+public class UserRole implements Serializable {
 
     /*Define fields*/
+    @Id
     @Column(name="user_name")
     private String userName;
 
+    @Id
     @Column(name="role")
     private String role;
 

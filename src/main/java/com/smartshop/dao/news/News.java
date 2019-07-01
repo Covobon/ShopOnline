@@ -8,6 +8,7 @@ import java.util.List;
 @Table(name="news")
 public class News {
     /*Fields*/
+    @Id
     @Column(name="new_id")
     private int newId;
 
