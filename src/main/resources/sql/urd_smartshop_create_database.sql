@@ -14,6 +14,7 @@ GRANT ALL PRIVILEGES ON * . * TO 'admin'@'localhost';
 #
 ALTER USER 'admin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'admin';
 
+drop database `urd_smartshop`;
 create database `urd_smartshop`;
 
 use `urd_smartshop`;
@@ -31,11 +32,9 @@ create table `user`(
 );
 
 create table `user_role`(
-	`user_role_id` int not null auto_increment,
     `user_name` varchar(45) not null,
     `role` varchar(45) not null,
-    primary key (`user_role_id`),
-    unique key `uni_user_name_role` (`role`, `user_name`),
+    primary key `uni_user_name_role` (`role`, `user_name`),
     foreign key (`user_name`) references `user` (`user_name`)
 );
 

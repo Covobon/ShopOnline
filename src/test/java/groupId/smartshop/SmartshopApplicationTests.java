@@ -1,4 +1,4 @@
-package itsol.intern.shoponline;
+package groupId.smartshop;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ShopOnlineApplicationTests {
+public class SmartshopApplicationTests {
 
 	@Test
 	public void contextLoads() {
