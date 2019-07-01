@@ -1,4 +1,4 @@
-package com.smartshop.dao.order;
+package com.smartshop.repo.order;
 
 import java.sql.Date;
 

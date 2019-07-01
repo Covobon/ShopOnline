@@ -1,4 +1,4 @@
-package com.smartshop.dao.user;
+package com.smartshop.repo.user;
 
 import javax.persistence.*;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.smartshop.dao.news;
+package com.smartshop.repo.news;
 
 import javax.persistence.*;
 import java.util.ArrayList;

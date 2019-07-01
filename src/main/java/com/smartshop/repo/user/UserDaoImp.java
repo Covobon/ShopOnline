@@ -1,4 +1,4 @@
-package com.smartshop.dao.user;
+package com.smartshop.repo.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -44,7 +44,7 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public void deleteUser(int userId) {
+    public void deleteUser(String userName) {
 
     }
 }

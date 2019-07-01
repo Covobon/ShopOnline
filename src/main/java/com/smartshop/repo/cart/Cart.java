@@ -1,4 +1,4 @@
-package com.smartshop.dao.cart;
+package com.smartshop.repo.cart;
 
 
 public class Cart {

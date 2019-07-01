@@ -1,4 +1,4 @@
-package com.smartshop.dao.product;
+package com.smartshop.repo.product;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
