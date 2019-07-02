@@ -1,8 +1,9 @@
 package com.smartshop.api;
 
-import com.smartshop.repo.user.User;
-import com.smartshop.repo.user.UserDao;
-import com.smartshop.repo.user.UserRepository;
+import com.smartshop.dao.user.*;
+import com.smartshop.service.user.UserService;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,23 +14,24 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserRepository userRepo;
+    private UserService userService;
+
+
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @GetMapping()
     public List<User> getUser(){
-        return userRepo.findAll();
+        return userService.findAll();
     }
 
     @PostMapping()
-    @PutMapping()
-    public String createUser(@RequestBody User user){
-        userRepo.save(user);
-        return "Success";
+    @PutMapping
+    public void createUser(@RequestBody User user){
+        userService.save(user);
     }
 
     @DeleteMapping("/{userName}")
-    public String deleteUser(@PathVariable("userName") String userName){
-        userRepo.deleteById(userName);
-        return "Success";
+    public void deleteUser(@PathVariable("userName") String userName){
+        userService.deleteByUserName(userName);
     }
 }

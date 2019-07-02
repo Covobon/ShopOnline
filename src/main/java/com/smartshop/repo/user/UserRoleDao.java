@@ -1,10 +1,11 @@
-package com.smartshop.repo.user;
+package com.smartshop.dao.user;
 
 import java.util.List;
 
 public interface UserRoleDao {
-    public void createUserRole(UserRole userRole);
-    public List<String> findAllByUserName(String userName);
-    public void removeUserRoleById();
-
+    public List<UserRole> findAll();
+    public List<UserRole> findByUserName(String userName);
+    public void add(UserRole userRole);
+    public void delete(UserRole userRole);
+    public void deleteByUser(User user);
 }
