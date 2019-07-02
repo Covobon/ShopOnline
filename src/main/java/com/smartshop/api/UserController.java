@@ -1,28 +1,37 @@
 package com.smartshop.api;
 
-import com.smartshop.dao.user.User;
-import com.smartshop.dao.user.UserDao;
+import com.smartshop.dao.user.*;
+import com.smartshop.service.user.UserService;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
-    private UserDao userDao;
+    private UserService userService;
 
-    @GetMapping("/user")
+
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+
+    @GetMapping()
     public List<User> getUser(){
-        return userDao.getUsers();
+        return userService.findAll();
     }
 
-    @PostMapping("/user")
-    @ResponseBody
-    public String createUser(@RequestBody User user){
-        userDao.addUser(user);
-        return "Success";
+    @PostMapping()
+    @PutMapping
+    public void createUser(@RequestBody User user){
+        userService.save(user);
+    }
+
+    @DeleteMapping("/{userName}")
+    public void deleteUser(@PathVariable("userName") String userName){
+        userService.deleteByUserName(userName);
     }
 }

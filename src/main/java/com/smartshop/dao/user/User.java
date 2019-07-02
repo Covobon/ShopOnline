@@ -31,7 +31,7 @@ public class User {
     @Column(name = "last_access")
     private String lastAccess;
 
-    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch=FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name="user_name")
     private List<UserRole> userRoles = new ArrayList<>();
 
