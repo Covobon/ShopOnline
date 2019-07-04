@@ -35,7 +35,6 @@ public class ProductImageDaoImp implements ProductImageDao {
     }
 
     @Override
-    @Transactional
     public void deleteByProduct(Product product) {
         Query query = entityManager.createQuery("delete from ProductImage pi where pi.productId = :productId");
         query.setParameter("productId", product.getProductId());
