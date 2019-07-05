@@ -35,8 +35,20 @@ create table `product`(
     `category` varchar(45),
     `status` varchar(45),
     `amount` int,
-    `detail` text,
     primary key (`product_id`)
+);
+
+create table `product_detail`(
+    `product_id` varchar(45) primary key,
+    `screen` varchar(45),
+    `os` varchar(45),
+    `camera` varchar(45),
+    `cpu` varchar(45),
+    `ram` varchar(45),
+    `hard_disk` varchar(45),
+    `battery` varchar(45),
+    `detail` text,
+    foreign key `product_id` references `product`(`product_id`)
 );
 
 create table `product_image`(
