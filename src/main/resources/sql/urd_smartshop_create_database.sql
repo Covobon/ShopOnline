@@ -41,8 +41,7 @@ create table `product`(
 
 create table `product_image`(
 	`product_id` varchar(45),
-    `path` varchar(255),
-    primary key (`product_id`, `path`),
+    `name_image` varchar(255) primary key,
     foreign key (`product_id`) references `product` (`product_id`)
 );
 
@@ -88,7 +87,6 @@ create table `news` (
 
 create table `news_image`(
 	`new_id` int,
-    `path` varchar(255),
-    primary key (`new_id`, `path`),
+    `name_image` varchar(255) primary key,
     foreign key (`new_id`)  references `news` (`new_id`)
 );
