@@ -12,21 +12,20 @@ import java.util.List;
 @Table(name="news_image")
 public class NewsImage implements Serializable {
     /*Fields*/
-    @Id
     @Column(name="new_id")
     private int newId;
 
     @Id
-    @Column(name="path")
-    private String path;
+    @Column(name="name_image")
+    private String name_image;
 
     /*Constructors*/
     public NewsImage() {
     }
 
-    public NewsImage(int newId, String path) {
+    public NewsImage(int newId, String name_image) {
         this.newId = newId;
-        this.path = path;
+        this.name_image = name_image;
     }
 
     /*Getters/Setters*/
@@ -38,20 +37,21 @@ public class NewsImage implements Serializable {
         this.newId = newId;
     }
 
-    public String getPath() {
-        return path;
+    public String getName_image() {
+        return name_image;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setName_image(String name_image) {
+        this.name_image = name_image;
     }
 
     /*Methods*/
+
     @Override
     public String toString() {
         return "NewsImage{" +
                 "newId=" + newId +
-                ", path='" + path + '\'' +
+                ", name_image='" + name_image + '\'' +
                 '}';
     }
 }

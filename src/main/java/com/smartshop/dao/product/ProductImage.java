@@ -15,7 +15,6 @@ public class ProductImage implements Serializable {
     @Column(name="product_id")
     private String productId;
 
-    @Id
     @Column(name="path")
     private String path;
 

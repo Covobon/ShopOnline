@@ -31,6 +31,14 @@ public class News {
         this.content = text;
     }
 
+    public List<NewsImage> getNewsImages() {
+        return newsImages;
+    }
+
+    public void setNewsImages(List<NewsImage> newsImages) {
+        this.newsImages = newsImages;
+    }
+
     /*Getters/Setters*/
     public int getNewId() {
         return newId;
