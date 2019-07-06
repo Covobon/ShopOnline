@@ -14,11 +14,12 @@ public class ProductImageController {
 
     @Autowired
     private ProductImageDao productImageDao;
-
+    //TODO----------
     @GetMapping("/{productId}")
     public List<ProductImage> findAll(@PathVariable("productId") String productId) {
         return productImageDao.findAllByProduct(productId);
     }
+    //TODO------
 
     @DeleteMapping
     public void deleteByProduct(@RequestBody Product product){

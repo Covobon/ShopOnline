@@ -23,12 +23,13 @@ public class UserController {
     public List<User> getUser(){
         return userService.findAll();
     }
-
+    //TODO-------
     @PostMapping()
     @PutMapping
     public void createUser(@RequestBody User user){
         userService.save(user);
     }
+    //TODO----
 
     @DeleteMapping("/{userName}")
     public void deleteUser(@PathVariable("userName") String userName){

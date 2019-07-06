@@ -23,7 +23,11 @@ public class TestApiNews {
     public List<News> getAll(){
         return newServices.getAllNews();
     }
-
+    @GetMapping("/list1")
+    public List<News> getlist(){
+        return newServices.getAll();
+    }
+    //TODO---
     @PutMapping()
     public News editNews( @RequestBody News news){
         return newServices.addNews(news);
@@ -33,11 +37,8 @@ public class TestApiNews {
         newServices.addNews(news);
     }
     @DeleteMapping("/{theId}")
-    public void delete(@PathVariable("theId") int theId){
+    public void delete(@PathVariable("theId") int theId) {
         newServices.deleteNew(theId);
     }
-    @GetMapping("/list1")
-    public List<News> getlist(){
-       return newServices.getAll();
-    }
+    //TODO---
 }
