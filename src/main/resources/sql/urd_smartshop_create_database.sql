@@ -29,8 +29,8 @@ create table `user_role`(
 );
 
 create table `product`(
-	`product_id` varchar(45),
-    `name` varchar(45),
+	`product_id` varchar(100),
+    `name` varchar(100),
     `price` int,
     `category` varchar(45),
     `status` varchar(45),
@@ -48,7 +48,7 @@ create table `product_detail`(
     `hard_disk` varchar(45),
     `battery` varchar(45),
     `detail` text,
-    foreign key `product_id` references `product`(`product_id`)
+    foreign key (`product_id`) references `product` (`product_id`)
 );
 
 create table `product_image`(
