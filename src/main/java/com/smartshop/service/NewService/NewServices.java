@@ -11,4 +11,5 @@ public interface NewServices {
     public Optional<News> findNewsById(int theId );
     public News addNews(News theNews);
     public void deleteNew(int theId);
+    public List<News> getAll();
 }

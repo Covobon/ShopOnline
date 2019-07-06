@@ -36,4 +36,8 @@ public class TestApiNews {
     public void delete(@PathVariable("theId") int theId){
         newServices.deleteNew(theId);
     }
+    @GetMapping("/list1")
+    public List<News> getlist(){
+       return newServices.getAll();
+    }
 }
