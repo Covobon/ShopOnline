@@ -14,6 +14,11 @@ public class NewsImageServicesImpl implements NewsImageServices {
     }
 
     @Override
+    public void update(NewsImage newsImage) {
+        newsImageRepository.delete(newsImage);
+    }
+
+    @Override
     public void delete(int theId) {
         newsImageRepository.deleteById(theId);
 

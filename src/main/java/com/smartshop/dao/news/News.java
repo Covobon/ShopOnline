@@ -68,6 +68,8 @@ public class News {
         newsImages.add(newsImage);
     }
 
+
+
     /*Methods*/
     @Override
     public String toString() {

@@ -28,17 +28,18 @@ public class TestApiNews {
         return newServices.getAll();
     }
     //TODO---
-    @PutMapping()
+    @PutMapping("/put")
     public News editNews( @RequestBody News news){
         return newServices.addNews(news);
     }
-    @PostMapping()
+    @PostMapping("/post")
     public void addNews(@RequestBody News news){
         newServices.addNews(news);
     }
+    //TODO---
     @DeleteMapping("/{theId}")
     public void delete(@PathVariable("theId") int theId) {
         newServices.deleteNew(theId);
     }
-    //TODO---
+
 }
