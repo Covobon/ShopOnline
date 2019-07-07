@@ -1,23 +1,19 @@
 package com.smartshop.dao.product;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
+@Entity(name="ProductImage")
 @Table(name="product_image")
 public class ProductImage implements Serializable {
 
     /*Fields*/
-    @Id
-    @Column(name="product_id")
+    @Column(name = "product_id")
     private String productId;
 
     @Id
-    @Column(name="path")
-    private String path;
+    @Column(name="name_image")
+    private String nameImage;
 
     /*Constructor*/
     public ProductImage() {
@@ -25,7 +21,7 @@ public class ProductImage implements Serializable {
 
     public ProductImage(String productId, String path) {
         this.productId = productId;
-        this.path = path;
+        this.nameImage = path;
     }
 
     /*Getters/Setters*/
@@ -38,12 +34,12 @@ public class ProductImage implements Serializable {
         this.productId = productId;
     }
 
-    public String getPath() {
-        return path;
+    public String getNameImage() {
+        return nameImage;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setNameImage(String path) {
+        this.nameImage = path;
     }
 
     /*Methods*/
@@ -51,7 +47,7 @@ public class ProductImage implements Serializable {
     public String toString() {
         return "ProductImage{" +
                 "productId='" + productId + '\'' +
-                ", path='" + path + '\'' +
+                ", nameImage='" + nameImage + '\'' +
                 '}';
     }
 }

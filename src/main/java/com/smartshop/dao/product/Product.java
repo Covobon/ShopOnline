@@ -28,9 +28,6 @@ public class Product {
     @Column(name="amount")
     private int amount;
 
-    @Column(name="detail")
-    private String detail;
-
     @OneToMany(fetch= FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="product_id")
     private List<ProductImage> productImages = new ArrayList<>();
@@ -39,14 +36,13 @@ public class Product {
     public Product() {
     }
 
-    public Product(String productId, String name, int price, String category, String status, int amount, String detail) {
+    public Product(String productId, String name, int price, String category, String status, int amount) {
         this.productId = productId;
         this.name = name;
         this.price = price;
         this.category = category;
         this.status = status;
         this.amount = amount;
-        this.detail = detail;
     }
 
     /*Define getters/setters*/
@@ -99,14 +95,6 @@ public class Product {
         this.amount = amount;
     }
 
-    public String getDetail() {
-        return detail;
-    }
-
-    public void setDetail(String detail) {
-        this.detail = detail;
-    }
-
     public void addProductImage(ProductImage productImage){
         productImages.add(productImage);
     }
@@ -125,7 +113,6 @@ public class Product {
                 ", category='" + category + '\'' +
                 ", status='" + status + '\'' +
                 ", amount=" + amount +
-                ", detail='" + detail + '\'' +
                 '}';
     }
 }
