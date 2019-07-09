@@ -20,4 +20,9 @@ public class ProductController {
     public List<Product> getAll(){
         return productRepository.findAll();
     }
+
+    @GetMapping("/phone")
+    public List<Product> getAllPhone() {
+        return productRepository.findAllByCategory("Phone");
+    }
 }
