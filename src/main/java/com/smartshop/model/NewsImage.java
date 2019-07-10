@@ -1,4 +1,4 @@
-package com.smartshop.dao.news;
+package com.smartshop.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

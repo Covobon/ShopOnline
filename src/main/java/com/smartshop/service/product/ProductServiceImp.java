@@ -1,6 +1,6 @@
 package com.smartshop.service.product;
 
-import com.smartshop.dao.product.Product;
+import com.smartshop.model.Product;
 import com.smartshop.dao.product.ProductImageDao;
 import com.smartshop.dao.product.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;

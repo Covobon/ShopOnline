@@ -1,4 +1,4 @@
-package com.smartshop.configure.initial;
+package com.smartshop.configuration.initial;
 
 import java.util.Random;
 

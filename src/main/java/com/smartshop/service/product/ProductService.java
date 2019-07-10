@@ -1,6 +1,6 @@
 package com.smartshop.service.product;
 
-import com.smartshop.dao.product.Product;
+import com.smartshop.model.Product;
 
 import java.util.List;
 

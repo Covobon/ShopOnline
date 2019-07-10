@@ -1,4 +1,4 @@
-package com.smartshop.dao.user;
+package com.smartshop.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -36,7 +36,6 @@ public class User {
     private List<UserRole> userRoles = new ArrayList<>();
 
     /*Define constructors*/
-
     public User() {
     }
 

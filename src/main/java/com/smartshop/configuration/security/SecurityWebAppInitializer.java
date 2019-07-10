@@ -1,4 +1,4 @@
-package com.smartshop.configure.security;
+package com.smartshop.configuration.security;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

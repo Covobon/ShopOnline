@@ -1,6 +1,6 @@
 package com.smartshop.service.user;
 
-import com.smartshop.dao.user.User;
+import com.smartshop.model.User;
 
 import java.util.List;
 
