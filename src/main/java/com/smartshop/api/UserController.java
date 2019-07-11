@@ -1,7 +1,7 @@
 package com.smartshop.api;
 
 import com.smartshop.model.User;
-import com.smartshop.service.user.UserService;
+import com.smartshop.service.UserService;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class UserController {
     @PostMapping()
     @PutMapping
     public void createUser(@RequestBody User user){
-        userService.save(user);
+        userService.addUser(user);
     }
 
     @DeleteMapping("/{userName}")

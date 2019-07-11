@@ -1,4 +1,4 @@
-package com.smartshop.service.store;
+package com.smartshop.service;
 
 import com.smartshop.model.User;
 import com.smartshop.repositories.UserRepository;
@@ -21,9 +21,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void removeByUserName(String userName){
+    public void deleteByUserName(String userName){
         userRepository.deleteById(userName);
     }
-
-    
 }
