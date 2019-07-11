@@ -60,6 +60,14 @@ public class News {
         newsImages.add(newsImage);
     }
 
+    public List<NewsImage> getNewsImages() {
+        return newsImages;
+    }
+
+    public void setNewsImages(List<NewsImage> newsImages) {
+        this.newsImages = newsImages;
+    }
+
     /*Methods*/
     @Override
     public String toString() {
