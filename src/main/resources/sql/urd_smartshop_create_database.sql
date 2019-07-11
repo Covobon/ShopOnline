@@ -53,7 +53,8 @@ create table `product_detail`(
 
 create table `product_image`(
 	`product_id` varchar(45),
-    `name_image` varchar(255) primary key,
+    `name_image` varchar(255),
+    primary  key (`product_id`, `name_image`),
     foreign key (`product_id`) references `product` (`product_id`)
 );
 
@@ -99,6 +100,7 @@ create table `news` (
 
 create table `news_image`(
 	`new_id` int,
-    `name_image` varchar(255) primary key,
+    `name_image` varchar(255),
+    primary key (`new_id`, `name_image`),
     foreign key (`new_id`)  references `news` (`new_id`)
 );
