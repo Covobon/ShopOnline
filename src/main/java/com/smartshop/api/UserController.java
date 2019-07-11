@@ -25,9 +25,9 @@ public class UserController {
     }
 
     @PostMapping()
-    @PutMapping
-    public void createUser(@RequestBody User user){
-        userService.addUser(user);
+    @PutMapping()
+    public void create(@RequestBody User user){
+        userService.add(user);
     }
 
     @DeleteMapping()

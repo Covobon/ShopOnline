@@ -4,44 +4,55 @@ import com.smartshop.model.UserRole;
 import com.smartshop.repositories.UserRoleRepository;
 import com.smartshop.service.UserRoleService;
 import com.smartshop.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/userrole")
 
 public class UserRoleController {
 
+    Logger log = LoggerFactory.getLogger(this.getClass().getName());
+
     @Autowired
     private UserRoleService userRoleService;
 
     @GetMapping()
-    public List<UserRole> findAll(@RequestParam Map<String, String> allParams){
-        Stack<String> arrayKey = new Stack<>();
-        Stack<String> arrayValue = new Stack<>();
+    public List<UserRole> find(@RequestParam Map<String, String> allParams){
+        Queue<String> queueKey = new LinkedList<String>();
+        Queue<String> queueValue = new LinkedList<String>();
 
-        if (allParams == null) {
+        if (allParams.isEmpty()) {
             return userRoleService.findAll();
         }
 
         for (Map.Entry<String, String> entry : allParams.entrySet()){
-            arrayKey.push(entry.getKey());
-            arrayKey.push(entry.getValue());
+            queueKey.add(entry.getKey());
+            queueValue.add(entry.getValue());
         }
-
-        logg
-
-        return null);
+        return userRoleService.findByUser(queueValue.remove());
     }
 
     @DeleteMapping()
-    public void deleteByUserNameAndRole(@RequestParam String userName, @RequestParam String role) {
-        userRoleService.deleteByUserNameAndRole(userName, role);
+    public void delete(@RequestParam Map<String, String> allParams) {
+        Queue<String> queueKey = new LinkedList<String>();
+        Queue<String> queueValue = new LinkedList<String>();
+
+        for (Map.Entry<String, String> entry : allParams.entrySet()){
+            queueKey.add(entry.getKey());
+            queueValue.add(entry.getValue());
+        }
+
+        if (queueValue.size() == 1) {
+            userRoleService.deleteByUser(queueValue.remove());
+        }
+        if (queueValue.size() == 2) {
+            userRoleService.deleteByUserNameAndRole(queueValue.remove(), queueValue.remove());
+        }
     }
 
 }

@@ -11,13 +11,13 @@ use `urd_smartshop`;
 
 create table `user`(
 	`user_name` varchar(45) not null,
-    `password` varchar(45) not null,
+    `password` varchar(255) not null,
     `full_name` varchar(45),
     `email` varchar(45),
     `address` varchar(255),
     `phone_number` varchar(45),
-    `create_time` date,
-    `last_access` date,
+    `create_time` datetime,
+    `last_access` datetime,
     primary key(`user_name`)    
 );
 
@@ -53,8 +53,7 @@ create table `product_detail`(
 
 create table `product_image`(
 	`product_id` varchar(45),
-    `name_image` varchar(255),
-    primary  key (`product_id`, `name_image`),
+    `name_image` varchar(255) primary key,
     foreign key (`product_id`) references `product` (`product_id`)
 );
 
@@ -79,7 +78,7 @@ create table `order`(
 	`order_id` int auto_increment primary key,
     `user_name` varchar(45),
     `status` varchar(255),
-    `date` date,
+    `datetime` datetime,
     foreign key (`user_name`) references `user` (`user_name`)
 );
 
@@ -100,7 +99,6 @@ create table `news` (
 
 create table `news_image`(
 	`new_id` int,
-    `name_image` varchar(255),
-    primary key (`new_id`, `name_image`),
+    `name_image` varchar(255) primary key,
     foreign key (`new_id`)  references `news` (`new_id`)
 );
