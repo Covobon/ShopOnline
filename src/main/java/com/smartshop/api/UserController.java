@@ -30,8 +30,8 @@ public class UserController {
         userService.addUser(user);
     }
 
-    @DeleteMapping("/{userName}")
-    public void deleteUser(@PathVariable("userName") String userName){
+    @DeleteMapping()
+    public void deleteUser(@RequestParam String userName){
         userService.deleteByUserName(userName);
     }
 }
