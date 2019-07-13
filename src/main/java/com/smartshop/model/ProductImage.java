@@ -5,9 +5,11 @@ import java.io.Serializable;
 
 @Entity(name="ProductImage")
 @Table(name="product_image")
+@IdClass(ProductImageID.class)
 public class ProductImage implements Serializable {
 
     /*Fields*/
+    @Id
     @Column(name = "product_id")
     private String productId;
 
@@ -41,6 +43,7 @@ public class ProductImage implements Serializable {
     public void setNameImage(String path) {
         this.nameImage = path;
     }
+
 
     /*Methods*/
     @Override
