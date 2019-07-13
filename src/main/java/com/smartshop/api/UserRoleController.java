@@ -1,30 +1,58 @@
-/*
 package com.smartshop.api;
 
 import com.smartshop.model.UserRole;
-import com.smartshop.dao.user.UserRoleDao;
+import com.smartshop.repositories.UserRoleRepository;
+import com.smartshop.service.UserRoleService;
+import com.smartshop.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/userrole")
 
 public class UserRoleController {
-    //TODO
+
+    Logger log = LoggerFactory.getLogger(this.getClass().getName());
+
     @Autowired
-    private UserRoleDao userRoleDao;
+    private UserRoleService userRoleService;
 
     @GetMapping()
-    public List<UserRole> findAll(){
-        return userRoleDao.findAll();
+    public List<UserRole> find(@RequestParam Map<String, String> allParams){
+        Queue<String> queueKey = new LinkedList<String>();
+        Queue<String> queueValue = new LinkedList<String>();
+
+        if (allParams.isEmpty()) {
+            return userRoleService.findAll();
+        }
+
+        for (Map.Entry<String, String> entry : allParams.entrySet()){
+            queueKey.add(entry.getKey());
+            queueValue.add(entry.getValue());
+        }
+        return userRoleService.findByUser(queueValue.remove());
     }
 
-    @GetMapping("/{userName}")
-    public List<UserRole> findByUserName(@PathVariable("userName") String userName){
-        System.out.println(userName);
-        return userRoleDao.findByUserName(userName);
+    @DeleteMapping()
+    public void delete(@RequestParam Map<String, String> allParams) {
+        Queue<String> queueKey = new LinkedList<String>();
+        Queue<String> queueValue = new LinkedList<String>();
+
+        for (Map.Entry<String, String> entry : allParams.entrySet()){
+            queueKey.add(entry.getKey());
+            queueValue.add(entry.getValue());
+        }
+
+        if (queueValue.size() == 1) {
+            userRoleService.deleteByUser(queueValue.remove());
+        }
+        if (queueValue.size() == 2) {
+            userRoleService.deleteByUserNameAndRole(queueValue.remove(), queueValue.remove());
+        }
     }
+
 }
-*/

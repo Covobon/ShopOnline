@@ -25,13 +25,13 @@ public class UserController {
     }
 
     @PostMapping()
-    @PutMapping
-    public void createUser(@RequestBody User user){
-        userService.addUser(user);
+    @PutMapping()
+    public void create(@RequestBody User user){
+        userService.add(user);
     }
 
-    @DeleteMapping("/{userName}")
-    public void deleteUser(@PathVariable("userName") String userName){
+    @DeleteMapping()
+    public void deleteUser(@RequestParam String userName){
         userService.deleteByUserName(userName);
     }
 }

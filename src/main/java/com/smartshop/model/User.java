@@ -2,6 +2,7 @@ package com.smartshop.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -26,10 +27,12 @@ public class User {
     private String phoneNumber;
 
     @Column(name = "create_time")
-    private String createTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createTime;
 
     @Column(name = "last_access")
-    private String lastAccess;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastAccess;
 
     @OneToMany(fetch=FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinColumn(name="user_name")
@@ -39,14 +42,12 @@ public class User {
     public User() {
     }
 
-    public User(String userName, String password, String fullName, String address, String phoneNumber, String createTime, String lastAccess) {
+    public User(String userName, String password, String fullName, String address, String phoneNumber) {
         this.userName = userName;
         this.password = password;
         this.fullName = fullName;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.createTime = createTime;
-        this.lastAccess = lastAccess;
     }
 
     /*Define getters and setters*/
@@ -91,28 +92,32 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getLastAccess() {
-        return lastAccess;
-    }
-
-    public void setLastAccess(String lastAccess) {
-        this.lastAccess = lastAccess;
-    }
-
     public void addUserRole(UserRole userRole){
         userRoles.add(userRole);
     }
 
     public List<UserRole> getUserRoles(){
         return userRoles;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getLastAccess() {
+        return lastAccess;
+    }
+
+    public void setLastAccess(Date lastAccess) {
+        this.lastAccess = lastAccess;
+    }
+
+    public void setUserRoles(List<UserRole> userRoles) {
+        this.userRoles = userRoles;
     }
 
     /*Methods override*/
