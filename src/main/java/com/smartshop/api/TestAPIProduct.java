@@ -16,8 +16,6 @@ public class TestAPIProduct {
     @Autowired
     private ProductRepository productRepository;
 
-//    @Autowired
-//    private EntityManager entityManager;
     @Autowired
     private ProductDetailRepository product_detail_repository;
 
@@ -26,8 +24,6 @@ public class TestAPIProduct {
 
     @GetMapping()
     public List<Product> findAll(){
-//        String sql = "SELECT e FROM Product e";
-//        return entityManager.createQuery(sql,Product.class).getResultList();
        return productRepository.findAll();
     }
     @GetMapping("/{theId}")
@@ -54,12 +50,8 @@ public class TestAPIProduct {
     @DeleteMapping("/{theId}")
     public void deleteProduct(@PathVariable("theId") String theId){
         productImageRepository.deleteByProductId(theId);
-       // product_detail_repository.deleteById(theId);
         productRepository.deleteById(theId);
     }
-//    @DeleteMapping()
-//    public void deleteByObject(@RequestBody Product product){
-//        product_detail_repository.delete(product);
-//    }
+
 
 }
