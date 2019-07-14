@@ -2,6 +2,7 @@ package com.smartshop.configuration.initial;
 
 import java.io.File;
 import java.sql.*;
+import java.util.Scanner;
 
 public class InitializerData {
 
@@ -126,6 +127,5 @@ public class InitializerData {
         for (int i = 0; i < 3; i ++) {
             getFileName(co[i]);
         }
-
     }
 }
