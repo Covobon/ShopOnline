@@ -34,9 +34,14 @@ public class User {
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastAccess;
 
-    @OneToMany(fetch=FetchType.LAZY, cascade = {CascadeType.ALL})
-    @JoinColumn(name="user_name")
-    private List<UserRole> userRoles = new ArrayList<>();
+    @ManyToMany(fetch = FetchType.EAGER,
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.REFRESH})
+    @JoinTable(
+            name="user_role",
+            joinColumns = @JoinColumn(name="user_name"),
+            inverseJoinColumns = @JoinColumn(name="role_id")
+    )
+    private List<Role> roles;
 
     /*Define constructors*/
     public User() {
@@ -92,14 +97,6 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public void addUserRole(UserRole userRole){
-        userRoles.add(userRole);
-    }
-
-    public List<UserRole> getUserRoles(){
-        return userRoles;
-    }
-
     public Date getCreateTime() {
         return createTime;
     }
@@ -116,8 +113,12 @@ public class User {
         this.lastAccess = lastAccess;
     }
 
-    public void setUserRoles(List<UserRole> userRoles) {
-        this.userRoles = userRoles;
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     /*Methods override*/
