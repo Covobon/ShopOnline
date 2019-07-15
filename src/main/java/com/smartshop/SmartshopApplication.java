@@ -8,8 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SmartshopApplication {
 	Logger log = LoggerFactory.getLogger(this.getClass().getName());
-
-
 	public static void main(String[] args) {
 		SpringApplication.run(SmartshopApplication.class, args);
 	}

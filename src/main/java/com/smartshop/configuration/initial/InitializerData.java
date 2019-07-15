@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class InitializerData {
 
-
+    public static int countTotal = 1;
 
     static Connection conn;
 
@@ -58,23 +58,18 @@ public class InitializerData {
 
         String category = suffix;;
 
-
         try {
-            String sql = "insert into `product` (`product_id`, `name`, `price`, `category`, `status`, `amount`) value (?, ?, ?, ?, ?, ?)";
+            String sql = "insert into `image` (`image_id`, `image_name`) value (?, ?);";
             PreparedStatement st = conn.prepareStatement(sql);
-            st.setString(1, productId);
-            st.setString(2, nameProduct);
-            st.setInt(3, RandomData.getPrice());
-            st.setString(4, suffix);
-            st.setString(5, "Availabel");
-            st.setInt(6, RandomData.getAmount());
+            st.setInt(1, countTotal);
+            st.setString(2, name);
             st.executeUpdate();
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
         try {
-            String sql2 = "insert into `product_detail` value (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql2 = "insert into `product_info` value (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement st = conn.prepareStatement(sql2);
             st.setString(1, productId );
             st.setString(2, RandomData.getScreen());
@@ -97,13 +92,28 @@ public class InitializerData {
         }
 
         try {
-            String sql = "insert into `product_image` value (?, ?)";
+            String sql = "insert into `product` (`product_id`, `name`, `price`, `category`, `status`, `amount`, `product_info_id`) value (?, ?, ?, ?,  ?, ?, ?)";
             PreparedStatement st = conn.prepareStatement(sql);
             st.setString(1, productId);
-            st.setString(2, name);
+            st.setString(2, nameProduct);
+            st.setInt(3, RandomData.getPrice());
+            st.setString(4, suffix);
+            st.setString(5, "Availabel");
+            st.setInt(6, RandomData.getAmount());
+            st.setString(7, productId);
             st.executeUpdate();
         } catch (SQLException e){
-            System.out.println(nameProduct);
+            e.printStackTrace();
+        }
+
+        try {
+            String sql = "insert into `product_image` value (?, ?);";
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, productId);
+            st.setInt(2, countTotal++);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
