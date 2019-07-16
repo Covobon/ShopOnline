@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 @Configuration
 @EnableWebSecurity
@@ -44,11 +45,25 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 				.authorizeRequests()
 				.antMatchers("/login").permitAll()
 				.antMatchers("/api/user").hasRole("ADMIN")
+				.antMatchers("/api/user/authenticate").permitAll()
 				.anyRequest()
 				.authenticated()
 				.and()
 				.httpBasic();
 	}
+
+/*
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.csrf().disable().authorizeRequests().antMatchers("/**")
+				.permitAll()
+				.anyRequest()
+				.authenticated()
+				.and()
+				.httpBasic();
+	}
+*/
+
 }
 
 
