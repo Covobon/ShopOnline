@@ -4,4 +4,5 @@ export class User {
   fullName: string;
   address: string;
   phoneNumber: string;
+  authdata ?: string;
 }
