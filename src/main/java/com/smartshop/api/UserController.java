@@ -16,7 +16,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/user")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
+
 public class UserController {
 
     @Autowired
@@ -48,7 +49,8 @@ public class UserController {
     }
 
     @PostMapping("/authenticate")
-    @CrossOrigin
+    @CrossOrigin(origins = "http://localhost:4200")
+
     public ResponseEntity<User> authenticate(@RequestBody User user){
         User theUser =  userService.findByUserName(user.getUserName());
         if (theUser == null) {

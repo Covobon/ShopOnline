@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { User } from '@app/_model/User'
 import { environment } from "@environments/environment";
 import { Observable } from 'rxjs';
@@ -16,14 +16,13 @@ export class UserService {
 
 
   constructor(private http: HttpClient) {
-    this.usersUrl = environment.apiUrl + "/user/authenticate";
+    this.usersUrl = environment.apiUrl + "/user";
   }
 
 
-  public save() {
-    return this.http.post<User>(this.usersUrl, {
-      "userName" : "cuong",
-      "password" : "123"
+  public findAll() {
+    return this.http.get<User[]>(this.usersUrl, {
+      headers: new HttpHeaders().append('Authorization', 'Basic YWRtaW46YWRtaW4=')
     });
   }
 }

@@ -38,6 +38,8 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.authenticationProvider(authenticationProvider());
 	}
 
+
+
 	@Override
 	protected void configure(HttpSecurity http)
 			throws Exception {
