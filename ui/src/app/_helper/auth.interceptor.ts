@@ -9,7 +9,7 @@ export class AuthInterceptor implements HttpInterceptor {
 intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
   req = req.clone({
   setHeaders: {
-  'Authorization': window.btoa('admin : admin')
+  'Authorization': `Basic Y3Vvbmc6MTIz`
   },
 });
 

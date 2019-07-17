@@ -16,14 +16,11 @@ export class UserService {
 
 
   constructor(private http: HttpClient) {
-    this.usersUrl = environment.apiUrl + "/user/authenticate";
+    this.usersUrl = environment.apiUrl + "/user";
   }
 
 
   public findAll() {
-    return this.http.post<User[]>(this.usersUrl, {
-      "userName" : "cuong",
-      "password" : "123"
-    });
+    return this.http.get<User[]>(this.usersUrl);
   }
 }
