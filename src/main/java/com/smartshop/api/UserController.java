@@ -28,12 +28,13 @@ public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @GetMapping()
+    @GetMapping
+    @CrossOrigin(origins = {"*"})
     public List<User> getUser(){
         return userService.findAll();
     }
 
-    @PostMapping()
+    @PostMapping
     public void create(@RequestBody User user){
         userService.add(user);
     }
@@ -43,7 +44,7 @@ public class UserController {
         userService.update(user);
     }
 
-    @DeleteMapping()
+    @DeleteMapping
     public void deleteUser(@RequestParam String userName){
         userService.deleteByUserName(userName);
     }
