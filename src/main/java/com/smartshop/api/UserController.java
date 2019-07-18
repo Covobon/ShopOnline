@@ -55,14 +55,14 @@ public class UserController {
     public ResponseEntity<User> authenticate(@RequestBody User user){
         User theUser =  userService.findByUserName(user.getUserName());
         if (theUser == null) {
-            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
 
         if (BCrypt.checkpw(user.getPassword(), theUser.getPassword())) {
             theUser.setPassword(user.getPassword());
             return new ResponseEntity<User>(theUser, HttpStatus.OK);
         } else {
-            return new ResponseEntity<User>(HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity(HttpStatus.UNAUTHORIZED);
         }
     }
 }

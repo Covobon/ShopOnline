@@ -1,11 +1,20 @@
 package com.smartshop.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="cart")
 public class Cart {
 
     /*Fields*/
+    @Id
+    @Column(name="cart_id")
     private int cartId;
-    private String userName;
+
+    @Column(name="address")
     private String address;
 
     /*Constructors*/
@@ -14,7 +23,6 @@ public class Cart {
 
     public Cart(int cartId, String userName, String address) {
         this.cartId = cartId;
-        this.userName = userName;
         this.address = address;
     }
 
@@ -25,14 +33,6 @@ public class Cart {
 
     public void setCartId(int cartId) {
         this.cartId = cartId;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public String getAddress() {
@@ -48,7 +48,6 @@ public class Cart {
     public String toString() {
         return "Cart{" +
                 "cartId=" + cartId +
-                ", userName='" + userName + '\'' +
                 ", address='" + address + '\'' +
                 '}';
     }

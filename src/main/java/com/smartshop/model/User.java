@@ -43,6 +43,10 @@ public class User {
     )
     private List<Role> roles;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="cart_id", referencedColumnName = "cart_id")
+    private Cart cart;
+
     /*Define constructors*/
     public User() {
     }

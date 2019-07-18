@@ -19,6 +19,7 @@ create table `user`(
     `phone_number` varchar(45),
     `create_time` datetime,
     `last_access` datetime,
+    `cart_id` int,
     primary key(`user_name`)    
 );
 
@@ -68,19 +69,16 @@ create table `product_image`(
 );
 
 create table `cart`(
-	`cart_id` int,
-	`user_name` varchar(45),
-    `address` varchar(255),
-    primary key (`user_name`),
-    foreign key (`user_name`) references `user` (`user_name`)
+	`cart_id` int primary key,
+    `address` varchar(255)
 );
 
 create table `cart_product`(
-	`user_name` varchar(45),
+	`cart_id` int,
     `product_id` varchar(45),
     `amount` int,
-    primary key (`user_name`, `product_id`),
-    foreign key (`user_name`) references `cart` (`user_name`),
+    primary key (`cart_id`, `product_id`),
+    foreign key (`cart_id`) references `cart` (`cart_id`),
     foreign key (`product_id`) references `product` (`product_id`)
 );
 
