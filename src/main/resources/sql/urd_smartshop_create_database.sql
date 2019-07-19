@@ -69,7 +69,7 @@ create table `product_image`(
 );
 
 create table `cart`(
-	`cart_id` int primary key,
+	`cart_id` int auto_increment primary key,
     `address` varchar(255)
 );
 

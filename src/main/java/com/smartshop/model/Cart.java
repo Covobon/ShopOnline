@@ -1,9 +1,8 @@
 package com.smartshop.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="cart")
@@ -11,18 +10,21 @@ public class Cart {
 
     /*Fields*/
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="cart_id")
     private int cartId;
 
     @Column(name="address")
     private String address;
 
+
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL, mappedBy = "cart")
+    private List<CartProduct> cartProduct;
     /*Constructors*/
     public Cart() {
     }
 
-    public Cart(int cartId, String userName, String address) {
-        this.cartId = cartId;
+    public Cart(String address) {
         this.address = address;
     }
 
@@ -41,6 +43,14 @@ public class Cart {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public List<CartProduct> getCartProduct() {
+        return cartProduct;
+    }
+
+    public void setCartProduct(List<CartProduct> cartProduct) {
+        this.cartProduct = cartProduct;
     }
 
     /*Methods*/

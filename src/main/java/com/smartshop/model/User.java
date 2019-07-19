@@ -49,6 +49,7 @@ public class User {
 
     /*Define constructors*/
     public User() {
+        this.setCart(new Cart(""));
     }
 
     public User(String userName, String password, String fullName, String address, String phoneNumber) {
@@ -123,6 +124,14 @@ public class User {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
     /*Methods override*/

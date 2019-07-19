@@ -51,7 +51,6 @@ public class UserController {
 
     @PostMapping("/authenticate")
     @CrossOrigin(origins = "http://localhost:4200")
-
     public ResponseEntity<User> authenticate(@RequestBody User user){
         User theUser =  userService.findByUserName(user.getUserName());
         if (theUser == null) {

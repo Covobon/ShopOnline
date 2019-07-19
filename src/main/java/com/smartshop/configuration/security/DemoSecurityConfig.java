@@ -41,7 +41,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-	@Override
+	/*@Override
 	protected void configure(HttpSecurity http)
 			throws Exception {
 		http.csrf().disable()
@@ -54,10 +54,9 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 				.authenticated()
 				.and()
 				.httpBasic();
-	}
+	}*/
 
 
-/*
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests().antMatchers("/**")
@@ -67,7 +66,6 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 				.httpBasic();
 	}
-*/
 
 }
 
