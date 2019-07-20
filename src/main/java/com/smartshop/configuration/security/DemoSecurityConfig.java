@@ -41,23 +41,22 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-	@Override
+	/*@Override
 	protected void configure(HttpSecurity http)
 			throws Exception {
 		http.csrf().disable()
 				.authorizeRequests()
 				.antMatchers("/login").permitAll()
-                .antMatchers(HttpMethod.OPTIONS, "/api/user").permitAll()
+                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 				.antMatchers("/api/user").hasRole("ADMIN")
 				.antMatchers("/api/user/authenticate").permitAll()
 				.anyRequest()
 				.authenticated()
 				.and()
 				.httpBasic();
-	}
+	}*/
 
 
-/*
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests().antMatchers("/**")
@@ -67,7 +66,6 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 				.httpBasic();
 	}
-*/
 
 }
 

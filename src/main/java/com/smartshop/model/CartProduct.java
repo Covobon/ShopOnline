@@ -1,29 +1,48 @@
 package com.smartshop.model;
 
-public class CartProduct {
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
 
-    /*Fields*/
-    private String userName;
+@Entity
+@Table(name = "cart_product")
+public class CartProduct implements Serializable {
+
+    @Id
+    @Column(name = "cart_id")
+    private int cartId;
+
+    @Id
+    @Column(name = "product_id")
     private String productId;
+
+    @Column(name = "amount")
     private int amount;
+
+    @ManyToOne
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
     /*Constructors*/
     public CartProduct() {
     }
 
-    public CartProduct(String userName, String productId, int amount) {
-        this.userName = userName;
+    public CartProduct(int cartId, String productId, int amount) {
+        this.cartId = cartId;
         this.productId = productId;
         this.amount = amount;
     }
 
-    /*Getters/Setters*/
-    public String getUserName() {
-        return userName;
+    public int getCartId() {
+        return cartId;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setCartId(int cartId) {
+        this.cartId = cartId;
     }
 
     public String getProductId() {
@@ -40,16 +59,5 @@ public class CartProduct {
 
     public void setAmount(int amount) {
         this.amount = amount;
-    }
-
-
-    /*Methods*/
-    @Override
-    public String toString() {
-        return "CartProduct{" +
-                "userName='" + userName + '\'' +
-                ", productId='" + productId + '\'' +
-                ", amount=" + amount +
-                '}';
     }
 }

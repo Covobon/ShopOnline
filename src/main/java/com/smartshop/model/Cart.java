@@ -1,20 +1,30 @@
 package com.smartshop.model;
 
+import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
+@Entity
+@Table(name="cart")
 public class Cart {
 
     /*Fields*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="cart_id")
     private int cartId;
-    private String userName;
+
+    @Column(name="address")
     private String address;
 
+
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL, mappedBy = "cart")
+    private List<CartProduct> cartProduct;
     /*Constructors*/
     public Cart() {
     }
 
-    public Cart(int cartId, String userName, String address) {
-        this.cartId = cartId;
-        this.userName = userName;
+    public Cart(String address) {
         this.address = address;
     }
 
@@ -27,14 +37,6 @@ public class Cart {
         this.cartId = cartId;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -43,12 +45,19 @@ public class Cart {
         this.address = address;
     }
 
+    public List<CartProduct> getCartProduct() {
+        return cartProduct;
+    }
+
+    public void setCartProduct(List<CartProduct> cartProduct) {
+        this.cartProduct = cartProduct;
+    }
+
     /*Methods*/
     @Override
     public String toString() {
         return "Cart{" +
                 "cartId=" + cartId +
-                ", userName='" + userName + '\'' +
                 ", address='" + address + '\'' +
                 '}';
     }

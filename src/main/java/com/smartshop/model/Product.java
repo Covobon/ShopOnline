@@ -13,6 +13,9 @@ public class Product {
     @Column(name="product_id")
     private String productId;
 
+    @Column(name="product_info_id")
+    private String productInfoId;
+
     @Column(name="name")
     private String name;
 
@@ -27,14 +30,6 @@ public class Product {
 
     @Column(name="amount")
     private int amount;
-
-    @OneToMany(fetch= FetchType.LAZY, cascade = CascadeType.ALL,orphanRemoval=true)
-    @JoinColumn(name="product_id")
-    private List<ProductImage> productImages = new ArrayList<>();
-
-    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval=true)
-    @JoinColumn(name = "product_id")
-    private ProductDetail productDetail;
 
     /*Define constructors*/
     public Product() {
@@ -103,25 +98,6 @@ public class Product {
         this.amount = amount;
     }
 
-    public void addProductImage(ProductImage productImage){
-        productImages.add(productImage);
-    }
-
-    public List<ProductImage> getProductImages(){
-        return productImages;
-    }
-
-    public void setProductImages(List<ProductImage> productImages) {
-        this.productImages = productImages;
-    }
-
-    public ProductDetail getProductDetail() {
-        return productDetail;
-    }
-
-    public void setProductDetail(ProductDetail productDetail) {
-        this.productDetail = productDetail;
-    }
 
     /*Methods*/
 
