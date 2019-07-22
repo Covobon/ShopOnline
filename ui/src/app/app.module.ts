@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import {BasicAuthInterceptor} from "@app/_helpers/basic-auth.interceptor";
 import {ErrorInterceptor} from "@app/_helpers/error.interceptor";
 import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
