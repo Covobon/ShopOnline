@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validator, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthenticationService} from "@app/_services/authentication.service";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "@environments/environment";
@@ -34,11 +34,14 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+
     this.submitted = true;
 
-    if (this.registerForm.invalid) {
+    /*if (this.registerForm.invalid) {
       return ;
-    }
+    }*/
+
+    console.log("Some thing");
 
     this.loading = true;
 
@@ -52,8 +55,10 @@ export class RegisterComponent implements OnInit {
       }, error => {
         console.log(error);
         this.loading = false;
-      }
+      },
     )
+
+
   }
 
 }

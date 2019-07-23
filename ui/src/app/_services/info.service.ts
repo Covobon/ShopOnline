@@ -12,6 +12,6 @@ export class InfoService {
   ) {}
 
   getCategory() {
-    return this.http.get<string[]>(`${environment.backEndUrl}/public/category`);
+    return this.http.get<string[]>(`${environment.apiUrl}/api/public/category`);
   }
 }

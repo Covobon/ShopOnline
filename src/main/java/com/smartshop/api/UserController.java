@@ -87,7 +87,7 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody User user){
-        if (userService.findByEmail(user.getEmail()) == null) {
+        if (userService.findByEmail(user.getEmail()) != null) {
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Email already exists!");
         }
         if (userService.findByUserName(user.getUserName()) != null) {
