@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
           this.hideModal = true;
         },
         error => {
-          this.error = error;
+          this.error = "Invalid username or password";
           this.loading = false;
         }
       )

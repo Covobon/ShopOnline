@@ -11,6 +11,9 @@ import {BasicAuthInterceptor} from "@app/_helpers/basic-auth.interceptor";
 import {ErrorInterceptor} from "@app/_helpers/error.interceptor";
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { ListProductComponent } from './list-product/list-product.component';
+import { RegisterComponent } from './register/register.component';
+import { WhitePageComponent } from './white-page/white-page.component';
 
 
 @NgModule({
@@ -19,6 +22,9 @@ import { HeaderComponent } from './header/header.component';
     LoginComponent,
     HomeComponent,
     HeaderComponent,
+    ListProductComponent,
+    RegisterComponent,
+    WhitePageComponent,
   ],
   imports: [
     BrowserModule,

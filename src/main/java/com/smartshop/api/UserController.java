@@ -3,15 +3,18 @@ package com.smartshop.api;
 import com.smartshop.model.User;
 import com.smartshop.service.UserService;
 import com.smartshop.utils.EncrytedPasswordUtils;
+import com.smartshop.utils.SendMailVerify;
 import org.hibernate.annotations.Parameter;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Base64;
 import java.util.Date;
@@ -30,6 +33,12 @@ public class UserController {
     @Autowired
     private EncrytedPasswordUtils encrytedPasswordUtils;
 
+    @Autowired
+    private SendMailVerify sendMailVerify;
+
+    @Value("${server.port}")
+    private int serverPort;
+
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @GetMapping
@@ -40,7 +49,7 @@ public class UserController {
 
     @PostMapping
     public void create(@RequestBody User user){
-        userService.add(user);
+        userService.create(user);
     }
 
     @PutMapping
@@ -53,30 +62,48 @@ public class UserController {
         userService.deleteByUserName(userName);
     }
 
-    @PostMapping("/authenticate")
+    @PostMapping("/login")
     @CrossOrigin(origins = "http://localhost:4200")
-    public ResponseEntity<User> authenticate(@RequestBody User user){
+    public ResponseEntity authenticate(@RequestBody User user){
         String username = user.getUserName();
         String password = user.getPassword();
 
         if (userService.verifyAccount(username, password)) {
             User theUser = userService.findByUserName(username);
-            if (theUser.getLastAccess() == theUser.getCreateTime()){
-                //TODO
+            if (theUser.getLastAccess().equals(theUser.getCreateTime())){
+                String content = "<a href=\"" + generateLinkVerify(user) +"\">Click</a> to verify account smartshop";
+                try {
+                    sendMailVerify.generateAndSendEmail(user.getEmail(), content);
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
             }else{
                 return ResponseEntity.ok().body(theUser);
             }
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("You must verify email");
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
     }
 
+    @PostMapping("/register")
+    public ResponseEntity register(@RequestBody User user){
+        if (userService.findByEmail(user.getEmail()) == null) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Email already exists!");
+        }
+        if (userService.findByUserName(user.getUserName()) != null) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Username already exists!");
+        }
+        userService.create(user);
+        return ResponseEntity.ok().body("Success");
+    }
+
     @GetMapping("/verify")
-    public ResponseEntity verify(@RequestParam String authenticate, String y) {
-        byte[] decodeBytes = Base64.getDecoder().decode(authenticate);
+    public ResponseEntity verify(@RequestParam String x, String y) {
+        byte[] decodeBytes = Base64.getDecoder().decode(x);
         String decodeString = new String(decodeBytes);
 
-
         Date dateNow = new Date();
+
 
         byte[] decodeDateByte = Base64.getDecoder().decode(y);
         String decodeDate = new String(decodeDateByte);
@@ -102,13 +129,28 @@ public class UserController {
 
         if (userService.verifyAccount(username, password)) {
             User theUser = userService.findByUserName(username);
-
-            if (theUser.getCreateTime() == theUser.getLastAccess()){
+            if (theUser.getCreateTime().equals(theUser.getLastAccess())){
                 theUser.setLastAccess(dateNow);
-                return ResponseEntity.ok().body(null);
+                userService.save(theUser);
+                return ResponseEntity.ok().body(theUser);
             }
         }
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+    }
+
+    public String generateLinkVerify(User theUser) {
+        String authenString = theUser.getUserName() + ":" + theUser.getPassword();
+        String authenEncode = Base64.getEncoder().encodeToString(authenString.getBytes());
+
+        Date dateNow = new Date();
+
+        Long milisecond = dateNow.getTime() + 86400000;
+
+        String time = milisecond.toString();
+
+        String timeEncode = Base64.getEncoder().encodeToString(time.getBytes());
+
+        return "http://localhost:" + this.serverPort + "/api/user/verify?x=" + authenEncode + "&y=" + timeEncode;
     }
 }

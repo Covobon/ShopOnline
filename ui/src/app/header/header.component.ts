@@ -13,6 +13,7 @@ import { environment } from "@environments/environment";
 export class HeaderComponent implements OnInit {
   currentUser: User;
   logoUrl: string;
+  loginUrl: string;
   
   constructor(
     private router: Router,
@@ -20,6 +21,7 @@ export class HeaderComponent implements OnInit {
   ) {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
     this.logoUrl = "http://www.matt-design.co.uk/img/year2/semester2/shop/logo.png";
+    this.loginUrl= `${environment.url}/login`;
   }
 
   logout() {

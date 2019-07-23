@@ -39,6 +39,10 @@ public class UserService {
         return userRepository.findById(userName).orElse(null);
     }
 
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
     public boolean verifyAccount(String username, String password){
         User theUser =  userRepository.findById(username).orElse(null);
         if (theUser == null) {
@@ -52,10 +56,15 @@ public class UserService {
         }
     }
 
-    public void add(User user){
+    public void create(User user){
         Date date = new Date();
         user.setCreateTime(date);
+        user.setLastAccess(date);
         user.setPassword(encrytedPasswordUtils.encrytePassword(user.getPassword()));
+        userRepository.save(user);
+    }
+
+    public void save(User user) {
         userRepository.save(user);
     }
 
