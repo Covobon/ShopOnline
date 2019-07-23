@@ -54,7 +54,7 @@ public class UserController {
     public ResponseEntity<User> authenticate(@RequestBody User user){
         User theUser =  userService.findByUserName(user.getUserName());
         if (theUser == null) {
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("error account or password")
         }
 
         if (BCrypt.checkpw(user.getPassword(), theUser.getPassword())) {

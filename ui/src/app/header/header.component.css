@@ -1,0 +1,7 @@
+img{
+  max-width: 100px;
+}
+
+div > a:first-child {
+  padding: 0px;
+}

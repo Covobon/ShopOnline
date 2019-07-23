@@ -23,7 +23,7 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
-    return this.http.post<any>(`${environment.apiUrl}/api/user/authenticate`, {"userName":username, "password": password})
+    return this.http.post<any>(`${environment.backEndUrl}/api/user/authenticate`, {"userName":username, "password": password})
       .pipe(map(user => {
         user.authdata = window.btoa(username + ":" + password);
         localStorage.setItem('currentUser', JSON.stringify(user));

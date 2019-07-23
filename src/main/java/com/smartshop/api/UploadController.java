@@ -1,10 +1,12 @@
 package com.smartshop.api;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.smartshop.service.store.StorageService;
+import com.smartshop.service.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -53,12 +55,13 @@ public class UploadController {
         return ResponseEntity.ok().body(fileNames);
     }
 
-    /*@GetMapping("/files/{filename:.+}")
+    @GetMapping("/files/{filename:.+}")
     @ResponseBody
     public ResponseEntity<Resource> getFile(@PathVariable String filename) {
-        Resource file = storageService.loadFile(filename);
+        Path path = Paths.get("./src/main/resources/img");
+        Resource file = storageService.loadFile(filename, path);
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
                 .body(file);
-    }*/
+    }
 }

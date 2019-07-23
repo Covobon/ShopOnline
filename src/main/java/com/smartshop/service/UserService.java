@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -38,6 +39,7 @@ public class UserService {
     public void add(User user){
         Date date = new Date();
         user.setCreateTime(date);
+        user.setLastAccess(date);
         user.setPassword(encrytedPasswordUtils.encrytePassword(user.getPassword()));
         userRepository.save(user);
     }
