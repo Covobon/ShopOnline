@@ -4,7 +4,5 @@ export class User{
   email: string;
   address: string;
   phoneNumber: string;
-  createTime: Date;
-  lastAccess: Date;
   authdata ?: string;
 }

@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
+  hideModal: boolean = false;
   error = '';
 
   constructor(
@@ -48,19 +49,19 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+
     this.loading = true;
     this.authenticationService.login(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe(
         data => {
           this.router.navigate([this.returnUrl]);
+          this.hideModal = true;
         },
         error => {
-          this.error = error;
+          this.error = "Invalid username or password";
           this.loading = false;
         }
       )
-
-
   }
 }

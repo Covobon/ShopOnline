@@ -12,5 +12,5 @@ public interface ProductRepository extends JpaRepository<Product,String> {
     // List<Product> findAllByCategory(String phone);
 
     @Query("Select category from Product group by category")
-    List<String> getCategory();
+    List<String> getCategorys();
 }

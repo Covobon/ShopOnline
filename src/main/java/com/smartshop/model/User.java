@@ -20,6 +20,9 @@ public class User {
     @Column(name = "full_name")
     private String fullName;
 
+    @Column(name = "email")
+    private String email;
+
     @Column(name = "address")
     private String address;
 
@@ -52,12 +55,13 @@ public class User {
         this.setCart(new Cart(""));
     }
 
-    public User(String userName, String password, String fullName, String address, String phoneNumber) {
+    public User(String userName, String password, String fullName, String email, String address, String phoneNumber) {
         this.userName = userName;
         this.password = password;
         this.fullName = fullName;
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.email = email;
     }
 
     /*Define getters and setters*/
@@ -116,6 +120,14 @@ public class User {
 
     public void setLastAccess(Date lastAccess) {
         this.lastAccess = lastAccess;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public List<Role> getRoles() {

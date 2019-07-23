@@ -78,6 +78,9 @@
           <element id="library" level="project" name="Maven: javax.validation:validation-api:2.0.1.Final" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:5.1.8.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.1.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-mail:2.1.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:5.1.8.RELEASE" />
+          <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.6.2" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:2.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.16" />
@@ -85,6 +88,9 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-core:5.1.8.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.1.8.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:5.1.5.RELEASE" />
+          <element id="library" level="project" name="Maven: javax.mail:mail:1.5.0-b01" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Maven: javax.mail:javax.mail-api:1.6.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">

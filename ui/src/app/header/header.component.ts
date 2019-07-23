@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from "@environments/environment";
-import {InfoService} from "@app/_services/info.service";
+import {User} from "@app/_models/user";
+import {Router} from "@angular/router";
 import {AuthenticationService} from "@app/_services/authentication.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
-import {first} from "rxjs/operators";
+
+import { environment } from "@environments/environment";
 
 @Component({
   selector: 'app-header',
@@ -12,59 +11,25 @@ import {first} from "rxjs/operators";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  urlLogo: string;
-  categorys: string[];
-
-  loginForm: FormGroup;
-  loading = false;
-  submitted = false;
-  returnUrl: string;
-  error = '';
-
+  currentUser: User;
+  logoUrl: string;
+  loginUrl: string;
+  
   constructor(
-    private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService,
-    private info: InfoService,
-    private authencitaion: AuthenticationService
+    private authenticationService: AuthenticationService
   ) {
-    if (this.authenticationService.currentUser){
-      this.router.navigate(['/']);
-      info.getCategory().subscribe(data => {
-        this.categorys = data;
-      });
-    }
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    this.logoUrl = "http://www.matt-design.co.uk/img/year2/semester2/shop/logo.png";
+    this.loginUrl= `${environment.url}/login`;
   }
 
-  get f() {
-    return this.loginForm.controls;
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
   }
 
   ngOnInit() {
-    this.urlLogo = `${environment.backEndUrl}/files/logo.png`;
-      this.loginForm = this.formBuilder.group({
-        username: ['', Validators.required],
-        password: ['', Validators.required]
-      });
-  }
-
-  onSubmit() {
-    this.submitted = true;
-
-    if (this.loginForm.invalid) {
-      return;
-    }
-
-    this.loading = true;
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          console.log(data)
-          this.router.navigate([this.returnUrl]);
-        }
-      )
   }
 
 }
