@@ -11,13 +11,13 @@ public class User {
 
     /*Define fields*/
     @Id
-    @Column(name = "user_name")
+    @Column(name = "user_name", unique = true)
     private String userName;
 
     @Column(name = "password")
     private String password;
 
-    @Column(name = "full_name")
+    @Column(name = "full_name", unique = true)
     private String fullName;
 
     @Column(name = "email")

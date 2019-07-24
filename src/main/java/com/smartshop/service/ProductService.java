@@ -2,17 +2,72 @@ package com.smartshop.service;
 
 import com.smartshop.model.Product;
 import com.smartshop.repositories.ProductRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.criteria.CriteriaBuilder;
+import java.util.*;
 
 @Service
 public class ProductService {
 
+    Logger log = LoggerFactory.getLogger(this.getClass().getName());
+
+
     @Autowired
     private ProductRepository productRepository;
+    public List<Product> find(Map<String, String> allParams){
+        String productId, name, category;
+        int min = Integer.MIN_VALUE;
+        int max = Integer.MAX_VALUE;
+        int start = 0;
+        int pageSize = Integer.MAX_VALUE;
+        if (allParams.get("productId") != null) {
+             productId = allParams.get("productId");
+        } else {
+            productId = "%";
+        }
+
+       if (allParams.get("name") != null) {
+             name = generateName(allParams.get("name"));
+        } else {
+           name = "%";
+       }
+
+        if (allParams.get("category") != null) {
+            category = allParams.get("category");
+        } else {
+            category = "%";
+        }
+
+        if (allParams.get("price") != null) {
+            String first = allParams.get("price").substring(0, allParams.get("price").indexOf("and"));
+            min = Integer.parseInt(first);
+            String second = allParams.get("price").substring(allParams.get("price").indexOf("and") + 3);
+            max = Integer.parseInt(second);
+        }
+        if (allParams.get("pageSize") != null) {
+            pageSize = Integer.parseInt(allParams.get("pageSize"));
+        }
+        if (allParams.get("page") != null) {
+            int page = Integer.parseInt(allParams.get("page"));
+            start = (page-1) * pageSize;
+        }
+
+        Pageable firstPageWithTwoElements = PageRequest.of(0, 2);
+
+        return productRepository.findAll(firstPageWithTwoElements);
+
+/*
+        return productRepository.find(productId, generateName(name), category, min, max, start, pageSize);
+*/
+
+    }
+
 
     public List<Product> findAll() {
         return productRepository.findAll();
@@ -24,6 +79,31 @@ public class ProductService {
 
         }
     }*/
+
+    private String generateName(String name) {
+        Queue<Character> queue = new LinkedList<>();
+        queue.add('%');
+        for (int i = 0; i < name.length(); i ++) {
+            queue.add(name.charAt(i));
+            queue.add('%');
+        }
+        String result = "";
+        while (!queue.isEmpty()) {
+            result = result + queue.remove();
+        }
+        return  result;
+    }
+
+    private String generatePrice(String price) {
+        int indexOfAnd = price.indexOf("and");
+        String min  = price.substring(0, indexOfAnd);
+        String max = price.substring(indexOfAnd + 3);
+        return min + " and " + max;
+    }
+
+
+
+
 
     public List<String> getCategorys() {
         return productRepository.getCategorys();

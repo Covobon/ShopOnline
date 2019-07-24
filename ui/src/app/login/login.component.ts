@@ -56,7 +56,6 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           this.router.navigate([this.returnUrl]);
-          this.hideModal = true;
         },
         error => {
           this.error = "Invalid username or password";

@@ -63,6 +63,7 @@ public class UserService {
         user.setLastAccess(date);
         user.setPassword(encrytedPasswordUtils.encrytePassword(user.getPassword()));
         userRepository.save(user);
+        log.info("Create user:" + user.toString());
     }
 
     public void save(User user) {

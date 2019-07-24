@@ -41,8 +41,6 @@ export class RegisterComponent implements OnInit {
       return ;
     }*/
 
-    console.log("Some thing");
-
     this.loading = true;
 
     this.http.post<any>(`${environment.apiUrl}/api/user/register`, {
@@ -52,10 +50,10 @@ export class RegisterComponent implements OnInit {
     }).subscribe(
       data => {
         console.log(data);
-      }, error => {
-        console.log(error);
+      },error => {
+        this.error = error;
         this.loading = false;
-      },
+      }
     )
 
 

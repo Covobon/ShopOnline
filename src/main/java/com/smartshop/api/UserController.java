@@ -64,7 +64,7 @@ public class UserController {
 
     @PostMapping("/login")
     @CrossOrigin(origins = "http://localhost:4200")
-    public ResponseEntity authenticate(@RequestBody User user){
+    public ResponseEntity<User> authenticate(@RequestBody User user){
         String username = user.getUserName();
         String password = user.getPassword();
 
@@ -78,23 +78,24 @@ public class UserController {
                     e.printStackTrace();
                 }
             }else{
-                return ResponseEntity.ok().body(theUser);
+                return new ResponseEntity<User>(theUser, HttpStatus.OK);
             }
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("You must verify email");
+            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody User user){
-        if (userService.findByEmail(user.getEmail()) != null) {
-            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Email already exists!");
-        }
         if (userService.findByUserName(user.getUserName()) != null) {
-            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Username already exists!");
+            return new ResponseEntity("Accout exists!", HttpStatus.NOT_ACCEPTABLE); /*Account exists*/
+        }
+        if (userService.findByEmail(user.getEmail()) != null) {
+            return new ResponseEntity("Email exists!", HttpStatus.NOT_ACCEPTABLE);
         }
         userService.create(user);
-        return ResponseEntity.ok().body("Success");
+        return new ResponseEntity(HttpStatus.OK);
+
     }
 
     @GetMapping("/verify")
