@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -50,22 +51,43 @@ public class ProductService {
             String second = allParams.get("price").substring(allParams.get("price").indexOf("and") + 3);
             max = Integer.parseInt(second);
         }
+
+        List<Sort.Order> orders = new ArrayList<>();
+        if (allParams.get("orderby") != null) {
+            String s = allParams.get("orderby");
+            do {
+                log.info(allParams.get("orderby"));
+                String filed = s.substring(0, s.indexOf("-"));
+                String cache = s.substring(s.indexOf("-") + 1);
+                String way;
+                if (cache.indexOf(",") == -1){
+                    way = cache;
+                    s = "";
+                } else {
+                    way = cache.substring(0, cache.indexOf(","));
+                    s = s.substring(s.indexOf(",") + 1);
+                }
+                 log.info("Filed: " + filed + "/nWay: " + way);
+
+                if (way.equals("asc")) {
+                    orders.add(new Sort.Order(Sort.Direction.ASC, filed));
+                } orders.add(new Sort.Order(Sort.Direction.DESC, filed));
+            }while (!s.equals(""));
+        }
+
+        Sort sort = Sort.by(orders);
+
+        Pageable panigation = PageRequest.of(0, Integer.MAX_VALUE, sort);
         if (allParams.get("pageSize") != null) {
             pageSize = Integer.parseInt(allParams.get("pageSize"));
+            if (allParams.get("page") != null) {
+                int page = Integer.parseInt(allParams.get("page"));
+                panigation = PageRequest.of(page - 1, pageSize);
+            }
         }
-        if (allParams.get("page") != null) {
-            int page = Integer.parseInt(allParams.get("page"));
-            start = (page-1) * pageSize;
-        }
 
-        Pageable firstPageWithTwoElements = PageRequest.of(0, 2);
-
-        return productRepository.findAll(firstPageWithTwoElements);
-
-/*
-        return productRepository.find(productId, generateName(name), category, min, max, start, pageSize);
-*/
-
+        return productRepository.findAllByProductIdLikeAndNameLikeAndCategoryLikeAndPriceBetween
+                (productId, name,  category, min,  max, panigation);
     }
 
 
