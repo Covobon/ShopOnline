@@ -67,7 +67,7 @@ public class ProductService {
                     way = cache.substring(0, cache.indexOf(","));
                     s = s.substring(s.indexOf(",") + 1);
                 }
-                 log.info("Filed: " + filed + "/nWay: " + way);
+                 log.info("Filed: " + filed + "Way: " + way);
 
                 if (way.equals("asc")) {
                     orders.add(new Sort.Order(Sort.Direction.ASC, filed));
@@ -82,7 +82,7 @@ public class ProductService {
             pageSize = Integer.parseInt(allParams.get("pageSize"));
             if (allParams.get("page") != null) {
                 int page = Integer.parseInt(allParams.get("page"));
-                panigation = PageRequest.of(page - 1, pageSize);
+                panigation = PageRequest.of(page - 1, pageSize, sort);
             }
         }
 

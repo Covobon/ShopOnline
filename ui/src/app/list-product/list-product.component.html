@@ -1,1 +1,10 @@
-<p>list-product works!</p>
+<h3>{{title}}</h3>
+<div class="container">
+  <span class="col-3" *ngFor="let product of products | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+    <app-product [product]="product"></app-product>
+  </span>
+</div>
+<p>Restricted size, no rotation:</p>
+<ngb-pagination [collectionSize]="120" [(page)]="page" [pageSize]="pageSize" [maxSize]="5"
+                [boundaryLinks]="true"></ngb-pagination>
+

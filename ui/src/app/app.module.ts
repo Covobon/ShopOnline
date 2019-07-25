@@ -14,6 +14,9 @@ import { HeaderComponent } from './header/header.component';
 import { ListProductComponent } from './list-product/list-product.component';
 import { RegisterComponent } from './register/register.component';
 import { WhitePageComponent } from './white-page/white-page.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { ProductComponent } from './product/product.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 
 @NgModule({
@@ -25,13 +28,16 @@ import { WhitePageComponent } from './white-page/white-page.component';
     ListProductComponent,
     RegisterComponent,
     WhitePageComponent,
+    ProductComponent,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     appRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

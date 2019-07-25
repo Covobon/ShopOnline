@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Product} from "@app/_models/product";
 import {HttpClient} from "@angular/common/http";
+import {User} from "@app/_models/user";
+import {environment} from "@environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +10,9 @@ import {HttpClient} from "@angular/common/http";
 export class ProductService {
 
   constructor(
-    private product: Product,
     private http: HttpClient) { }
 
-  findById() {
-
+  find(){
+    return this.http.get<Product[]>(`${environment.apiUrl}/api/product`);
   }
 }

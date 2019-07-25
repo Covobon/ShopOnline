@@ -13,8 +13,8 @@ public class Product {
     @Column(name="product_id")
     private String productId;
 
-    @Column(name="product_info_id")
-    private String productInfoId;
+    /*@Column(name="product_info_id")
+    private String productInfoId;*/
 
     @Column(name="name")
     private String name;
@@ -31,6 +31,18 @@ public class Product {
     @Column(name="amount")
     private int amount;
 
+    @ManyToMany(fetch = FetchType.EAGER,
+            cascade = {CascadeType.ALL})
+    @JoinTable(
+            name="product_image",
+            joinColumns = @JoinColumn(name="product_id"),
+            inverseJoinColumns = @JoinColumn(name="image_id")
+    )
+    private List<Image> images;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="product_info_id" , referencedColumnName = "product_info_id")
+    private ProductInfo productInfo;
     /*Define constructors*/
     public Product() {
     }
@@ -98,6 +110,29 @@ public class Product {
         this.amount = amount;
     }
 
+   /* public String getProductInfoId() {
+        return productInfoId;
+    }
+
+    public void setProductInfoId(String productInfoId) {
+        this.productInfoId = productInfoId;
+    }*/
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
+
+    public ProductInfo getProductInfo() {
+        return productInfo;
+    }
+
+    public void setProductInfo(ProductInfo productInfo) {
+        this.productInfo = productInfo;
+    }
 
     /*Methods*/
 
