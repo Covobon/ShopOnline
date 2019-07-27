@@ -15,7 +15,9 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.security.Principal;
 import java.util.Base64;
 import java.util.Date;
 import java.util.List;
@@ -153,5 +155,11 @@ public class UserController {
         String timeEncode = Base64.getEncoder().encodeToString(time.getBytes());
 
         return "http://localhost:" + this.serverPort + "/api/user/verify?x=" + authenEncode + "&y=" + timeEncode;
+    }
+
+    @GetMapping("/test")
+    public  void currentUser(HttpServletRequest request){
+        Principal principal = request.getUserPrincipal();
+        logger.info(request.getAuthType());
     }
 }

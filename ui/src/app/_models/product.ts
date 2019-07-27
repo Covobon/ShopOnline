@@ -1,5 +1,5 @@
 import {Image} from "@app/_models/image";
-import {ProductDetail} from "@app/_models/product-detail";
+import {ProductInfo} from "@app/_models/product-info";
 
 export class Product{
   productId: string;
@@ -10,5 +10,5 @@ export class Product{
   status: string;
   amount: number;
   images: Image[];
-  detail: ProductDetail;
+  productInfo: ProductInfo;
 }

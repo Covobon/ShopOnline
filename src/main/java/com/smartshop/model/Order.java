@@ -1,24 +1,40 @@
 package com.smartshop.model;
 
-import java.sql.Date;
+import javax.persistence.*;
+import java.util.Date;
 
+@Entity
+@Table(name="order")
 public class Order {
 
     /*Fields*/
+    @Id
+    @Column(name="order_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderId;
+
+    @Column(name="user_name")
     private String userName;
+
+    @Column(name="status")
     private String status;
-    private Date date;
+
+    @Column(name="address")
+    private String address;
+
+    @Column(name = "create_time")
+    @Temporal(TemporalType.TIMESTAMP)
+    private java.util.Date createTime;
 
     /*Constructors*/
     public Order() {
     }
 
-    public Order(int orderId, String userName, String status, Date date) {
-        this.orderId = orderId;
+    public Order(String userName, String status, String address, Date createTime) {
         this.userName = userName;
         this.status = status;
-        this.date = date;
+        this.address = address;
+        this.createTime = createTime;
     }
 
     /*Getters/Setters*/
@@ -46,8 +62,20 @@ public class Order {
         this.status = status;
     }
 
-    public Date getDate() {
-        return date;
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public java.util.Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(java.util.Date createTime) {
+        this.createTime = createTime;
     }
 
     /*Methods*/
@@ -57,11 +85,7 @@ public class Order {
                 "orderId=" + orderId +
                 ", userName='" + userName + '\'' +
                 ", status='" + status + '\'' +
-                ", date=" + date +
                 '}';
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
 }

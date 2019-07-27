@@ -8,14 +8,16 @@ import { AuthGuard } from './_helpers/auth.guard';
 import {RegisterComponent} from "@app/register/register.component";
 import {WhitePageComponent} from "@app/white-page/white-page.component";
 import {AuthGuard} from "@app/_helpers/auth.guard";
-import {ProductDetail} from "@app/_models/product-detail";
+import {ProductInfo} from "@app/_models/product-info";
 import {ProductDetailComponent} from "@app/product-detail/product-detail.component";
+import {ManagerComponent} from "@app/manager/manager.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
   { path: 'products/:productId', component: ProductDetailComponent},
+  { path: 'manager', component : ManagerComponent},
   // otherwise redirect to home
   { path: '**', component: WhitePageComponent }
 ];

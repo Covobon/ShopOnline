@@ -11,11 +11,13 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 @Configuration
 @EnableWebSecurity
-public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private UserPrincipleDetailsService userPrincipleDetailsService;
@@ -30,7 +32,6 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 		DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
 		daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
 		daoAuthenticationProvider.setUserDetailsService(userPrincipleDetailsService);
-
 		return daoAuthenticationProvider;
 	}
 
@@ -39,25 +40,24 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.authenticationProvider(authenticationProvider());
 	}
 
-
-
-	/*@Override
+	@Override
 	protected void configure(HttpSecurity http)
 			throws Exception {
 		http.csrf().disable()
 				.authorizeRequests()
 				.antMatchers("/login").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-				.antMatchers("/api/user").hasRole("ADMIN")
+				.antMatchers("/api/user").hasRole("MANAGER")
 				.antMatchers("/api/user/authenticate").permitAll()
 				.anyRequest()
 				.authenticated()
 				.and()
 				.httpBasic();
-	}*/
+	}
 
 
-	@Override
+
+	/*@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests().antMatchers("/**")
 				.permitAll()
@@ -65,7 +65,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 				.authenticated()
 				.and()
 				.httpBasic();
-	}
+	}*/
 
 }
 

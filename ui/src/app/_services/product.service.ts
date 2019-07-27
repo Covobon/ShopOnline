@@ -12,7 +12,8 @@ export class ProductService {
   constructor(
     private http: HttpClient) { }
 
-  find(){
-    return this.http.get<Product[]>(`${environment.apiUrl}/api/product`);
+  find(url){
+    return this.http.get<Product[]>(url);
+    /*return this.http.get<Product[]>(`${environment.apiUrl}/api/product`);*/
   }
 }

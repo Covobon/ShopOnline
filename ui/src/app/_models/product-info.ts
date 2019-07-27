@@ -1,4 +1,4 @@
-export class ProductDetail {
+export class ProductInfo {
   productInfoId: string;
   screen: string;
   os : string;
