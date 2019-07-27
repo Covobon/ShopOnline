@@ -17,6 +17,7 @@ import { WhitePageComponent } from './white-page/white-page.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ManagerComponent } from './manager/manager.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     WhitePageComponent,
     ProductComponent,
     ProductDetailComponent,
+    ManagerComponent,
   ],
   imports: [
     BrowserModule,

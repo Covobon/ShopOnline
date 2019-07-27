@@ -14,14 +14,21 @@ export class ProductDetailComponent implements OnInit {
 
   private product: Product;
   private productId: string;
+  private src: string;
 
   constructor(private productService: ProductService,
               private http: HttpClient,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute) {
+
+  }
 
   ngOnInit() {
     this.productId = this.route.snapshot.paramMap.get("productId");
-    this.http.get<Product>(`${environment.apiUrl}/api/product?productId=${this.productId}`);
+    this.productService.find(`${environment.apiUrl}/api/product?productId=${this.productId}`).subscribe(data => {
+        this.product = data[0];
+        this.src = `${environment.apiUrl}/api/img/${this.product.category.toLowerCase()}/${this.product.images[0].imageName}`;
+      }
+    );
   }
 
 }

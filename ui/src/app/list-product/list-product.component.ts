@@ -1,6 +1,7 @@
 import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {Product} from "@app/_models/product";
 import {ProductService} from "@app/_services/product.service";
+import {environment} from "@environments/environment";
 
 @Component({
   selector: 'app-list-product',
@@ -19,7 +20,7 @@ export class ListProductComponent implements OnInit {
   ngOnInit() {
     this.page = 1;
     this.pageSize = 10;
-    this.productServie.find().subscribe(data => {
+    this.productServie.find(`${environment.apiUrl}/api/product?productId=Laptop101`).subscribe(data => {
       this.products = data;
     });
   }

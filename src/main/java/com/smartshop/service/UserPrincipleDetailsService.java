@@ -3,6 +3,7 @@ package com.smartshop.service;
 import com.smartshop.model.User;
 import com.smartshop.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -20,8 +21,8 @@ public class UserPrincipleDetailsService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("");
         }
+        System.out.println(user.getPassword());
         UserPrinciple userPrinciple = new UserPrinciple(user);
-
         return userPrinciple;
     }
 }
