@@ -27,7 +27,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/user")
 @CrossOrigin(origins = "http://localhost:4200")
-
 public class UserController {
 
     @Autowired
@@ -48,59 +47,75 @@ public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @GetMapping
-    @CrossOrigin(origins = {"*"})
-    public List<User> getUser(){
+    public List<User> getUser() {
         return userService.findAll();
     }
 
     @PostMapping
-    public void create(@RequestBody User user){
+    public void create(@RequestBody User user) {
         userService.create(user);
     }
 
     @PutMapping()
-    public void update(@RequestBody User user) {
-        userService.updatePassword(user);
+    public ResponseEntity update(@RequestBody User user) {
+        User theUser = userService.findByUserName(user.getUserName());
+        if (theUser != null) {
+            theUser.setAddress(user.getAddress());
+            theUser.setFullName(user.getFullName());
+            theUser.setPhoneNumber(user.getPhoneNumber());
+            theUser.setRoles(user.getRoles());
+            userService.save(theUser);
+            return new ResponseEntity("Success!", HttpStatus.OK);
+        }
+        return new ResponseEntity("Fail!", HttpStatus.BAD_REQUEST);
     }
 
     @PutMapping("/profile")
-    public ResponseEntity updateRoleUser(@RequestBody User user){
+    public ResponseEntity updateRoleUser(@RequestBody User user) {
         if (user.getUserName() != currentUserService.get().getUserName()) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
-
+        if (user.getUserName() == currentUserService.get().getUserName()) {
+            User theUser = userService.findByUserName(user.getUserName());
+            theUser.setAddress(user.getAddress());
+            theUser.setFullName(user.getFullName());
+            theUser.setPhoneNumber(user.getPhoneNumber());
+            userService.save(theUser);
+            return new ResponseEntity("Success!", HttpStatus.OK);
+        } else {
+            return new ResponseEntity("Fail!", HttpStatus.FORBIDDEN);
+        }
     }
 
+
     @DeleteMapping
-    public void deleteUser(@RequestParam String userName){
+    public void deleteUser(@RequestParam String userName) {
         userService.deleteByUserName(userName);
     }
 
     @PostMapping("/login")
-    @CrossOrigin(origins = "http://localhost:4200")
-    public ResponseEntity<User> authenticate(@RequestBody User user){
+    public ResponseEntity<User> login(@RequestBody User user) {
         String username = user.getUserName();
         String password = user.getPassword();
 
         if (userService.verifyAccount(username, password)) {
             User theUser = userService.findByUserName(username);
-            if (theUser.getLastAccess().equals(theUser.getCreateTime())){
-                String content = "<a href=\"" + generateLinkVerify(user) +"\">Click</a> to verify account smartshop";
+            if (theUser.getLastAccess().equals(theUser.getCreateTime())) {
+                String content = "<a href=\"" + generateLinkVerify(user) + "\">Click</a> to verify account smartshop";
                 try {
-                    sendMailVerify.generateAndSendEmail(user.getEmail(), content);
+                    sendMailVerify.generateAndSendEmail(theUser.getEmail(), content);
                 } catch (MessagingException e) {
                     e.printStackTrace();
                 }
-            }else{
                 return new ResponseEntity<User>(theUser, HttpStatus.OK);
             }
-            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<User>(theUser, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @PostMapping("/register")
-    public ResponseEntity register(@RequestBody User user){
+    public ResponseEntity register(@RequestBody User user) {
         if (userService.findByUserName(user.getUserName()) != null) {
             return new ResponseEntity("Accout exists!", HttpStatus.NOT_ACCEPTABLE); /*Account exists*/
         }
@@ -126,7 +141,7 @@ public class UserController {
 
         Date theDate = new Date(miliseconds);
 
-        if (dateNow.compareTo(theDate) > 0){
+        if (dateNow.compareTo(theDate) > 0) {
             return ResponseEntity.status(HttpStatus.LOCKED).body(null);
         }
 
@@ -144,7 +159,7 @@ public class UserController {
 
         if (userService.verifyAccount(username, password)) {
             User theUser = userService.findByUserName(username);
-            if (theUser.getCreateTime().equals(theUser.getLastAccess())){
+            if (theUser.getCreateTime().equals(theUser.getLastAccess())) {
                 theUser.setLastAccess(dateNow);
                 userService.save(theUser);
                 return ResponseEntity.ok().body(theUser);
@@ -167,11 +182,5 @@ public class UserController {
         String timeEncode = Base64.getEncoder().encodeToString(time.getBytes());
 
         return "http://localhost:" + this.serverPort + "/api/user/verify?x=" + authenEncode + "&y=" + timeEncode;
-    }
-
-    @GetMapping("/test")
-    public  void currentUser(HttpServletRequest request){
-        Principal principal = request.getUserPrincipal();
-        logger.info(request.getAuthType());
     }
 }

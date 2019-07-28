@@ -24,7 +24,6 @@ public class UserPrincipleDetailsService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("");
         }
-        System.out.println(user.getPassword());
         UserPrinciple userPrinciple = new UserPrinciple(user);
         currentUserService.update(username);
         return userPrinciple;

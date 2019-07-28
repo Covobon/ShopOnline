@@ -62,6 +62,9 @@ public class UserService {
         user.setCreateTime(date);
         user.setLastAccess(date);
         user.setPassword(encrytedPasswordUtils.encrytePassword(user.getPassword()));
+        List<Role> roles = new ArrayList<Role>();
+        roles.add(new Role(1, "USER"));
+        user.setRoles(roles);
         userRepository.save(user);
         log.info("Create user:" + user.toString());
     }

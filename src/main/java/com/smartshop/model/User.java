@@ -1,6 +1,7 @@
 package com.smartshop.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,14 +13,18 @@ public class User {
     /*Define fields*/
     @Id
     @Column(name = "user_name", unique = true)
+    @NotNull
     private String userName;
 
+    @NotNull
     @Column(name = "password")
     private String password;
 
+    @NotNull
     @Column(name = "full_name", unique = true)
     private String fullName;
 
+    @NotNull
     @Column(name = "email")
     private String email;
 
