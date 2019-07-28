@@ -70,7 +70,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void update(User user) {
+    public void updatePassword(User user) {
         user.setPassword(encrytedPasswordUtils.encrytePassword(user.getPassword()));
         userRepository.save(user);
     }

@@ -1,6 +1,7 @@
 package com.smartshop.api;
 
 import com.smartshop.model.User;
+import com.smartshop.service.CurrentUserService;
 import com.smartshop.service.UserService;
 import com.smartshop.utils.EncrytedPasswordUtils;
 import com.smartshop.utils.SendMailVerify;
@@ -38,6 +39,9 @@ public class UserController {
     @Autowired
     private SendMailVerify sendMailVerify;
 
+    @Autowired
+    private CurrentUserService currentUserService;
+
     @Value("${server.port}")
     private int serverPort;
 
@@ -54,9 +58,17 @@ public class UserController {
         userService.create(user);
     }
 
-    @PutMapping
+    @PutMapping()
     public void update(@RequestBody User user) {
-        userService.update(user);
+        userService.updatePassword(user);
+    }
+
+    @PutMapping("/profile")
+    public ResponseEntity updateRoleUser(@RequestBody User user){
+        if (user.getUserName() != currentUserService.get().getUserName()) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+
     }
 
     @DeleteMapping
