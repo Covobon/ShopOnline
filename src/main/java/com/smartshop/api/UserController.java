@@ -107,7 +107,7 @@ public class UserController {
                 } catch (MessagingException e) {
                     e.printStackTrace();
                 }
-                return new ResponseEntity<User>(theUser, HttpStatus.OK);
+                return new ResponseEntity("You must verify email! ", HttpStatus.OK);
             }
             return new ResponseEntity<User>(theUser, HttpStatus.OK);
         }

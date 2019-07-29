@@ -1,4 +1,4 @@
-import {Role} from "@app/_models/Role";
+import {Role} from '@app/_models/Role';
 
 export class User{
   userName: string;

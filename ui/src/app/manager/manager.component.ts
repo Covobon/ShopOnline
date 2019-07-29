@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from '@app/_models/user';
+import {UserService} from '@app/_services/user.service';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '@environments/environment';
 
 @Component({
   selector: 'app-manager',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagerComponent implements OnInit {
 
-  constructor() { }
+  private users: User[];
+
+  constructor(private userService: UserService,
+              private  http: HttpClient) { }
 
   ngOnInit() {
+    this.userService.getAll().subscribe(data => {
+      this.users = data;
+      console.log(data);
+    });
   }
 
+  remove(username: string) {
+    this.userService.remove(username);
+  }
 }
