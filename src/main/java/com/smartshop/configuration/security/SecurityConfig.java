@@ -47,13 +47,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.authorizeRequests()
 				.antMatchers("/login").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+				.antMatchers(HttpMethod.OPTIONS, "/api/product").permitAll()
 				.antMatchers("/api/user").hasRole("MANAGER")
 				.antMatchers("/api/user/profile").hasRole("USER")
-				.antMatchers("/api/user/verify").permitAll()
 				.antMatchers("/api/user/login").permitAll()
 				.antMatchers("/api/product").hasAnyRole("MARKETING", "ADMIN")
 				.antMatchers(HttpMethod.GET, "/api/product").permitAll()
 				.antMatchers("/api/img/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/product").permitAll()
 				.anyRequest()
 				.authenticated()
 				.and()
@@ -71,6 +72,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 				.httpBasic();
 	}*/
+
+
 
 }
 
