@@ -13,6 +13,9 @@ public class Product {
     @Column(name="product_id")
     private String productId;
 
+    /*@Column(name="product_info_id")
+    private String productInfoId;*/
+
     @Column(name="name")
     private String name;
 
@@ -28,10 +31,18 @@ public class Product {
     @Column(name="amount")
     private int amount;
 
-    @OneToMany(fetch= FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name="product_id")
-    private List<ProductImage> productImages = new ArrayList<>();
+    @ManyToMany(fetch = FetchType.EAGER,
+            cascade = {CascadeType.ALL})
+    @JoinTable(
+            name="product_image",
+            joinColumns = @JoinColumn(name="product_id"),
+            inverseJoinColumns = @JoinColumn(name="image_id")
+    )
+    private List<Image> images;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="product_info_id" , referencedColumnName = "product_info_id")
+    private ProductInfo productInfo;
     /*Define constructors*/
     public Product() {
     }
@@ -45,11 +56,15 @@ public class Product {
         this.amount = amount;
     }
 
+
     /*Define getters/setters*/
 
     public String getProductId() {
         return productId;
+
+
     }
+
 
     public void setProductId(String productId) {
         this.productId = productId;
@@ -95,13 +110,30 @@ public class Product {
         this.amount = amount;
     }
 
-    public void addProductImage(ProductImage productImage){
-        productImages.add(productImage);
+   /* public String getProductInfoId() {
+        return productInfoId;
     }
 
-    public List<ProductImage> getProductImages(){
-        return productImages;
+    public void setProductInfoId(String productInfoId) {
+        this.productInfoId = productInfoId;
+    }*/
+
+    public List<Image> getImages() {
+        return images;
     }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
+
+    public ProductInfo getProductInfo() {
+        return productInfo;
+    }
+
+    public void setProductInfo(ProductInfo productInfo) {
+        this.productInfo = productInfo;
+    }
+
     /*Methods*/
 
     @Override

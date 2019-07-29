@@ -1,15 +1,13 @@
 package com.smartshop.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name="news_image")
+@IdClass(NewsImageid.class)
 public class NewsImage implements Serializable {
     /*Fields*/
     @Id
@@ -17,16 +15,16 @@ public class NewsImage implements Serializable {
     private int newId;
 
     @Id
-    @Column(name="path")
-    private String path;
+    @Column(name="name_image")
+    private String nameImage;
 
     /*Constructors*/
     public NewsImage() {
     }
 
-    public NewsImage(int newId, String path) {
+    public NewsImage(int newId, String nameImage) {
         this.newId = newId;
-        this.path = path;
+        this.nameImage = nameImage;
     }
 
     /*Getters/Setters*/
@@ -38,20 +36,19 @@ public class NewsImage implements Serializable {
         this.newId = newId;
     }
 
-    public String getPath() {
-        return path;
+    public String getNameImage() {
+        return nameImage;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setNameImage(String nameImage) {
+        this.nameImage = nameImage;
     }
 
-    /*Methods*/
     @Override
     public String toString() {
-        return "NewsImage{" +
+        return "NewsImageRepository{" +
                 "newId=" + newId +
-                ", path='" + path + '\'' +
+                ", nameImage='" + nameImage + '\'' +
                 '}';
     }
 }

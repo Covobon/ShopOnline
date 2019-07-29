@@ -1,7 +1,9 @@
 package com.smartshop.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -10,14 +12,21 @@ public class User {
 
     /*Define fields*/
     @Id
-    @Column(name = "user_name")
+    @Column(name = "user_name", unique = true)
+    @NotNull
     private String userName;
 
+    @NotNull
     @Column(name = "password")
     private String password;
 
-    @Column(name = "full_name")
+    @NotNull
+    @Column(name = "full_name", unique = true)
     private String fullName;
+
+    @NotNull
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "address")
     private String address;
@@ -26,27 +35,38 @@ public class User {
     private String phoneNumber;
 
     @Column(name = "create_time")
-    private String createTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createTime;
 
     @Column(name = "last_access")
-    private String lastAccess;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastAccess;
 
-    @OneToMany(fetch=FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name="user_name")
-    private List<UserRole> userRoles = new ArrayList<>();
+    @ManyToMany(fetch = FetchType.EAGER,
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.REFRESH})
+    @JoinTable(
+            name="user_role",
+            joinColumns = @JoinColumn(name="user_name"),
+            inverseJoinColumns = @JoinColumn(name="role_id")
+    )
+    private List<Role> roles;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="cart_id", referencedColumnName = "cart_id")
+    private Cart cart;
 
     /*Define constructors*/
     public User() {
+        this.setCart(new Cart(""));
     }
 
-    public User(String userName, String password, String fullName, String address, String phoneNumber, String createTime, String lastAccess) {
+    public User(String userName, String password, String fullName, String email, String address, String phoneNumber) {
         this.userName = userName;
         this.password = password;
         this.fullName = fullName;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.createTime = createTime;
-        this.lastAccess = lastAccess;
+        this.email = email;
     }
 
     /*Define getters and setters*/
@@ -91,28 +111,44 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public String getLastAccess() {
+    public Date getLastAccess() {
         return lastAccess;
     }
 
-    public void setLastAccess(String lastAccess) {
+    public void setLastAccess(Date lastAccess) {
         this.lastAccess = lastAccess;
     }
 
-    public void addUserRole(UserRole userRole){
-        userRoles.add(userRole);
+    public String getEmail() {
+        return email;
     }
 
-    public List<UserRole> getUserRoles(){
-        return userRoles;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
     /*Methods override*/

@@ -1,30 +1,24 @@
-/*
 package com.smartshop.api;
 
 import com.smartshop.model.Product;
-import com.smartshop.dao.product.ProductRepository;
+import com.smartshop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/product")
-public class ProductController {
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+public class ProductController{
 
     @Autowired
-    private ProductRepository productRepository;
+    private ProductService productService;
 
     @GetMapping
-    public List<Product> getAll(){
-        return productRepository.findAll();
+    public List<Product> find(@RequestParam Map<String, String> allParams) {
+        return productService.find(allParams);
     }
 
-    @GetMapping("/phone")
-    public List<Product> getAllPhone() {
-        return productRepository.findAllByCategory("Phone");
-    }
 }
-*/

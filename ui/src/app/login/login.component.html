@@ -1,0 +1,150 @@
+<div class="col-md-6 offset-md-3 mt-5">
+  <div class="alert alert-info">
+    Username: test<br/>
+    Password: test
+  </div>
+  <div class="card">
+    <h4 class="card-header">Angular 8 Basic Auth Login Example</h4>
+    <div class="card-body">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" formControlName="username" class="form-control"
+                 [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" formControlName="password" class="form-control"
+                 [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+          </div>
+        </div>
+        <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Login
+        </button>
+        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="text-center">
+  <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm">
+    LogIn/Register</a>
+</div>
+
+<div class="modal fade" [hidden]="hideModal" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog cascading-modal" role="document">
+    &lt;!&ndash;Content&ndash;&gt;
+    <div class="modal-content">
+
+      &lt;!&ndash;Modal cascading tabs&ndash;&gt;
+      <div class="modal-c-tabs">
+
+        &lt;!&ndash; Nav tabs &ndash;&gt;
+        <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+              Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+              Register</a>
+          </li>
+        </ul>
+
+        &lt;!&ndash; Tab panels &ndash;&gt;
+        <div class="tab-content mx-1">
+          &lt;!&ndash;Panel 7&ndash;&gt;
+          <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+
+            &lt;!&ndash;Body&ndash;&gt;
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" formControlName="username" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                  <div *ngIf="f.username.errors.required">Username is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">Password is required</div>
+                </div>
+              </div>
+              <button [disabled]="loading" class="btn btn-primary">
+                <span class="spinner-border spinner-border-sm mr-1"></span>
+                Login
+              </button>
+              <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+            </form>
+            &lt;!&ndash;Footer&ndash;&gt;
+            <div class="modal-footer">
+              <div class="options text-center text-md-right mt-1">
+                <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
+                <p>Forgot <a href="#" class="blue-text">Password?</a></p>
+              </div>
+              <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+          &lt;!&ndash;/.Panel 7&ndash;&gt;
+
+          &lt;!&ndash;Panel 8&ndash;&gt;
+          <div class="tab-pane fade" id="panel8" role="tabpanel">
+
+            &lt;!&ndash;Body&ndash;&gt;
+            <form class="mx-2 mt-5">
+              <div class="form-group">
+                <label>Username</label>
+                <input name="" class="form-control" placeholder="Username" type="username">
+              </div>
+              <div class="form-group">
+                <label>Your email</label>
+                <input name="" class="form-control" placeholder="Email" type="email">
+              </div> &lt;!&ndash; form-group// &ndash;&gt;
+              <div class="form-group">
+                <label>Your password</label>
+                <input class="form-control" placeholder="******" type="password">
+              </div> &lt;!&ndash; form-group// &ndash;&gt;
+              <div class="form-group">
+                <label>Confirm password</label>
+                <input class="form-control" placeholder="******" type="password">
+              </div>
+              <div class="form-group">
+                <div class="checkbox">
+                  <label> <input type="checkbox">Agree to Smartshop's Conditions of Use and Privacy Notice.</label>
+                </div> &lt;!&ndash; checkbox .// &ndash;&gt;
+              </div> &lt;!&ndash; form-group// &ndash;&gt;
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block"> Login</button>
+              </div> &lt;!&ndash; form-group// &ndash;&gt;
+            </form>
+            &lt;!&ndash;Footer&ndash;&gt;
+            <div class="modal-footer">
+              <div class="options text-right">
+                <p class="pt-1">Already have an account? <a href="#panel7" class="blue-text">Log In</a></p>
+              </div>
+              <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          &lt;!&ndash;/.Panel 8&ndash;&gt;
+        </div>
+
+      </div>
+    </div>
+    &lt;!&ndash;/.Content&ndash;&gt;
+  </div>
+</div>
+&lt;!&ndash;Modal: Login / Register Form&ndash;&gt;
+-->

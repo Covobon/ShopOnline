@@ -64,4 +64,8 @@ public class RandomData {
     public static String getBattery() {
         return rn.nextInt(8) + 1 + "000 mAh";
     }
+
+    public static int getNumber(int number) {
+        return rn.nextInt(number);
+    }
 }
