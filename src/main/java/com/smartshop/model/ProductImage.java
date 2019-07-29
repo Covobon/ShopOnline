@@ -1,4 +1,4 @@
-package com.smartshop.dao.product;
+package com.smartshop.model;
 
 import javax.persistence.*;
 import java.io.Serializable;

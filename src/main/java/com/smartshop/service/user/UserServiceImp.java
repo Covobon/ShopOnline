@@ -1,9 +1,8 @@
 package com.smartshop.service.user;
 
-import com.smartshop.dao.user.User;
+import com.smartshop.model.User;
 import com.smartshop.dao.user.UserRepository;
 import com.smartshop.dao.user.UserRoleDao;
-import com.smartshop.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

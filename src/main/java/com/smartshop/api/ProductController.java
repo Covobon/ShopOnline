@@ -1,6 +1,7 @@
+/*
 package com.smartshop.api;
 
-import com.smartshop.dao.product.Product;
+import com.smartshop.model.Product;
 import com.smartshop.dao.product.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,3 +27,4 @@ public class ProductController {
         return productRepository.findAllByCategory("Phone");
     }
 }
+*/

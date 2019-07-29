@@ -1,6 +1,6 @@
 package com.smartshop.api;
 
-import com.smartshop.dao.user.*;
+import com.smartshop.model.User;
 import com.smartshop.service.user.UserService;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;

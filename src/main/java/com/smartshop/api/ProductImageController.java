@@ -1,7 +1,8 @@
+/*
 package com.smartshop.api;
 
-import com.smartshop.dao.product.Product;
-import com.smartshop.dao.product.ProductImage;
+import com.smartshop.model.Product;
+import com.smartshop.model.ProductImage;
 import com.smartshop.dao.product.ProductImageDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,3 +27,4 @@ public class ProductImageController {
     }
 }
 
+*/

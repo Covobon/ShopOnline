@@ -1,6 +1,7 @@
+/*
 package com.smartshop.api;
 
-import com.smartshop.dao.user.UserRole;
+import com.smartshop.model.UserRole;
 import com.smartshop.dao.user.UserRoleDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,3 +27,4 @@ public class UserRoleController {
         return userRoleDao.findByUserName(userName);
     }
 }
+*/
