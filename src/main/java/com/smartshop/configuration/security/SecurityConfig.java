@@ -45,14 +45,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			throws Exception {
 		http.csrf().disable()
 				.authorizeRequests()
-				.antMatchers("/login").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/user/verify").permitAll()
+				.antMatchers(HttpMethod.POST, "/api/user/login").permitAll()
+				.antMatchers(HttpMethod.POST, "/api/user/register").permitAll()
 				.antMatchers("/api/user").hasRole("MANAGER")
-				.antMatchers("/api/user/profile").hasRole("USER")
-				.antMatchers("/api/user/verify").permitAll()
-				.antMatchers("/api/user/login").permitAll()
-				.antMatchers("/api/product").hasAnyRole("MARKETING", "ADMIN")
+				.antMatchers(HttpMethod.OPTIONS, "/api/product").permitAll()
 				.antMatchers(HttpMethod.GET, "/api/product").permitAll()
+				.antMatchers("/api/product").hasAnyRole("MARKETING", "ADMIN")
+				.antMatchers(HttpMethod.GET, "/api/product%").permitAll()
 				.antMatchers("/api/img/**").permitAll()
 				.anyRequest()
 				.authenticated()
@@ -71,6 +72,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 				.httpBasic();
 	}*/
+
+
 
 }
 

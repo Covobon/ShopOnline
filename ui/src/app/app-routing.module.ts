@@ -11,11 +11,13 @@ import {AuthGuard} from "@app/_helpers/auth.guard";
 import {ProductInfo} from "@app/_models/product-info";
 import {ProductDetailComponent} from "@app/product-detail/product-detail.component";
 import {ManagerComponent} from "@app/manager/manager.component";
+import {CartComponent} from '@app/cart/cart.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
+  { path: 'cart', component: CartComponent },
   { path: 'products/:productId', component: ProductDetailComponent},
   { path: 'manager', component : ManagerComponent},
   // otherwise redirect to home

@@ -1,6 +1,44 @@
-<aside>
-  <div>Orders</div>
-  <div>Products</div>
-  <div>News</div>
-  <div>Users</div>
-</aside>
+<div class="container-fluid">
+  <div>
+    <form>
+      <label>Search</label>
+      <input type="text" placeholder="Search">
+
+    </form>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+      <table class="table table-bordered table-striped mb-0">
+        <thead>
+        <tr class="text-center">
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Full Name</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Create Time</th>
+          <th scope="col">Last Access</th>
+          <th scope="col">Address</th>
+          <th scope="col" colspan="2">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users">
+          <td scope="row" *ngIf="user.userName != null">{{user.userName}}</td>
+          <td *ngIf="user.userName != null">{{user.email}}</td>
+          <td *ngIf="user.userName != null">{{user.fullName}}</td>
+          <td *ngIf="user.userName != null">{{user.phoneNumber}}</td>
+          <td *ngIf="user.userName != null">{{user.address}}</td>
+          <td *ngIf="user.createTime != null">{{user.createTime | date:'short'}}</td>
+          <td *ngIf="user.lastAccess != null">{{user.lastAccess | date:'short'}}</td>
+          <td *ngIf="user.userName != null">
+            <a (click)="remove(user.userName)">delete</a>
+          </td>
+          <td *ngIf="user.userName != null">
+            <a href="">replace</a>
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

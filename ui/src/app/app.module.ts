@@ -18,6 +18,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ManagerComponent } from './manager/manager.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ManagerComponent } from './manager/manager.component';
     ProductComponent,
     ProductDetailComponent,
     ManagerComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

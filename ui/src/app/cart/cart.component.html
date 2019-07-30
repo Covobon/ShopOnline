@@ -1,0 +1,10 @@
+<div class="border border-secondary container" *ngFor="let product of products">
+  <a [routerLink]="['/products', product.productId]" class="row">
+    <img [src]="src(product)" class="col-2" >
+    <div class="col-10">
+      <div>{{product.name}}</div>
+      <div>{{product.price}}</div>
+    </div>
+  </a>
+
+</div>

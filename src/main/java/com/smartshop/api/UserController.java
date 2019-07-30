@@ -1,6 +1,10 @@
 package com.smartshop.api;
 
+import com.smartshop.model.Cart;
+import com.smartshop.model.CartProduct;
+import com.smartshop.model.Product;
 import com.smartshop.model.User;
+import com.smartshop.service.CartService;
 import com.smartshop.service.CurrentUserService;
 import com.smartshop.service.UserService;
 import com.smartshop.utils.EncrytedPasswordUtils;
@@ -19,10 +23,7 @@ import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
-import java.util.Base64;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/user")
@@ -40,6 +41,9 @@ public class UserController {
 
     @Autowired
     private CurrentUserService currentUserService;
+
+    @Autowired
+    private CartService cartService;
 
     @Value("${server.port}")
     private int serverPort;
@@ -93,11 +97,11 @@ public class UserController {
         userService.deleteByUserName(userName);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200/**")
     @PostMapping("/login")
     public ResponseEntity<User> login(@RequestBody User user) {
         String username = user.getUserName();
         String password = user.getPassword();
-
         if (userService.verifyAccount(username, password)) {
             User theUser = userService.findByUserName(username);
             if (theUser.getLastAccess().equals(theUser.getCreateTime())) {
@@ -107,7 +111,7 @@ public class UserController {
                 } catch (MessagingException e) {
                     e.printStackTrace();
                 }
-                return new ResponseEntity<User>(theUser, HttpStatus.OK);
+                return new ResponseEntity("You must verify email! ", HttpStatus.OK);
             }
             return new ResponseEntity<User>(theUser, HttpStatus.OK);
         }
@@ -175,7 +179,7 @@ public class UserController {
 
         Date dateNow = new Date();
 
-        Long milisecond = dateNow.getTime() + 86400000;
+        Long milisecond = dateNow.getTime() + 86400000; // 86400000 milisecond / day
 
         String time = milisecond.toString();
 
