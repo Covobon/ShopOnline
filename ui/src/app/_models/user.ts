@@ -7,5 +7,7 @@ export class User{
   address: string;
   phoneNumber: string;
   roles: Role[];
+  createTime: Date;
+  lastAccess: Date;
   authdata ?: string;
 }

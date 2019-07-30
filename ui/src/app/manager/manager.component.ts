@@ -24,6 +24,13 @@ export class ManagerComponent implements OnInit {
   }
 
   remove(username: string) {
+    if (confirm('Some thing')){
     this.userService.remove(username);
+    for (let i = 1; i < this.users.length; i++) {
+      if (this.users[i].userName === username) {
+        this.users[i] = null;
+      }
+    }
+    }
   }
 }
