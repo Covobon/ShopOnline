@@ -14,10 +14,10 @@ export class ProductService {
     return this.http.get<Product[]>(url);
   }
   post(url: string, product: Product) {
-    this.http.post(url, product);
+    return this.http.post(url, product);
   }
   put(url: string, product: Product) {
-    this.http.post(url, product);
+    return this.http.post(url, product);
   }
 
 }

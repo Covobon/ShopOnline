@@ -148,7 +148,7 @@ public class InitializerData {
                             PreparedStatement st = conn.prepareStatement("insert into cart_product(`cart_id`, `product_id`, `amount`) value(?, ?, ?)");
                             st.setInt(1, cardId);
                             st.setString(2, productId);
-                            st.setInt(3, (int)(Math.random()*maxAmount));
+                            st.setInt(3, (int)(Math.random()*maxAmount + 1));
                             st.executeUpdate();
                         } catch (SQLException e) {
                             e.printStackTrace();

@@ -5,111 +5,125 @@ create database `urd_smartshop`;
 
 use `urd_smartshop`;
 
-create table `image` (
-    `image_id` int primary key,
-	`image_name` varchar(255)
-);
+CREATE TABLE `image` (
+  `image_id` int(11) NOT NULL,
+  `image_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`image_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-create table `user`(
-	`user_name` varchar(45) not null,
-    `password` varchar(255) not null,
-    `full_name` varchar(45),
-    `email` varchar(45),
-    `address` varchar(255),
-    `phone_number` varchar(45),
-    `create_time` datetime,
-    `last_access` datetime,
-    `cart_id` int,
-    primary key(`user_name`)    
-);
+CREATE TABLE `user` (
+  `user_name` varchar(45) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `full_name` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `phone_number` varchar(45) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `last_access` datetime DEFAULT NULL,
+  `cart_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`user_name`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-create table `role` (
-	`role_id` int primary key,
-	`role_name` varchar(45)
-);
+CREATE TABLE `role` (
+  `role_id` int(11) NOT NULL,
+  `role_name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-create table `user_role`(
-    `user_name` varchar(45) not null,
-    `role_id` int not null,
-    primary key  (`role_id`, `user_name`),
-    foreign key (`user_name`) references `user` (`user_name`),
-    foreign key (`role_id`) references `role` (`role_id`)
-);
+CREATE TABLE `user_role` (
+  `user_name` varchar(45) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  PRIMARY KEY (`role_id`,`user_name`),
+  KEY `user_name` (`user_name`),
+  CONSTRAINT `user_role_ibfk_1` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`),
+  CONSTRAINT `user_role_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-create table `product_info`(
-    `product_info_id` varchar(45) primary key,
-    `screen` varchar(45),
-    `os` varchar(45),
-    `camera` varchar(45),
-    `cpu` varchar(45),
-    `ram` varchar(45),
-    `hard_disk` varchar(45),
-    `battery` varchar(45),
-    `detail` text
-);
+CREATE TABLE `product_info` (
+  `product_info_id` varchar(45) NOT NULL,
+  `screen` varchar(45) DEFAULT NULL,
+  `os` varchar(45) DEFAULT NULL,
+  `camera` varchar(45) DEFAULT NULL,
+  `cpu` varchar(45) DEFAULT NULL,
+  `ram` varchar(45) DEFAULT NULL,
+  `hard_disk` varchar(45) DEFAULT NULL,
+  `battery` varchar(45) DEFAULT NULL,
+  `detail` text,
+  PRIMARY KEY (`product_info_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-create table `product`(
-	`product_id` varchar(10),
-    `product_info_id` varchar(10),
-    `name` varchar(100),
-    `price` int,
-    `category` varchar(45),
-    `status` varchar(45),
-    `amount` int,
-    primary key (`product_id`),
-    foreign key (`product_info_id`) references `product_info` (`product_info_id`)
-);
+CREATE TABLE `product` (
+  `product_id` varchar(10) NOT NULL,
+  `product_info_id` varchar(10) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `category` varchar(45) DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `amount` int(11) DEFAULT NULL,
+  PRIMARY KEY (`product_id`),
+  KEY `product_info_id` (`product_info_id`),
+  CONSTRAINT `product_ibfk_1` FOREIGN KEY (`product_info_id`) REFERENCES `product_info` (`product_info_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-create table `product_image`(
-	`product_id` varchar(45),
-    `image_id` int,
-    primary key (`product_id`, `image_id`),
-    foreign key (`product_id`) references `product` (`product_id`),
-    foreign key (`image_id`) references `image` (`image_id`)
-);
+CREATE TABLE `product_image` (
+  `product_id` varchar(45) NOT NULL,
+  `image_id` int(11) NOT NULL,
+  PRIMARY KEY (`product_id`,`image_id`),
+  KEY `image_id` (`image_id`),
+  CONSTRAINT `product_image_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`),
+  CONSTRAINT `product_image_ibfk_2` FOREIGN KEY (`image_id`) REFERENCES `image` (`image_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-create table `cart`(
-	`cart_id` int auto_increment primary key,
-    `address` varchar(255)
-);
+CREATE TABLE `cart` (
+  `cart_id` int(11) NOT NULL AUTO_INCREMENT,
+  `address` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`cart_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-create table `cart_product`(
-	`cart_id` int,
-    `product_id` varchar(45),
-    `amount` int,
-    primary key (`cart_id`, `product_id`),
-    foreign key (`cart_id`) references `cart` (`cart_id`),
-    foreign key (`product_id`) references `product` (`product_id`)
-);
+CREATE TABLE `cart_product` (
+  `cart_id` int(11) NOT NULL,
+  `product_id` varchar(45) NOT NULL,
+  `amount` int(11) DEFAULT NULL,
+  PRIMARY KEY (`cart_id`,`product_id`),
+  KEY `product_id` (`product_id`),
+  CONSTRAINT `cart_product_ibfk_1` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`cart_id`),
+  CONSTRAINT `cart_product_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-create table `order`(
-	`order_id` int auto_increment primary key,
-    `user_name` varchar(45),
-    `status` varchar(255),
-    `datetime` datetime,
-    foreign key (`user_name`) references `user` (`user_name`)
-);
+CREATE TABLE `order` (
+  `order_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(45) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`order_id`),
+  KEY `user_name` (`user_name`),
+  CONSTRAINT `order_ibfk_1` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-create table `order_product`(
-	`order_id` int,
-    `product_id` varchar(45),
-    `amount` int,
-    primary key (`order_id`, `product_id`),
-    foreign key (`product_id`) references `product` (`product_id`),
-    foreign key (`order_id`) references `order`(`order_id`)
-);
+CREATE TABLE `order_product` (
+  `order_id` int(11) NOT NULL,
+  `product_id` varchar(45) NOT NULL,
+  `amount` int(11) DEFAULT NULL,
+  PRIMARY KEY (`order_id`,`product_id`),
+  KEY `product_id` (`product_id`),
+  CONSTRAINT `order_product_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`),
+  CONSTRAINT `order_product_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-create table `news` (
-	`new_id` int auto_increment primary key,
-    `title` text,
-    `content` text
-);
+CREATE TABLE `news` (
+  `new_id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` text,
+  `content` text,
+  PRIMARY KEY (`new_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-create table `news_image`(
-	`new_id` int,
-    `image_id` int,
-    primary key (`new_id`, `image_id`),
-    foreign key (`new_id`)  references `news` (`new_id`),
-    foreign key (`image_id`) references `image` (`image_id`)
-);
-
+CREATE TABLE `news_image` (
+  `new_id` int(11) NOT NULL,
+  `image_id` int(11) NOT NULL,
+  PRIMARY KEY (`new_id`,`image_id`),
+  KEY `image_id` (`image_id`),
+  CONSTRAINT `news_image_ibfk_1` FOREIGN KEY (`new_id`) REFERENCES `news` (`new_id`),
+  CONSTRAINT `news_image_ibfk_2` FOREIGN KEY (`image_id`) REFERENCES `image` (`image_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

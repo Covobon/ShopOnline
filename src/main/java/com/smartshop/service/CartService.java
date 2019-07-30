@@ -29,4 +29,8 @@ public class CartService {
     public void addToCart(int cartId, String productId, int amount){
         cartRepository.addCart(cartId, productId, amount);
     }
+
+    public void modifyAmount(int cartId, String productId, int amount){
+        cartRepository.modifyAmount(amount, cartId, productId);
+    }
 }
