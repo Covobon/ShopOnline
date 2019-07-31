@@ -17,4 +17,8 @@ public interface CartRepository extends JpaRepository<Cart, Integer> {
     @Modifying
     @Query(value="insert into cart_product(`cart_id`, `product_id`, `amount`) value (?, ?, ?)", nativeQuery = true)
     void addCart(int cartId, String productId, int amount);
+
+    @Modifying
+    @Query(value="update cart_product set amount = ? where cart_id = ? and product_id = ? ", nativeQuery = true)
+    void modifyAmount(int amount, int cartId, String productId);
 }

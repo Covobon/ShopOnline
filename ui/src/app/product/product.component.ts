@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {ProductService} from '@app/_services/product.service';
 import {environment} from '@environments/environment';
 
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -14,7 +15,8 @@ export class ProductComponent implements OnInit {
   @Input() product: Product;
   private src: string;
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,
+              private http: HttpClient) {
   }
 
   ngOnInit() {
@@ -22,7 +24,12 @@ export class ProductComponent implements OnInit {
   }
   addToCart(product: Product) {
     console.log(product.productId);
-    this.productService.post(`${environment.apiUrl}/api/cart`, product);
+    this.productService.post(`${environment.apiUrl}/api/cart`, product).subscribe( (reponse : any) => {
+      console.log(reponse)
+    });
+/*
+    this.http.post<String>(`${environment.apiUrl}/api/cart`, {"productId" : product.productId}).subscribe(reponse => console.log(reponse));
+*/
   }
 
 }

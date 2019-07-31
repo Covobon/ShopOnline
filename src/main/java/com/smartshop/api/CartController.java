@@ -59,19 +59,16 @@ public class CartController {
 
     @PostMapping
     public ResponseEntity addToCart(@RequestBody Product product) {
-        System.out.println("some thing");
         try {
             int cartId = currentUserService.get().getCart().getCartId();
             List<Product> products = getCartProduct();
             for (int i = 0; i < products.size(); i++) {
-                if (products.get(i).getProductId() == product.getProductId()) {
-                    return new ResponseEntity(HttpStatus.BAD_REQUEST);
+                if (products.get(i).getProductId().equals(product.getProductId())) {
+                    cartService.modifyAmount(cartId, product.getProductId(), products.get(i).getAmount() + 1);
+                    return new ResponseEntity("Success", HttpStatus.OK);
                 }
             };
             cartService.addToCart(cartId, product.getProductId(), 1);
-
-            System.out.println("data add roi nhe");
-
             return new ResponseEntity(HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity(e, HttpStatus.BAD_REQUEST);
