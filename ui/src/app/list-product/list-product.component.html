@@ -1,13 +1,41 @@
 <h3>{{title}}</h3>
 <div class="container">
   <div class="row">
-    <span class="col-3" *ngFor="let product of products | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+    <span class="col-3" *ngFor="let product of products"><!--  | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">-->
       <app-product [product]="product"></app-product>
     </span>
   </div>
 </div>
 
+<div class="">
+  <ul *ngIf="true" class="pagination">
+    <li *ngIf="page != 1" class="page-item first-item">
+      <button (click)="loadPage(1)" class="page-link">First</button>
+    </li>
+    <li *ngIf="page != 1" class="page-item previous-item">
+      <button (click)="loadPage(page - 1)" class="page-link">Previous</button>
+    </li>
+    <li *ngIf="page != 1" class="page-item previous-item">
+      <button (click)="loadPage(page - 1)" class="page-link">{{page - 1}}</button>
+    </li>
+    <li class="page-item number-item">
+      <button class="page-link bg-info text-white">{{page}}</button>
+    </li>
+    <li *ngIf="checkNext()" class="page-item previous-item">
+      <button (click)="loadPage(page + 1)" class="page-link">{{page+1}}</button>
+    </li>
+    <li *ngIf="checkNext()" class="page-item next-item">
+      <button  (click)="loadPage(page + 1)" class="page-link">Next</button>
+    </li>
+    <li *ngIf="checkNext()" class="page-item last-item">
+      <button (click)="loadPage(collectionSize/pageSize)" class="page-link">Last</button>
+    </li>
+  </ul>
+</div>
+
+<!--
 <ngb-pagination *ngIf="showPagination" [collectionSize]="products.length" [(page)]="page" [pageSize]="pageSize"
                 [maxSize]="5"
                 [boundaryLinks]="true"></ngb-pagination>
 
+-->

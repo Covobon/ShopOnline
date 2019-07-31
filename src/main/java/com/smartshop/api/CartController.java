@@ -2,9 +2,11 @@ package com.smartshop.api;
 
 import com.smartshop.model.Cart;
 import com.smartshop.model.CartProduct;
+import com.smartshop.model.Order;
 import com.smartshop.model.Product;
 import com.smartshop.service.CartService;
 import com.smartshop.service.CurrentUserService;
+import com.smartshop.service.OrderService;
 import com.smartshop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,6 +31,9 @@ public class CartController {
 
     @Autowired
     private CartService cartService;
+
+    @Autowired
+    private OrderService orderService;
 
     @GetMapping
     public List<Product> getCartProduct() {
@@ -73,5 +78,36 @@ public class CartController {
         }catch (Exception e){
             return new ResponseEntity(e, HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @PostMapping("/negative")
+    public ResponseEntity addToCartNegative(@RequestBody Product product){
+        try {
+            int cartId = currentUserService.get().getCart().getCartId();
+            cartService.modifyAmount(cartId, product.getProductId(), product.getAmount());
+            return new ResponseEntity("Success!", HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity(e, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/{productId}")
+    public ResponseEntity removeFormCart(@PathVariable String productId) {
+        try {
+            int cartId = currentUserService.get().getCart().getCartId();
+            cartService.removeFormCart(cartId, productId);
+            return new ResponseEntity("Success", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity(e, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/pay")
+    public ResponseEntity pay(){
+        Cart cart = currentUserService.get().getCart();
+        Order order = new Order(currentUserService.get().getUserName(), "Processing", cart.getAddress());
+        orderService.save(order);
+        cartService.clean(cart.getCartId());
+        return new ResponseEntity(HttpStatus.OK);
     }
 }

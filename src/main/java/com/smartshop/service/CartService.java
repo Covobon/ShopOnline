@@ -33,4 +33,12 @@ public class CartService {
     public void modifyAmount(int cartId, String productId, int amount){
         cartRepository.modifyAmount(amount, cartId, productId);
     }
+
+    public void removeFormCart(int cartId, String productId) {
+        cartRepository.removeFormCar(cartId, productId);
+    }
+
+    public void clean(int cartId){
+        cartRepository.cleanCart(cartId);
+    }
 }

@@ -24,17 +24,20 @@ public class Order {
 
     @Column(name = "create_time")
     @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date createTime;
+    private Date createTime;
 
     /*Constructors*/
     public Order() {
+        Date date = new Date();
+        this.createTime = date;
     }
 
-    public Order(String userName, String status, String address, Date createTime) {
+    public Order(String userName, String status, String address) {
         this.userName = userName;
         this.status = status;
         this.address = address;
-        this.createTime = createTime;
+        Date date = new Date();
+        this.createTime = date;
     }
 
     /*Getters/Setters*/

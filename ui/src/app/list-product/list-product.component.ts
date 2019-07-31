@@ -15,13 +15,38 @@ export class ListProductComponent implements OnInit {
   @Input() page: number;
   @Input() pageSize: number;
   @Input() showPagination: boolean;
+  collectionSize: number;
+  pager: {};
 
   constructor(private productServie: ProductService) { }
 
   ngOnInit() {
     this.productServie.find(`${environment.apiUrl}/api/product`).subscribe(data => {
+      this.collectionSize = data.length;
+    });
+    this.productServie.find(`${environment.apiUrl}/api/product?page=${this.page}&pageSize=${this.pageSize}`).subscribe(data => {
+      this.products = data;
+    });
+    /*this.page = 1;
+    this.pageSize = 10;
+    this.productServie.find(`${environment.apiUrl}/api/product`).subscribe(data => {
+      this.collectionSize = data.length;
+    });
+
+    this.productServie.find(`${environment.apiUrl}/api/product?page=${this.page}&$pageSize={this.pageSize}`).subscribe(data => {
+      this.products = data;
+    });*/
+  }
+  loadPage(page: number) {
+    this.page = Math.ceil(page);
+    this.productServie.find(`${environment.apiUrl}/api/product?page=${this.page}&pageSize=${this.pageSize}`).subscribe(data => {
       this.products = data;
     });
   }
-
+  checkNext() {
+    if (this.page < Math.ceil(this.collectionSize / this.pageSize)){
+      return true;
+    }
+    return false;
+  }
 }

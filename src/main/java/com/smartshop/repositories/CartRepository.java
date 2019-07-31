@@ -21,4 +21,8 @@ public interface CartRepository extends JpaRepository<Cart, Integer> {
     @Modifying
     @Query(value="update cart_product set amount = ? where cart_id = ? and product_id = ? ", nativeQuery = true)
     void modifyAmount(int amount, int cartId, String productId);
+
+    @Modifying
+    @Query(value = "delete from cart_product where cart_id = ? and product_id = ?", nativeQuery = true)
+    void removeFormCar(int cartId, String productId);
 }
