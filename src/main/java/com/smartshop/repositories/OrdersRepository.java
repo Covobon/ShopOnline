@@ -1,6 +1,6 @@
 package com.smartshop.repositories;
 
-import com.smartshop.model.Order;
+import com.smartshop.model.Orders;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -11,10 +11,13 @@ import java.util.Date;
 
 @Repository
 @Transactional
-public interface OrderRepository extends JpaRepository<Order, Integer> {
+public interface OrdersRepository extends JpaRepository<Orders, Integer> {
+
 
     @Modifying
-    @Query(value = "insert into `order`(`address`, `create_time`, `status`, `user_name`) value (?, ?, ?, ?)", nativeQuery = true)
-    void customSave(String address, Date date, String status, String username);
+    @Query(value = "insert into `order_product`(order_id, product_id, amount) value (?, ?, ?)", nativeQuery = true)
+    void addProduct(int orderId, String productId, int amount);
 
+
+    Orders findByUserNameAndCreateTime(String userName, Date createTime);
 }

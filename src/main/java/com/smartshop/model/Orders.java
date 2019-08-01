@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="order")
-public class Order {
+@Table(name="orders")
+public class Orders {
 
     /*Fields*/
     @Id
@@ -27,12 +27,12 @@ public class Order {
     private Date createTime;
 
     /*Constructors*/
-    public Order() {
+    public Orders() {
         Date date = new Date();
         this.createTime = date;
     }
 
-    public Order(String userName, String status, String address) {
+    public Orders(String userName, String status, String address) {
         this.userName = userName;
         this.status = status;
         this.address = address;
@@ -84,7 +84,7 @@ public class Order {
     /*Methods*/
     @Override
     public String toString() {
-        return "Order{" +
+        return "Orders{" +
                 "orderId=" + orderId +
                 ", userName='" + userName + '\'' +
                 ", status='" + status + '\'' +

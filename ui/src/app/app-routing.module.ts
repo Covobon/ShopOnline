@@ -12,6 +12,7 @@ import {ProductInfo} from "@app/_models/product-info";
 import {ProductDetailComponent} from "@app/product-detail/product-detail.component";
 import {ManagerComponent} from "@app/manager/manager.component";
 import {CartComponent} from '@app/cart/cart.component';
+import {SearchComponent} from "@app/search/search.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'products/:productId', component: ProductDetailComponent},
   { path: 'manager', component : ManagerComponent},
+  { path: 'search', component: SearchComponent},
   // otherwise redirect to home
   { path: '**', component: WhitePageComponent }
 ];

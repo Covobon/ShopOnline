@@ -1,6 +1,6 @@
 package com.smartshop.api;
 
-import com.smartshop.model.Order;
+import com.smartshop.model.Orders;
 import com.smartshop.service.CurrentUserService;
 import com.smartshop.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class TestController {
 
     @GetMapping
     public String test() {
-        orderService.save(new Order("admin", "Processing", ""));
+        orderService.save(new Orders("admin", "Processing", ""));
         return "Success!";
     }
 }
