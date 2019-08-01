@@ -8,7 +8,7 @@
 </div>
 
 <div class="">
-  <ul *ngIf="true" class="pagination">
+  <ul *ngIf="showPagination" class="pagination">
     <li *ngIf="page != 1" class="page-item first-item">
       <button (click)="loadPage(1)" class="btn btn-link">First</button>
     </li>

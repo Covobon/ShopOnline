@@ -12,14 +12,11 @@ export class UserService {
   constructor(
     private http: HttpClient,
   ) {}
-  getAll(){
+  getAll() {
     return this.http.get<User[]>(`${environment.apiUrl}/api/user`);
   }
 
   remove(username: string) {
-    console.log(username);
-    this.http.delete(`${environment.apiUrl}/api/user?userName=${username}`).subscribe(data => {
-      console.log(data);
-    });
+    return this.http.delete(`${environment.apiUrl}/api/user?userName=${username}`);
   }
 }

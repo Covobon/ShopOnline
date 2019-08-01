@@ -1,3 +1,8 @@
+<ul class="list-group list-group-horizontal" style="width: 100%">
+  <button class="list-group-item" [disabled]="!(role === 'SELLER') && !(role === 'MANAGER')">SELLER</button>
+  <button class="list-group-item" [disabled]="!(role === 'MARKETING') && !(role === 'MANAGER')">MARKETING</button>
+  <button class="list-group-item" [disabled]="!(role === 'MANAGER')">MANAGER</button>
+</ul>
 <div class="container-fluid">
   <div>
     <form>

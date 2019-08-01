@@ -11,12 +11,13 @@ import {environment} from '@environments/environment';
 export class HomeComponent implements OnInit {
   loading = false;
   products: Product[];
+  urlProduct: string;
+  collectionSize: number;
 
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
     this.loading = true;
-    this.productService.find(`${environment.apiUrl}/api/product`)
-      .subscribe(data => this.products = data);
+    this.urlProduct = `${environment.apiUrl}/api/product?`;
   }
 }

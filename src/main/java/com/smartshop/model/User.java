@@ -20,11 +20,9 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @NotNull
     @Column(name = "full_name", unique = true)
     private String fullName;
 
-    @NotNull
     @Column(name = "email")
     private String email;
 

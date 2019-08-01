@@ -24,14 +24,11 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.pattern('^[a-z0-9_-]{3,15}$')]],
+      username: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      confirmEmail: ['', Validators.required],
-      password: ['', [Validators.required, Validators.pattern('^[a-z0-9_-]{3,15}$')]],
-      confirmPassword: ['', Validators.required],
+      password: ['', [Validators.required]],
+      fullname: ['', Validators.required],
       address: ['', Validators.required]
-    }, {
-      validator: MustMatch('password', 'confirmPassword')
     });
   }
 
@@ -50,15 +47,16 @@ export class RegisterComponent implements OnInit {
     this.loading = true;
 
     this.http.post<any>(`${environment.apiUrl}/api/user/register`, {
-      "userName" : this.f.username.value,
-      "email" : this.f.email.value,
-      "password" : this.f.password.value,
-      "address": this.f.address.value
+      userName : this.f.username.value,
+      email : this.f.email.value,
+      password : this.f.password.value,
+      address : this.f.address.value,
+      fullName : this.f.fullname.value
     }).subscribe(
       data => {
         console.log(data);
       }, error => {
-        this.error = error;
+        this.error = 'Account or email exists!';
         this.loading = false;
       }
     );
