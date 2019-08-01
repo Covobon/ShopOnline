@@ -5,35 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97380718-943e-4881-b1ce-37901fe2de84" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/api/OrdersController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/_helpers/manager.guard.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/api/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/api/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/repositories/OrdersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/repositories/OrdersRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/repositories/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/_helpers/auth.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/_helpers/auth.guard.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/_helpers/error.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/_helpers/error.interceptor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/_services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/_services/user.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/api/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/api/OrdersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/list-product/list-product.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/list-product/list-product.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/list-product/list-product.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/list-product/list-product.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/manager/manager.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/manager/manager.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/manager/manager.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/manager/manager.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/register/register.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/register/register.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/search/search.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/search/search.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/search/search.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/search/search.component.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -68,7 +42,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/smartshop/repositories/OrdersRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
+            <state relative-caret-position="301">
               <caret line="21" column="63" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -80,11 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/smartshop/repositories/ProductRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-200">
+            <state relative-caret-position="17">
               <caret line="3" column="43" selection-start-line="3" selection-end-line="4" />
-              <folding>
-                <element signature="e#0#46#1" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -92,22 +63,50 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/smartshop/api/OrdersController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="318">
+              <caret line="23" column="38" lean-forward="true" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#622#623#0" expanded="true" />
-                <element signature="e#656#657#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ui/src/app/list-product/list-product.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/src/app/home/home.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/src/app/list-product/list-product.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-5">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <element signature="e#0#67#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/smartshop/service/OrderService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+            <state relative-caret-position="136">
+              <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -184,10 +183,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/smartshop/configuration/initial/InitializerData.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smartshop/api/CartController.java" />
         <option value="$PROJECT_DIR$/ui/src/app/home/home.component.ts" />
-        <option value="$PROJECT_DIR$/ui/src/app/list-product/list-product.component.ts" />
         <option value="$PROJECT_DIR$/ui/src/app/home/home.component.html" />
         <option value="$PROJECT_DIR$/ui/src/app/search/search.component.html" />
-        <option value="$PROJECT_DIR$/ui/src/app/list-product/list-product.component.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/smartshop/api/ProductController.java" />
         <option value="$PROJECT_DIR$/ui/src/app/search/search.component.ts" />
         <option value="$PROJECT_DIR$/ui/src/app/header/header.component.ts" />
@@ -208,8 +205,10 @@
         <option value="$PROJECT_DIR$/ui/src/app/manager/manager.component.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/smartshop/dto/OrdersInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smartshop/repositories/OrdersRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smartshop/api/OrdersController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smartshop/service/OrderService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smartshop/api/OrdersController.java" />
+        <option value="$PROJECT_DIR$/ui/src/app/list-product/list-product.component.ts" />
+        <option value="$PROJECT_DIR$/ui/src/app/list-product/list-product.component.html" />
       </list>
     </option>
   </component>
@@ -240,8 +239,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -326,6 +325,22 @@
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartShop" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="list-product" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartShop" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="manager" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -367,7 +382,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.SmartshopApplication">
+  <component name="RunManager" selected="npm.Angular CLI Server (ui)">
     <configuration name="InitializerData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.smartshop.configuration.initial.InitializerData" />
       <module name="smartshop" />
@@ -462,7 +477,8 @@
       <workItem from="1564538268244" duration="21025000" />
       <workItem from="1564582404352" duration="6068000" />
       <workItem from="1564615883534" duration="2026000" />
-      <workItem from="1564626669457" duration="18777000" />
+      <workItem from="1564626669457" duration="19553000" />
+      <workItem from="1564650932047" duration="3592000" />
     </task>
     <servers />
   </component>
@@ -472,7 +488,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136239000" />
+    <option name="totallyTimeSpent" value="140607000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -487,7 +503,7 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49543378" visible="true" weight="0.27760968" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49543378" visible="true" weight="0.28214827" />
       <window_info id="Structure" order="1" sideWeight="0.5045662" side_tool="true" weight="0.24281392" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -499,7 +515,7 @@
       <window_info id="npm" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3281412" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.41935483" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19815668" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39875388" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -508,7 +524,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.31643626" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3281412" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32718894" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32917964" />
       <window_info anchor="bottom" id="Version Control" order="14" />
@@ -565,26 +581,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/src/app/list-product/list-product.component.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/src/app/home/home.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/src/app/list-product/list-product.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="89" lean-forward="true" selection-start-line="26" selection-start-column="89" selection-end-line="26" selection-end-column="89" />
-          <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/src/app/search/search.component.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -713,20 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/src/app/list-product/list-product.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/src/app/home/home.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/src/app/home/home.component.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -766,16 +748,6 @@
           <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="13" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/src/app/app-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="78" selection-start-line="21" selection-start-column="78" selection-end-line="21" selection-end-column="78" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -869,13 +841,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartshop/dto/OrdersInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartshop/dto/OrdersInfo.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smartshop/repositories/RoleRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -920,10 +886,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartshop/service/OrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/src/app/app-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="78" selection-start-line="21" selection-start-column="78" selection-end-line="21" selection-end-column="78" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smartshop/repositories/OrdersRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
+        <state relative-caret-position="301">
           <caret line="21" column="63" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartshop/api/OrdersController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="23" column="38" lean-forward="true" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -932,33 +928,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smartshop/repositories/ProductRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-200">
+        <state relative-caret-position="17">
           <caret line="3" column="43" selection-start-line="3" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/src/app/home/home.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
           <folding>
-            <element signature="e#0#46#1" expanded="true" />
+            <element signature="e#0#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartshop/api/OrdersController.java">
+    <entry file="file://$PROJECT_DIR$/ui/src/app/list-product/list-product.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="-5">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#622#623#0" expanded="true" />
-            <element signature="e#656#657#0" expanded="true" />
+            <element signature="e#0#67#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartshop/service/OrderService.java">
+    <entry file="file://$PROJECT_DIR$/ui/src/app/home/home.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/src/app/list-product/list-product.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
         </state>
       </provider>
     </entry>

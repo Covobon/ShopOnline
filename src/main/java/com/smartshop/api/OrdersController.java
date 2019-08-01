@@ -19,8 +19,8 @@ public class OrdersController {
 
 
 
-    @GetMapping
+/*    @GetMapping
     public List<Orders> getAll() {
         return orderService.findAll();
-    }
+    }*/
 }

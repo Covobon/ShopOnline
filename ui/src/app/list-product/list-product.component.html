@@ -21,14 +21,14 @@
     <li class="page-item number-item">
       <button class="btn btn-link bg-info text-white">{{page}}</button>
     </li>
-    <li *ngIf="page < amountPage" class="page-item previous-item">
+    <li *ngIf="checkNext()" class="page-item previous-item">
       <button (click)="loadPage(page + 1)" class="btn btn-link">{{page+1}}</button>
     </li>
-    <li *ngIf="page < amountPage" class="page-item next-item">
+    <li *ngIf="checkNext()" class="page-item next-item">
       <button  (click)="loadPage(page + 1)" class="btn btn-link">Next</button>
     </li>
-    <li *ngIf="page < amountPage" class="page-item last-item">
-      <button (click)="loadPage(amountPage)" class="btn btn-link">Last</button>
+    <li *ngIf="checkNext()" class="page-item last-item">
+      <button (click)="loadPage(collectionSize/pageSize)" class="btn btn-link">Last</button>
     </li>
   </ul>
 </div>
