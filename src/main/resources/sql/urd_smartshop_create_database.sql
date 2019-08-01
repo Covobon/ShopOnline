@@ -9,7 +9,7 @@ CREATE TABLE `image` (
   `image_id` int(11) NOT NULL,
   `image_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`image_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `user` (
   `user_name` varchar(45) NOT NULL,
@@ -23,13 +23,13 @@ CREATE TABLE `user` (
   `cart_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`user_name`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `role` (
   `role_id` int(11) NOT NULL,
   `role_name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`role_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `user_role` (
   `user_name` varchar(45) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE `user_role` (
   KEY `user_name` (`user_name`),
   CONSTRAINT `user_role_ibfk_1` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`),
   CONSTRAINT `user_role_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `product_info` (
   `product_info_id` varchar(45) NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE `product_info` (
   `battery` varchar(45) DEFAULT NULL,
   `detail` text,
   PRIMARY KEY (`product_info_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `product` (
   `product_id` varchar(10) NOT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE `product` (
   PRIMARY KEY (`product_id`),
   KEY `product_info_id` (`product_info_id`),
   CONSTRAINT `product_ibfk_1` FOREIGN KEY (`product_info_id`) REFERENCES `product_info` (`product_info_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `product_image` (
   `product_id` varchar(45) NOT NULL,
@@ -73,13 +73,13 @@ CREATE TABLE `product_image` (
   KEY `image_id` (`image_id`),
   CONSTRAINT `product_image_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`),
   CONSTRAINT `product_image_ibfk_2` FOREIGN KEY (`image_id`) REFERENCES `image` (`image_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `cart` (
   `cart_id` int(11) NOT NULL AUTO_INCREMENT,
   `address` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`cart_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `cart_product` (
   `cart_id` int(11) NOT NULL,
@@ -89,9 +89,9 @@ CREATE TABLE `cart_product` (
   KEY `product_id` (`product_id`),
   CONSTRAINT `cart_product_ibfk_1` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`cart_id`),
   CONSTRAINT `cart_product_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `order` (
+CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(45) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE `order` (
   PRIMARY KEY (`order_id`),
   KEY `user_name` (`user_name`),
   CONSTRAINT `order_ibfk_1` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `order_product` (
   `order_id` int(11) NOT NULL,
@@ -109,15 +109,15 @@ CREATE TABLE `order_product` (
   PRIMARY KEY (`order_id`,`product_id`),
   KEY `product_id` (`product_id`),
   CONSTRAINT `order_product_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`),
-  CONSTRAINT `order_product_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+  CONSTRAINT `order_product_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `news` (
   `new_id` int(11) NOT NULL AUTO_INCREMENT,
   `title` text,
   `content` text,
   PRIMARY KEY (`new_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `news_image` (
   `new_id` int(11) NOT NULL,
@@ -126,4 +126,4 @@ CREATE TABLE `news_image` (
   KEY `image_id` (`image_id`),
   CONSTRAINT `news_image_ibfk_1` FOREIGN KEY (`new_id`) REFERENCES `news` (`new_id`),
   CONSTRAINT `news_image_ibfk_2` FOREIGN KEY (`image_id`) REFERENCES `image` (`image_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

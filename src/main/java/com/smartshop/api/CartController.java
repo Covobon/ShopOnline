@@ -2,7 +2,7 @@ package com.smartshop.api;
 
 import com.smartshop.model.Cart;
 import com.smartshop.model.CartProduct;
-import com.smartshop.model.Order;
+import com.smartshop.model.Orders;
 import com.smartshop.model.Product;
 import com.smartshop.service.CartService;
 import com.smartshop.service.CurrentUserService;
@@ -105,9 +105,14 @@ public class CartController {
     @GetMapping("/pay")
     public ResponseEntity pay(){
         Cart cart = currentUserService.get().getCart();
-        Order order = new Order(currentUserService.get().getUserName(), "Processing", cart.getAddress());
-        orderService.save(order);
-        cartService.clean(cart.getCartId());
+        if(getCartProduct().size() > 0) {
+            Orders orders = new Orders(currentUserService.get().getUserName(), "Processing", cart.getAddress());
+            orderService.save(orders);
+            for (Product product : getCartProduct()) {
+                orderService.addProduct(orders.getOrderId(), product);
+            }
+            cartService.clean(cart.getCartId());
+        }
         return new ResponseEntity(HttpStatus.OK);
     }
 }

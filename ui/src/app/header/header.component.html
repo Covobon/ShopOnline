@@ -3,7 +3,7 @@
     <a [routerLink]="['']" class="navbar-brand">
       <img [src]="logoUrl" />
     </a>
-    <form class="col-auto">
+    <form class="col-auto" [formGroup]="search" (ngSubmit)="search()">
       <div class="input-group mb-2">
         <select class="custom-select input-group-prepend" id="inlineFormCustomSelect">
           <option selected>Choose...</option>

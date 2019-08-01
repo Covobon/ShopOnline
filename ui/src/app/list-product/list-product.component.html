@@ -10,25 +10,25 @@
 <div class="">
   <ul *ngIf="true" class="pagination">
     <li *ngIf="page != 1" class="page-item first-item">
-      <button (click)="loadPage(1)" class="page-link">First</button>
+      <button (click)="loadPage(1)" class="btn btn-link">First</button>
     </li>
     <li *ngIf="page != 1" class="page-item previous-item">
-      <button (click)="loadPage(page - 1)" class="page-link">Previous</button>
+      <button (click)="loadPage(page - 1)" class="btn btn-link">Previous</button>
     </li>
     <li *ngIf="page != 1" class="page-item previous-item">
-      <button (click)="loadPage(page - 1)" class="page-link">{{page - 1}}</button>
+      <button (click)="loadPage(page - 1)" class="btn btn-link">{{page - 1}}</button>
     </li>
     <li class="page-item number-item">
-      <button class="page-link bg-info text-white">{{page}}</button>
+      <button class="btn btn-link bg-info text-white">{{page}}</button>
     </li>
     <li *ngIf="checkNext()" class="page-item previous-item">
-      <button (click)="loadPage(page + 1)" class="page-link">{{page+1}}</button>
+      <button (click)="loadPage(page + 1)" class="btn btn-link">{{page+1}}</button>
     </li>
     <li *ngIf="checkNext()" class="page-item next-item">
-      <button  (click)="loadPage(page + 1)" class="page-link">Next</button>
+      <button  (click)="loadPage(page + 1)" class="btn btn-link">Next</button>
     </li>
     <li *ngIf="checkNext()" class="page-item last-item">
-      <button (click)="loadPage(collectionSize/pageSize)" class="page-link">Last</button>
+      <button (click)="loadPage(collectionSize/pageSize)" class="btn btn-link">Last</button>
     </li>
   </ul>
 </div>

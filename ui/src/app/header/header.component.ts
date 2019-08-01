@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {AuthenticationService} from "@app/_services/authentication.service";
 
 import { environment } from "@environments/environment";
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,7 @@ import { environment } from "@environments/environment";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  search: FormGroup;
   currentUser: User;
   logoUrl: string;
   loginUrl: string;
@@ -32,4 +34,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  get f() {
+    return this.search.controls;
+  }
+
+  onSubmit() {
+//TODO
+
+}
 }
