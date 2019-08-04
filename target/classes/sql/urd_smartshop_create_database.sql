@@ -1,4 +1,5 @@
-ALTER USER admin''@''localhost'' IDENTIFIED WITH mysql_native_password BY ''admin'';
+ALTER USER 'admin'@'localhost' IDENTIFIED BY 'admin';
+
 
 drop database `urd_smartshop`;
 create database `urd_smartshop`;
