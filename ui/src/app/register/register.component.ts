@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AuthenticationService} from "@app/_services/authentication.service";
-import {HttpClient} from "@angular/common/http";
-import {environment} from "@environments/environment";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AuthenticationService} from '@app/_services/authentication.service';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '@environments/environment';
+import {regExpEscape} from '@ng-bootstrap/ng-bootstrap/util/util';
+import {MustMatch} from '@app/_helpers/must-match.validator';
 
 @Component({
   selector: 'app-register',
@@ -22,10 +24,11 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      repassword: ['', Validators.required],
+      username: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+      fullname: ['', Validators.required],
+      address: ['', Validators.required]
     });
   }
 
@@ -37,26 +40,26 @@ export class RegisterComponent implements OnInit {
 
     this.submitted = true;
 
-    /*if (this.registerForm.invalid) {
+    if (this.registerForm.invalid) {
       return ;
-    }*/
+    }
 
     this.loading = true;
 
     this.http.post<any>(`${environment.apiUrl}/api/user/register`, {
-      "userName" : this.f.username.value,
-      "email" : this.f.email.value,
-      "password" : this.f.password.value
+      userName : this.f.username.value,
+      email : this.f.email.value,
+      password : this.f.password.value,
+      address : this.f.address.value,
+      fullName : this.f.fullname.value
     }).subscribe(
       data => {
         console.log(data);
-      },error => {
-        this.error = error;
+      }, error => {
+        this.error = 'Account or email exists!';
         this.loading = false;
       }
-    )
-
-
+    );
   }
 
 }

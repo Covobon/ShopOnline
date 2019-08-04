@@ -1,4 +1,4 @@
-import {Role} from "@app/_models/Role";
+import {Role} from '@app/_models/Role';
 
 export class User{
   userName: string;
@@ -7,5 +7,7 @@ export class User{
   address: string;
   phoneNumber: string;
   roles: Role[];
+  createTime: Date;
+  lastAccess: Date;
   authdata ?: string;
 }

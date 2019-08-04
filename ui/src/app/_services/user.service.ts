@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient} from '@angular/common/http';
 
-import { environment } from "@environments/environment";
-import {User} from "@app/_models/user";
+import { environment } from '@environments/environment';
+import {User} from '@app/_models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,11 @@ export class UserService {
   constructor(
     private http: HttpClient,
   ) {}
-
-  getAll(){
+  getAll() {
     return this.http.get<User[]>(`${environment.apiUrl}/api/user`);
+  }
+
+  remove(username: string) {
+    return this.http.delete(`${environment.apiUrl}/api/user?userName=${username}`);
   }
 }

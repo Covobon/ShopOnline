@@ -1,0 +1,43 @@
+<div>
+  <h1>Cart</h1>
+  <div class="container">
+    <div class="row">
+      <table class="table table-bordered table-striped mb-0 col-8">
+        <thead>
+        <tr>
+          <th colspan="2" scope="col">Product</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let product of products">
+          <td *ngIf="product.productId != null" width="20%">
+            <img style="max-width: 100%" [src]="src(product)" />
+          </td>
+          <td *ngIf="product.productId != null" width="30%">
+            <div>{{product.name}}</div>
+            <div><span class="font-weight-bold">Price:</span> <span class="font-weight-bold text-danger">{{product.price}}</span></div>
+          </td>
+          <td *ngIf="product.productId != null" width="5%" class="text-center">
+            {{product.amount}}
+          </td>
+          <td *ngIf="product.productId != null" width="5%" class="text-center">
+            <!--<div><i class="fas fa-plus-circle"></i></div>-->
+            <div aria-disabled="true"><button (click)="addQuantity(product)" class="fas fa-plus-circle btn btn-success my-1"></button></div>
+            <div *ngIf="product.amount > 1"><button (click)="dropProduct(product)" class="fas fa-minus-circle btn btn-secondary my-1"></button></div>
+            <div><button (click)="remove(product)" class="fas fa-trash-alt btn btn-danger my-1"></button></div>
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+      <div class="col-4">
+        <div>Thông tin thanh toán</div>
+        <div>
+          Địa chỉ: <textarea type="text"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

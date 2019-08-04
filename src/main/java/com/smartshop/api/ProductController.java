@@ -21,4 +21,8 @@ public class ProductController{
         return productService.find(allParams);
     }
 
+    @GetMapping("/category")
+    public List<String> getCategorys(){
+        return productService.getCategorys();
+    }
 }

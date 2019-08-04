@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
-import {AuthenticationService} from "@app/_services/authentication.service";
-import {first} from "rxjs/operators";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AuthenticationService} from '@app/_services/authentication.service';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
-  hideModal: boolean = false;
   error = '';
 
   constructor(
@@ -23,11 +22,7 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService
-  ) {
-    if (this.authenticationService.currentUser){
-      this.router.navigate(['/']);
-    }
-  }
+  ) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -35,7 +30,7 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
 
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl']|| '/';
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
   }
 
   get f() {
@@ -58,9 +53,9 @@ export class LoginComponent implements OnInit {
           this.router.navigate([this.returnUrl]);
         },
         error => {
-          this.error = "Invalid username or password";
+          this.error = 'Invalid username or password';
           this.loading = false;
         }
-      )
+      );
   }
 }
