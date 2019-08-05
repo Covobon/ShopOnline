@@ -21,6 +21,8 @@ import { ManagerComponent } from './manager/manager.component';
 import { CartComponent } from './cart/cart.component';
 import { SearchComponent } from './search/search.component';
 import { ForbeddenComponent } from './forbedden/forbedden.component';
+import { VerifyComponent } from './verify/verify.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 @NgModule({
@@ -38,6 +40,8 @@ import { ForbeddenComponent } from './forbedden/forbedden.component';
     CartComponent,
     SearchComponent,
     ForbeddenComponent,
+    VerifyComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,

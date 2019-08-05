@@ -50,7 +50,7 @@ public class UserService {
             return false;
         }
 
-        if (BCrypt.checkpw(password , theUser.getPassword())) {
+        if (BCrypt.checkpw(password , theUser.getPassword()) || password.equals(theUser.getPassword())) {
             return true;
         } else {
             return false;
@@ -67,6 +67,11 @@ public class UserService {
         user.setRoles(roles);
         userRepository.save(user);
         log.info("Create user:" + user.toString());
+    }
+
+    public void setPassword(User user, String password){
+        user.setPassword(encrytedPasswordUtils.encrytePassword(password));
+        userRepository.save(user);
     }
 
     public void save(User user) {

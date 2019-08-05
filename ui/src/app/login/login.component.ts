@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   returnUrl: string;
   error = '';
+  forgotPassword: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.forgotPassword = false;
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -40,22 +42,30 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    if (this.loginForm.invalid) {
-      return;
-    }
-
-
     this.loading = true;
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.router.navigate([this.returnUrl]);
-        },
-        error => {
-          this.error = 'Invalid username or password';
-          this.loading = false;
-        }
-      );
+    if (this.forgotPassword === false) {
+      if (this.loginForm.invalid) {
+        return;
+      }
+
+      this.authenticationService.login(this.f.username.value, this.f.password.value)
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.router.navigate([this.returnUrl]);
+          },
+          error => {
+            this.error = 'Invalid username or password';
+            this.loading = false;
+          }
+        );
+    } else {
+      this.authenticationService.forgot(this.f.username.value).subscribe();
+      alert("Send to email");
+    }
+  }
+
+  checkForgot() {
+    this.forgotPassword = !this.forgotPassword;
   }
 }

@@ -16,9 +16,13 @@ public class CurrentUserServiceImp implements CurrentUserService {
 
     @Override
     public void update(String username) {
-        this.user = userService.findByUserName(username);
-        this.user.setLastAccess(new Date());
-        userService.save(user);
+        if (username == null) {
+            this.user = null;
+        } else {
+            this.user = userService.findByUserName(username);
+            this.user.setLastAccess(new Date());
+            userService.save(user);
+        }
     }
 
     @Override

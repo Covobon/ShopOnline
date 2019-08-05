@@ -2,82 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="909db6bb-627f-4035-957b-0ff875536d4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/api/CartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/api/OrdersController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/repositories/CartRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/repositories/OrdersRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/service/CartService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/other/1200-75-1200x75-(1).gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/other/398-110-398x110-(4).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/other/398-110-398x110-(5).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/other/800-300-800x300-(11).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/other/800-300-800x300-(8).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/other/Laptop-Acer-Swift7-800-300-800x300-(1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/other/SinhNhat-Oppo-800-300-800x300-(1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/other/a80-800-300-800x300-(1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/other/phukien800-300-800x300.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/_helpers/manager.guard.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/_helpers/must-match.validator.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/_models/cart-product.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/_services/cart.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/_services/cart.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/cart/cart.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/cart/cart.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/cart/cart.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/cart/cart.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/forbedden/forbedden.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/forbedden/forbedden.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/forbedden/forbedden.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/forbedden/forbedden.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/search/search.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/search/search.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/search/search.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/search/search.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/configuration/interceptor/Interceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/configuration/interceptor/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/reset-password/reset-password.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/reset-password/reset-password.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/reset-password/reset-password.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/reset-password/reset-password.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/verify/verify.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/verify/verify.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/verify/verify.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/verify/verify.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/SmartshopApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/SmartshopApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/api/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/api/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/api/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/api/TestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/api/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/api/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/configuration/initial/InitializerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/configuration/initial/InitializerData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/configuration/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/configuration/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/model/Orders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/urd_smartshop_create_database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/urd_smartshop_create_database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/service/CurrentUserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/service/CurrentUserServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/api/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/api/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/api/TestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/api/TestController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/api/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/api/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/configuration/initial/InitializerData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/configuration/initial/InitializerData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/model/Order.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/repositories/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sql/urd_smartshop_create_database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sql/urd_smartshop_create_database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/_helpers/auth.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/_helpers/auth.guard.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/_helpers/error.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/_helpers/error.interceptor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/_models/product-info.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/_models/product-info.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/_models/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/_models/product.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/configuration/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/configuration/security/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/service/CurrentUserServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/service/CurrentUserServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/service/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/_models/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/_models/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/_services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/_services/product.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/_services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/_services/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/_services/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/_services/authentication.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/header/header.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/home/home.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/list-product/list-product.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/list-product/list-product.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/list-product/list-product.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/list-product/list-product.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/login/login.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/manager/manager.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/manager/manager.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/manager/manager.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/manager/manager.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/product-detail/product-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/product-detail/product-detail.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/product-detail/product-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/product-detail/product-detail.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/product/product.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/product/product.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/product/product.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/product/product.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/register/register.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/register/register.component.ts" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,11 +54,59 @@
     <expand />
     <select />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectId" id="1OxqFh1hqHcHNGnuW2TRwVafgke" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/ui/node_modules/typescript/lib" />
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8081/api/user/password" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="x" />
+                <option name="value" value="YWRtaW46YWRtaW4=" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8081/api/user/password" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -114,6 +119,44 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.SmartshopApplication">
+    <configuration name="InitializerData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.smartshop.configuration.initial.InitializerData" />
+      <module name="smartshop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smartshop.configuration.initial.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmartshopApplication#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/SmartshopApplication.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="SmartshopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="smartshop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smartshop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.smartshop.SmartshopApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.SmartshopApplication" />
+        <item itemvalue="HTTP Request.SmartshopApplication#1" />
+        <item itemvalue="Application.InitializerData" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
@@ -139,17 +182,56 @@
     <configuration />
   </component>
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="909db6bb-627f-4035-957b-0ff875536d4f" name="Default Changelist" comment="" />
+      <created>1564929494487</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1564929494487</updated>
+      <workItem from="1564929499100" duration="1770000" />
+      <workItem from="1564964567361" duration="12607000" />
+      <workItem from="1565006019110" duration="13086000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/smartshop/service/UserService.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/smartshop/service/UserService.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ShopOnline$SmartshopApplication.ic" NAME="SmartshopApplication Coverage Results" MODIFIED="1565013559333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartshop.*</FILTER>
+    </SUITE>
   </component>
 </project>

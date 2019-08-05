@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   currentUser: User;
   logoUrl: string;
   loginUrl: string;
-  categorys: string[];
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -36,8 +36,6 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get<string[]>(`${environment.apiUrl}/api/product/category`)
-      .subscribe(data => this.categorys = data);
     this.search = this.formBuilder.group({
       name: ['', Validators.required]
     });

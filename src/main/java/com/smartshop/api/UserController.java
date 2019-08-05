@@ -97,7 +97,6 @@ public class UserController {
         userService.deleteByUserName(userName);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200/**")
     @PostMapping("/login")
     public ResponseEntity<User> login(@RequestBody User user) {
         String username = user.getUserName();
@@ -132,7 +131,8 @@ public class UserController {
     }
 
     @GetMapping("/verify")
-    public ResponseEntity verify(@RequestParam String x, String y) {
+    public ResponseEntity verify(@RequestParam String x, String y, String p) {
+        String password = p;
         byte[] decodeBytes = Base64.getDecoder().decode(x);
         String decodeString = new String(decodeBytes);
 
@@ -144,33 +144,35 @@ public class UserController {
         Long miliseconds = Long.parseLong(decodeDate);
 
         Date theDate = new Date(miliseconds);
-
         if (dateNow.compareTo(theDate) > 0) {
             return ResponseEntity.status(HttpStatus.LOCKED).body(null);
         }
-
-        System.out.println(dateNow);
-        int index = 0;
-        for (int i = 0; i < decodeString.length(); i++) {
-            if (decodeString.charAt(i) == ':') {
-                index = i;
-                break;
-            }
-        }
-
-        String username = decodeString.substring(0, index);
-        String password = decodeString.substring(index + 1, decodeString.length());
-
-        if (userService.verifyAccount(username, password)) {
-            User theUser = userService.findByUserName(username);
-            if (theUser.getCreateTime().equals(theUser.getLastAccess())) {
+        User theUser = checkAuthen(x);
+        if (password == null) {
+            if (x != null) {
                 theUser.setLastAccess(dateNow);
-                userService.save(theUser);
-                return ResponseEntity.ok().body(theUser);
+                return new ResponseEntity(theUser, HttpStatus.OK);
             }
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        } else {
+            userService.setPassword(theUser, password);
+            return new ResponseEntity(HttpStatus.OK);
         }
+    }
 
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+    @GetMapping("/password")
+    public ResponseEntity resetPassword(@RequestParam String username) {
+        User user = userService.findByUserName(username);
+        String link = generateLinkVerify(user);
+        String result = "";
+        result = link.substring(0, link.indexOf("verify")) + "password" + link.substring(link.indexOf("verify") + 6);
+        String content = "<a href=\"" + result + "\">Click</a> to reset password";
+        try {
+            sendMailVerify.generateAndSendEmail(user.getEmail(), content);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity("You must verify email! ", HttpStatus.OK);
     }
 
     public String generateLinkVerify(User theUser) {
@@ -185,6 +187,27 @@ public class UserController {
 
         String timeEncode = Base64.getEncoder().encodeToString(time.getBytes());
 
-        return "http://localhost:" + this.serverPort + "/api/user/verify?x=" + authenEncode + "&y=" + timeEncode;
+        return "http://localhost:4200" + "/verify?x=" + authenEncode + "&y=" + timeEncode;
+    }
+
+    public User checkAuthen(String authen) {
+        byte[] decodeBytes = Base64.getDecoder().decode(authen);
+        String decodeString = new String(decodeBytes);
+
+        int index = 0;
+        for (int i = 0; i < decodeString.length(); i++) {
+            if (decodeString.charAt(i) == ':') {
+                index = i;
+                break;
+            }
+        }
+
+        String username = decodeString.substring(0, index);
+        String password = decodeString.substring(index + 1, decodeString.length());
+
+        if (userService.verifyAccount(username, password)) {
+            return userService.findByUserName(username);
+        }
+        return null;
     }
 }

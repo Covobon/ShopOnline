@@ -12,6 +12,8 @@ import {ManagerComponent} from '@app/manager/manager.component';
 import {CartComponent} from '@app/cart/cart.component';
 import {SearchComponent} from '@app/search/search.component';
 import {ForbeddenComponent} from '@app/forbedden/forbedden.component';
+import {VerifyComponent} from "@app/verify/verify.component";
+import {ResetPasswordComponent} from "@app/reset-password/reset-password.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,7 +23,9 @@ const routes: Routes = [
   { path: 'products/:productId', component: ProductDetailComponent},
   { path: 'manager', component : ManagerComponent , canActivate: [ManagerGuard]},
   { path: 'search', component: SearchComponent},
+  { path: 'verify', component: VerifyComponent},
   { path: 'forbedden', component: ForbeddenComponent },
+  { path: 'password', component: ResetPasswordComponent},
   { path: '**', component: WhitePageComponent }
 ];
 

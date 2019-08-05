@@ -5,6 +5,8 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '@environments/environment';
 import {regExpEscape} from '@ng-bootstrap/ng-bootstrap/util/util';
 import {MustMatch} from '@app/_helpers/must-match.validator';
+import {Router} from "@angular/router";
+import {User} from "@app/_models/user";
 
 @Component({
   selector: 'app-register',
@@ -12,54 +14,58 @@ import {MustMatch} from '@app/_helpers/must-match.validator';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  error: string;
   registerForm: FormGroup;
   submitted = false;
-  loading = false;
+  user: User;
+  error: string;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private http: HttpClient,
-  ) {}
+  constructor(private formBuilder: FormBuilder,
+              private router: Router,
+              private authen: AuthenticationService) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      username: ['', [Validators.required]],
+      userName: ['', Validators.required],
+      fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-      fullname: ['', Validators.required],
-      address: ['', Validators.required]
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', Validators.required],
+      acceptTerms: [false, Validators.requiredTrue]
+    }, {
+      validator: MustMatch('password', 'confirmPassword')
     });
   }
 
-  get f() {
-    return this.registerForm.controls;
-  }
+  // convenience getter for easy access to form fields
+  get f() { return this.registerForm.controls; }
 
   onSubmit() {
-
+    console.log("someting");
     this.submitted = true;
 
+    // stop here if form is invalid
     if (this.registerForm.invalid) {
-      return ;
+      return;
     }
 
-    this.loading = true;
+    this.user = new User();
 
-    this.http.post<any>(`${environment.apiUrl}/api/user/register`, {
-      userName : this.f.username.value,
-      email : this.f.email.value,
-      password : this.f.password.value,
-      address : this.f.address.value,
-      fullName : this.f.fullname.value
-    }).subscribe(
-      data => {
-        console.log(data);
-      }, error => {
-        this.error = 'Account or email exists!';
-        this.loading = false;
-      }
-    );
+    this.user.userName = this.f.userName.value;
+    this.user.fullName = this.f.fullName.value;
+    this.user.email = this.f.email.value;
+    this.user.password = this.f.password.value;
+
+    // display form values on success
+    this.authen.register(this.user).subscribe(data => {
+      alert('SUCCESS!!');
+      console.log(data);
+    }, error => {
+      this.error = `Username or email exists!`;
+    });
   }
 
+  onReset() {
+    this.submitted = false;
+    this.registerForm.reset();
+  }
 }
