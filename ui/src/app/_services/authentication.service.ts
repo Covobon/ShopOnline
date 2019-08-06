@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 import {User} from "@app/_models/user";
 import {HttpClient} from "@angular/common/http";
@@ -23,7 +23,7 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
-    return this.http.post<any>(`${environment.apiUrl}/api/user/login`, {"userName":username, "password": password})
+    return this.http.post<any>(`${environment.apiUrl}/api/user/login`, {"userName": username, "password": password})
       .pipe(map(user => {
         user.authdata = window.btoa(username + ":" + password);
         localStorage.setItem('currentUser', JSON.stringify(user));
@@ -32,11 +32,21 @@ export class AuthenticationService {
       }))
   }
 
-  register(user: User){
+  /*loginAuthen(authen: string){
+    return this.http.post<any>(`${environment.apiUrl}/api/user/authen`, authen)
+      .pipe(map(user => {
+        user.authdata = authen;
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        return user;
+      }))
+  }*/
+
+  register(user: User) {
     return this.http.post<string>(`${environment.apiUrl}/api/user/register`, user);
   }
 
-  verify(auth: string, expired: string){
+  verify(auth: string, expired: string) {
     return this.http.get<any>(`${environment.apiUrl}/api/user/verify?x=${auth}&y=${expired}`).pipe(map(user => {
       user.authdata = auth;
       localStorage.setItem('currentUser', JSON.stringify(user));
@@ -55,7 +65,11 @@ export class AuthenticationService {
   }
 
   resetPassword(auth: string, expired: string, password: string) {
-    return this.http.get<any>(`${environment.apiUrl}/api/user/verify?x=${auth}&y=${expired}&p=${password}`);
-
-    }
+    return this.http.get<any>(`${environment.apiUrl}/api/user/verify?x=${auth}&y=${expired}&p=${password}`).pipe(map(user => {
+      user.authdata = auth;
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      this.currentUserSubject.next(user);
+      return user;
+    }))
+  }
 }

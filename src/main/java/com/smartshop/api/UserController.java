@@ -1,28 +1,20 @@
 package com.smartshop.api;
 
-import com.smartshop.model.Cart;
-import com.smartshop.model.CartProduct;
-import com.smartshop.model.Product;
 import com.smartshop.model.User;
 import com.smartshop.service.CartService;
 import com.smartshop.service.CurrentUserService;
 import com.smartshop.service.UserService;
 import com.smartshop.utils.EncrytedPasswordUtils;
 import com.smartshop.utils.SendMailVerify;
-import org.hibernate.annotations.Parameter;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.security.Principal;
 import java.util.*;
 
 @RestController
@@ -76,10 +68,10 @@ public class UserController {
 
     @PutMapping("/profile")
     public ResponseEntity updateRoleUser(@RequestBody User user) {
-        if (user.getUserName() != currentUserService.get().getUserName()) {
+        if (!user.getUserName().equals(currentUserService.get().getUserName())) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
-        if (user.getUserName() == currentUserService.get().getUserName()) {
+        if (user.getUserName().equals(currentUserService.get().getUserName())) {
             User theUser = userService.findByUserName(user.getUserName());
             theUser.setAddress(user.getAddress());
             theUser.setFullName(user.getFullName());
@@ -114,7 +106,15 @@ public class UserController {
             }
             return new ResponseEntity<User>(theUser, HttpStatus.OK);
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return null;
+    }
+
+    @PostMapping("/authen")
+    public ResponseEntity<User> authen(@RequestBody String authen){
+        User user = checkAuthen(authen);
+        if (user == null) {
+            return null;
+        } else return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
     @PostMapping("/register")
@@ -156,23 +156,38 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         } else {
             userService.setPassword(theUser, password);
-            return new ResponseEntity(HttpStatus.OK);
+            return new ResponseEntity(theUser, HttpStatus.OK);
         }
     }
 
     @GetMapping("/password")
     public ResponseEntity resetPassword(@RequestParam String username) {
         User user = userService.findByUserName(username);
-        String link = generateLinkVerify(user);
-        String result = "";
-        result = link.substring(0, link.indexOf("verify")) + "password" + link.substring(link.indexOf("verify") + 6);
-        String content = "<a href=\"" + result + "\">Click</a> to reset password";
-        try {
-            sendMailVerify.generateAndSendEmail(user.getEmail(), content);
-        } catch (MessagingException e) {
-            e.printStackTrace();
+        if (user != null) {
+            String link = generateLinkVerify(user);
+            String result = "";
+            result = link.substring(0, link.indexOf("verify")) + "password" + link.substring(link.indexOf("verify") + 6);
+            String content = "<a href=\"" + result + "\">Click</a> to reset password";
+            try {
+                sendMailVerify.generateAndSendEmail(user.getEmail(), content);
+            } catch (MessagingException e) {
+                e.printStackTrace();
+            }
+            return new ResponseEntity("You must verify email! ", HttpStatus.OK);
+        } else {
+            return null;
         }
-        return new ResponseEntity("You must verify email! ", HttpStatus.OK);
+    }
+
+    @PostMapping("/setpassword")
+    public ResponseEntity setPassword(@RequestBody User user) {
+        User theUser = userService.findByUserName(user.getUserName());
+        if (theUser != null && currentUserService.get().getUserName().equals(user.getUserName())
+                && userService.verifyAccount(user.getUserName(), user.getPassword())) {
+            userService.setPassword(theUser, user.getPassword());
+            return null;
+        }
+        return new ResponseEntity(HttpStatus.BAD_REQUEST);
     }
 
     public String generateLinkVerify(User theUser) {

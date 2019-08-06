@@ -52,16 +52,36 @@ export class LoginComponent implements OnInit {
         .pipe(first())
         .subscribe(
           data => {
-            this.router.navigate([this.returnUrl]);
+            console.log(data);
+            if (data == null){
+              this.error = 'Invalid username or password';
+              this.loading = false;
+            } else {
+              this.router.navigate([this.returnUrl]);
+            }
           },
           error => {
-            this.error = 'Invalid username or password';
+            console.log(error);
+            this.error = 'You must verify email';
             this.loading = false;
           }
         );
     } else {
-      this.authenticationService.forgot(this.f.username.value).subscribe();
-      alert("Send to email");
+      this.authenticationService.forgot(this.f.username.value).subscribe(
+        data => {
+          if (data == null) {
+            this.error = 'Username not exists!';
+            this.loading = false;
+            return;
+          }
+
+        },
+        error1 => {
+          alert("Send to email");
+          this.router.navigate(['/']);
+        }
+      );
+
     }
   }
 

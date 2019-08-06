@@ -2,37 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="909db6bb-627f-4035-957b-0ff875536d4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/configuration/interceptor/Interceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/configuration/interceptor/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/reset-password/reset-password.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/reset-password/reset-password.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/reset-password/reset-password.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/reset-password/reset-password.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/verify/verify.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/verify/verify.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/verify/verify.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/verify/verify.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/other/631929649c.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/_helpers/sortable.directive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/demo/countries.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/demo/country.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/demo/country.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/demo/table-complete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/demo/table-complete.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/profile/profile.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/profile/profile.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/profile/profile.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/profile/profile.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/api/RestUploadImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/api/RestUploadImage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/api/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/api/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/configuration/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/configuration/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/service/CurrentUserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/service/CurrentUserServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/service/StorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/service/StorageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/api/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/api/ProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/api/TestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/api/TestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/api/RestUploadImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/api/RestUploadImage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/api/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/api/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/configuration/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/configuration/security/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/service/CurrentUserServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/service/CurrentUserServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/service/StorageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/service/StorageService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/_models/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/_models/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/_services/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/_services/authentication.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/_services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/_services/user.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/list-product/list-product.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/list-product/list-product.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/header/header.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/login/login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/register/register.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/reset-password/reset-password.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/reset-password/reset-password.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/reset-password/reset-password.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/reset-password/reset-password.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,6 +58,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -77,7 +78,16 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/img/other" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/ui/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ui/src/app/_helpers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/img/other" />
+    </key>
   </component>
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
@@ -191,6 +201,7 @@
       <workItem from="1564929499100" duration="1770000" />
       <workItem from="1564964567361" duration="12607000" />
       <workItem from="1565006019110" duration="13086000" />
+      <workItem from="1565059049175" duration="16102000" />
     </task>
     <servers />
   </component>
@@ -212,22 +223,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/smartshop/service/UserService.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/smartshop/service/UserService.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ShopOnline$SmartshopApplication.ic" NAME="SmartshopApplication Coverage Results" MODIFIED="1565013559333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

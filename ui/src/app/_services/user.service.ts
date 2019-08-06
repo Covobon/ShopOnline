@@ -19,4 +19,12 @@ export class UserService {
   remove(username: string) {
     return this.http.delete(`${environment.apiUrl}/api/user?userName=${username}`);
   }
+
+  profile(user: User) {
+    return this.http.put<User>(`${environment.apiUrl}/api/user/profile`, user);
+  }
+
+  setPassword(user: User) {
+    return this.http.post<User>(`${environment.apiUrl}/api/user/setpassword`, user);
+  }
 }

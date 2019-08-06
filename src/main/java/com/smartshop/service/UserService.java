@@ -78,11 +78,6 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void updatePassword(User user) {
-        user.setPassword(encrytedPasswordUtils.encrytePassword(user.getPassword()));
-        userRepository.save(user);
-    }
-
     public void deleteByUserName(String userName){
         userRepository.deleteById(userName);
     }

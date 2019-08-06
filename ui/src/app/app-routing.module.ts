@@ -14,6 +14,8 @@ import {SearchComponent} from '@app/search/search.component';
 import {ForbeddenComponent} from '@app/forbedden/forbedden.component';
 import {VerifyComponent} from "@app/verify/verify.component";
 import {ResetPasswordComponent} from "@app/reset-password/reset-password.component";
+import {ProfileComponent} from "@app/profile/profile.component";
+import {NgbdTableComplete} from "@app/demo/table-complete";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'verify', component: VerifyComponent},
   { path: 'forbedden', component: ForbeddenComponent },
   { path: 'password', component: ResetPasswordComponent},
+  { path: 'profile', component: ProfileComponent},
+  { path: 'demo', component: NgbdTableComplete},
   { path: '**', component: WhitePageComponent }
 ];
 

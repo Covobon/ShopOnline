@@ -23,7 +23,10 @@ import { SearchComponent } from './search/search.component';
 import { ForbeddenComponent } from './forbedden/forbedden.component';
 import { VerifyComponent } from './verify/verify.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ProfileComponent } from './profile/profile.component';
 
+import {NgbdSortableHeader} from "@app/_helpers/sortable.directive";
+import {NgbdTableComplete} from "@app/demo/table-complete";
 
 @NgModule({
   declarations: [
@@ -42,6 +45,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     ForbeddenComponent,
     VerifyComponent,
     ResetPasswordComponent,
+    ProfileComponent,
+    NgbdTableComplete, NgbdSortableHeader
   ],
   imports: [
     BrowserModule,
@@ -55,6 +60,6 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, NgbdTableComplete]
 })
 export class AppModule { }

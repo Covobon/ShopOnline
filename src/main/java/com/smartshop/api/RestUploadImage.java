@@ -127,4 +127,13 @@ public class RestUploadImage {
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
                 .body(file);
     }
+
+    @GetMapping("/other/{filename:.+}")
+    @ResponseBody
+    public ResponseEntity<Resource> getImgOthers(@PathVariable String filename) {
+        Resource file = storageService.loadImgNews(filename);
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
+                .body(file);
+    }
 }

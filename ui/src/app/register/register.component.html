@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="form-group col-6">
-          <label>Last Name</label>
+          <label>Full Name</label>
           <input type="text" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" />
           <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
             <div *ngIf="f.fullName.errors.required">Last Name is required</div>
@@ -51,7 +51,7 @@
         <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
       </div>
       <div class="text-center">
-        <button class="btn btn-primary mr-1">Register</button>
+        <button class="btn btn-primary mr-1">Edit</button>
 <!--
         <button class="btn btn-secondary" type="reset" (click)="onReset()">Clear</button>
 -->

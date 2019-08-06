@@ -26,6 +26,8 @@ public class StorageService {
 
     private final Path imgNews = Paths.get("./src/main/resources/img/News");
 
+    private final Path imgOther = Paths.get("./src/main/resources/img/other");
+
 
     public void store(MultipartFile file) {
         try {
@@ -95,6 +97,10 @@ public class StorageService {
 
     public Resource loadImgNews(String nameFile) {
         return loadFile(nameFile, imgNews);
+    }
+
+    public Resource loadImgOthers(String nameFile) {
+        return loadFile(nameFile, imgOther);
     }
 
 }
