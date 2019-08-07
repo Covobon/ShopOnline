@@ -161,6 +161,6 @@ public class User {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", createTime='" + createTime + '\'' +
                 ", lastAccess='" + lastAccess + '\'' +
-                '}';
+                ", length role= " + this.roles.size()+'}';
     }
 }

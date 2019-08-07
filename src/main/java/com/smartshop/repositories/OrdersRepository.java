@@ -22,4 +22,6 @@ public interface OrdersRepository extends JpaRepository<Orders, Integer> {
     void addProduct(int orderId, String productId, int amount);
 
     Orders findByUserNameAndCreateTime(String userName, Date createTime);
+
+    List<Orders> findByUserName(String userName);
 }

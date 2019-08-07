@@ -19,8 +19,7 @@ public class OrderService {
     @Autowired
     private OrdersRepository ordersRepository;
 
-    public List<Orders> findAll(int page, int pageSize) {
-        Pageable pageable = PageRequest.of(page, pageSize);
+    public List<Orders> findAll() {
         return ordersRepository.findAll();
     }
 
@@ -32,6 +31,14 @@ public class OrderService {
         Product theProduct = product;
         int theOrder = ordersId;
         ordersRepository.addProduct(ordersId, product.getProductId(), product.getAmount());
+    }
+
+    public Orders findById(int ordersId){
+        return ordersRepository.findById(ordersId).orElse(null);
+    }
+
+    public List<Orders> findByUserName(String username) {
+        return ordersRepository.findByUserName(username);
     }
 
     public Orders findByUserNameAndCreateTime(String userName, Date createTime){

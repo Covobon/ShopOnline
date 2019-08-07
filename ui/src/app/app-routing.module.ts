@@ -15,7 +15,9 @@ import {ForbeddenComponent} from '@app/forbedden/forbedden.component';
 import {VerifyComponent} from "@app/verify/verify.component";
 import {ResetPasswordComponent} from "@app/reset-password/reset-password.component";
 import {ProfileComponent} from "@app/profile/profile.component";
-import {NgbdTableComplete} from "@app/demo/table-complete";
+import {CategoryComponent} from "@app/category/category.component";
+import {UploadComponent} from "@app/upload/upload.component";
+import {HistoryComponent} from "@app/history/history.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,8 +30,10 @@ const routes: Routes = [
   { path: 'verify', component: VerifyComponent},
   { path: 'forbedden', component: ForbeddenComponent },
   { path: 'password', component: ResetPasswordComponent},
-  { path: 'profile', component: ProfileComponent},
-  { path: 'demo', component: NgbdTableComplete},
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  { path: 'category/:param', component: CategoryComponent},
+  { path: 'upload', component: UploadComponent },
+  { path: 'history', component: HistoryComponent},
   { path: '**', component: WhitePageComponent }
 ];
 

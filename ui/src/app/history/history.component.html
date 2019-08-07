@@ -1,0 +1,31 @@
+<h1>History</h1>
+<div class="table table-striped">
+<table>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Product Id</th>
+    <th scope="col">Quantity</th>
+    <th scope="col">Total</th>
+    <th scope="col">Address</th>
+    <th scope="col">Status</th>
+  </tr>
+  <tr *ngFor="let orders of orderses, let i = index">
+      <th>{{i}}</th>
+      <td>
+        <div *ngFor="let param of orders.ordersProducts">
+          {{param.product}}
+        </div>
+      </td>
+      <td>
+        <div *ngFor="let param of orders.ordersProducts">
+          {{param.amount | number}}
+        </div>
+      </td>
+      <td>
+        {{orders.pay}}
+      </td>
+      <td>{{orders.address}}</td>
+      <td>{{orders.status}}</td>
+  </tr>
+  </table>
+</div>

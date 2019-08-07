@@ -1,3 +1,4 @@
+/*
 package com.smartshop.configuration.interceptor;
 
 import com.smartshop.service.CurrentUserService;
@@ -19,3 +20,4 @@ public class Interceptor extends HandlerInterceptorAdapter {
         this.currentUserService.update(null);
     }
 }
+*/

@@ -5,6 +5,8 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '@environments/environment';
 import {ProductService} from '@app/_services/product.service';
 import {CartService} from '@app/_services/cart.service';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AuthenticationService} from "@app/_services/authentication.service";
 
 @Component({
   selector: 'app-cart',
@@ -15,16 +17,30 @@ export class CartComponent implements OnInit {
 
   private products: Product[];
   private cartProducts: CartProduct[];
+  infoPay: FormGroup;
+  submitted= false;
+  loading= false;
+  error = '';
 
   constructor(private http: HttpClient,
               private productService: ProductService,
-              private cartService: CartService) { }
+              private cartService: CartService,
+              private formBuilder: FormBuilder,
+              private authen: AuthenticationService) { }
 
   ngOnInit() {
+    this.infoPay = this.formBuilder.group({
+      address: [this.authen.currentUserValue.address, Validators.required]
+    });
     this.productService.find(`${environment.apiUrl}/api/cart`).subscribe(data => {
       this.products = data;
     });
   }
+
+  get f() {
+    return this.infoPay.controls;
+  }
+
   src(product: Product) {
     return 'http://localhost:8081/api/img/' + product.category.toLowerCase() + '/' + product.images[0].imageName;
   }
@@ -65,7 +81,18 @@ export class CartComponent implements OnInit {
       });
   }
   pay() {
-    this.http.get(`${environment.apiUrl}/api/cart/pay`).subscribe(data => {},
+    this.submitted = true;
+    this.loading = false;
+    if (this.infoPay.invalid) {
+      alert("You must add a shipping address");
+      return;
+    }
+
+    this.http.get(`${environment.apiUrl}/api/cart/pay`).subscribe(data => {
+      this.http.get(`${environment.apiUrl}/api/cart/address?address=${this.f.address.value}`).subscribe();
+      alert("Pay success!");
+      this.ngOnInit();
+      },
       error => {
         console.log(error);
       });

@@ -1,1 +1,12 @@
+<!--
 <app-list-product [page]="1" [urlProduct]="urlProduct" [showPagination]="true" [pageSize]="16"></app-list-product>
+-->
+
+<h1>Hot</h1>
+<app-list-product [page]="1" [urlProduct]="urlProduct" [showPagination]="false" [pageSize]="8" ></app-list-product>
+<h1>Phone</h1><a href="/category/phone">More ...</a>
+<app-list-product [page]="1" [urlProduct]="urlPhone" [showPagination]="true" [pageSize]="8"></app-list-product>
+<h1>Laptop</h1><a href="/category/laptop">More ...</a>
+<app-list-product [page]="1" [urlProduct]="urlLaptop" [showPagination]="true" [pageSize]="8"></app-list-product>
+<h1>Tablet</h1><a href="/category/tablet">More ...</a>
+<app-list-product [page]="1" [urlProduct]="urlTablet" [showPagination]="true" [pageSize]="8"></app-list-product>

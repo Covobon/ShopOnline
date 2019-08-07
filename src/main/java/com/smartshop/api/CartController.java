@@ -104,15 +104,27 @@ public class CartController {
 
     @GetMapping("/pay")
     public ResponseEntity pay(){
+        int pay = 0;
         Cart cart = currentUserService.get().getCart();
         if(getCartProduct().size() > 0) {
             Orders orders = new Orders(currentUserService.get().getUserName(), "Processing", cart.getAddress());
             orderService.save(orders);
             for (Product product : getCartProduct()) {
                 orderService.addProduct(orders.getOrderId(), product);
+                pay = pay + product.getPrice()*product.getAmount();
             }
+            orders = orderService.findById(orders.getOrderId());
+            orders.setPay(pay);
+            orderService.save(orders);
             cartService.clean(cart.getCartId());
         }
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/address")
+    public void addAddress(@RequestParam String address) {
+        Cart cart = currentUserService.get().getCart();
+        cart.setAddress(address);
+        cartService.save(cart);
     }
 }

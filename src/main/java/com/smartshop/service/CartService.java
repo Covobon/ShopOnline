@@ -41,4 +41,8 @@ public class CartService {
     public void clean(int cartId){
         cartRepository.cleanCart(cartId);
     }
+
+    public void save(Cart cart) {
+        cartRepository.save(cart);
+    }
 }

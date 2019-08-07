@@ -40,7 +40,6 @@ export class RegisterComponent implements OnInit {
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
-    console.log("someting");
     this.submitted = true;
 
     // stop here if form is invalid
@@ -57,8 +56,10 @@ export class RegisterComponent implements OnInit {
 
     // display form values on success
     this.authen.register(this.user).subscribe(data => {
-      alert('SUCCESS!!');
-      console.log(data);
+      this.authen.login(this.user.userName, this.user.password).subscribe(data => {
+        alert("Send email verify");
+        this.router.navigate(['/'])
+      });
     }, error => {
       this.error = `Username or email exists!`;
     });

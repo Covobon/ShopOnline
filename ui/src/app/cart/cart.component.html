@@ -32,12 +32,20 @@
 
         </tbody>
       </table>
-      <div class="col-4">
-        <div>Thông tin thanh toán</div>
-        <div>
-          Địa chỉ: <textarea type="text"></textarea>
+      <form class="col-4" [formGroup]="infoPay" (ngSubmit)="pay()" >
+        <div>Add a shipping address</div>
+        <div class="form-group">
+          <label>Address:</label>
+          <textarea type="text" formControlName="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }"></textarea>
+          <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+            <div *ngIf="f.address.errors.required">Address is required</div>
+          </div>
         </div>
-      </div>
+        <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Submit
+        </button>
+      </form>
     </div>
   </div>
 </div>

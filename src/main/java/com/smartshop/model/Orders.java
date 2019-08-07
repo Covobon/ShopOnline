@@ -1,7 +1,10 @@
 package com.smartshop.model;
 
+import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="orders")
@@ -25,6 +28,14 @@ public class Orders {
     @Column(name = "create_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
+
+    @OneToMany
+    @JoinColumn(name = "order_id")
+    private List<OrdersProduct> ordersProducts;
+
+    @Column(name = "pay")
+    @Nullable
+    private int pay;
 
     /*Constructors*/
     public Orders() {
@@ -79,6 +90,22 @@ public class Orders {
 
     public void setCreateTime(java.util.Date createTime) {
         this.createTime = createTime;
+    }
+
+    public List<OrdersProduct> getOrdersProducts() {
+        return ordersProducts;
+    }
+
+    public void setOrdersProducts(List<OrdersProduct> ordersProducts) {
+        this.ordersProducts = ordersProducts;
+    }
+
+    public int getPay() {
+        return pay;
+    }
+
+    public void setPay(int pay) {
+        this.pay = pay;
     }
 
     /*Methods*/

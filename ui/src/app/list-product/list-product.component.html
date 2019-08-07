@@ -7,31 +7,32 @@
   </div>
 </div>
 
-<div class="">
-  <ul *ngIf="showPagination && products.length > 0" class="pagination">
-    <li *ngIf="page != 1" class="page-item first-item">
-      <button (click)="loadPage(1)" class="btn btn-link">First</button>
-    </li>
-    <li *ngIf="page != 1" class="page-item previous-item">
-      <button (click)="loadPage(page - 1)" class="btn btn-link">Previous</button>
-    </li>
-    <li *ngIf="page != 1" class="page-item previous-item">
-      <button (click)="loadPage(page - 1)" class="btn btn-link">{{page - 1}}</button>
-    </li>
-    <li class="page-item number-item">
-      <button class="btn btn-link bg-info text-white">{{page}}</button>
-    </li>
-    <li *ngIf="checkNext()" class="page-item previous-item">
-      <button (click)="loadPage(page + 1)" class="btn btn-link">{{page+1}}</button>
-    </li>
-    <li *ngIf="checkNext()" class="page-item next-item">
-      <button  (click)="loadPage(page + 1)" class="btn btn-link">Next</button>
-    </li>
-    <li *ngIf="checkNext()" class="page-item last-item">
-      <button (click)="loadPage(collectionSize/pageSize)" class="btn btn-link">Last</button>
-    </li>
-  </ul>
-</div>
+
+<ul *ngIf="showPagination && products.length > 0" class="pagination d-flex flex-row-reverse pt-n1">
+
+  <li *ngIf="checkNext()" class="page-item last-item">
+    <button (click)="loadPage(collectionSize/pageSize)" class="btn btn-link">Last</button>
+  </li>
+  <li *ngIf="checkNext()" class="page-item next-item">
+    <button (click)="loadPage(page + 1)" class="btn btn-link">Next</button>
+  </li>
+  <li *ngIf="checkNext()" class="page-item previous-item">
+    <button (click)="loadPage(page + 1)" class="btn btn-link">{{page + 1}}</button>
+  </li>
+  <li class="page-item number-item">
+    <button class="btn btn-link bg-info text-white">{{page}}</button>
+  </li>
+  <li *ngIf="page != 1" class="page-item previous-item">
+    <button (click)="loadPage(page - 1)" class="btn btn-link">{{page - 1}}</button>
+  </li>
+  <li *ngIf="page != 1" class="page-item previous-item">
+    <button (click)="loadPage(page - 1)" class="btn btn-link">Previous</button>
+  </li>
+  <li *ngIf="page != 1" class="page-item first-item">
+    <button (click)="loadPage(1)" class="btn btn-link">First</button>
+  </li>
+</ul>
+
 
 <!--
 <ngb-pagination *ngIf="showPagination" [collectionSize]="products.length" [(page)]="page" [pageSize]="pageSize"

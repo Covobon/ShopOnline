@@ -1,3 +1,4 @@
+<!--
 <ul class="list-group list-group-horizontal" style="width: 100%">
   <button class="list-group-item" [disabled]="!(role === 'SELLER') && !(role === 'MANAGER')">SELLER</button>
   <button class="list-group-item" [disabled]="!(role === 'MARKETING') && !(role === 'MANAGER')">MARKETING</button>
@@ -46,4 +47,214 @@
       </table>
     </div>
   </div>
+</div>
+-->
+<ul class="list-group list-group-horizontal-md">
+  <li class="list-group-item">
+    <button class="btn btn-link" (click)="showOrders()">Orders Manager</button>
+  </li>
+  <li class="list-group-item">
+    <button class="btn btn-link" (click)="showProducts()">Product Manager</button>
+  </li>
+  <li class="list-group-item">
+    <button class="btn btn-link" (click)="showUsers()">User Manager</button>
+  </li>
+</ul>
+<div *ngIf="checkOrders">
+  <h1>Orderes manager</h1>
+  <div class="table table-striped">
+    <table>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Product Id</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total</th>
+        <th scope="col">Address</th>
+        <th scope="col">Status</th>
+      </tr>
+      <tr *ngFor="let orders of orderses, let i = index">
+        <th>{{i}}</th>
+        <td>
+          <div *ngFor="let param of orders.ordersProducts">
+            {{param.product}}
+          </div>
+        </td>
+        <td>
+          <div *ngFor="let param of orders.ordersProducts">
+            {{param.amount | number}}
+          </div>
+        </td>
+        <td>
+          {{orders.pay}}
+        </td>
+        <td>{{orders.address}}</td>
+        <td>{{orders.status}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div *ngIf="checkProducts">
+  <h1>Product manager</h1><!--<button [routerLink]="['/product']">Add Product</button>-->
+  <!-- main app container -->
+  <!--
+  <div class="card m-3">
+    <h5 class="card-header">Angular 8 Reactive Form Validation</h5>
+    <div class="card-body">
+      <form [formGroup]="addProduct" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="form-group col-6">
+            <label>Name</label>
+            <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+              <div *ngIf="f.name.errors.required">Name is required</div>
+            </div>
+          </div>
+          <div class="form-group col-6">
+            <label>Full Name</label>
+            <input type="text" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" />
+            <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+              <div *ngIf="f.fullName.errors.required">Last Name is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>cer Swift Sf314 54 38J3 I3 8130U 4Gb 1Tb
+            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label>Password</label>
+            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+              <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+            </div>
+          </div>
+          <div class="form-group col">
+            <label>Confirm Password</label>
+            <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+              <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+              <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+          <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+          <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary mr-1">Register</button>
+          &lt;!&ndash;
+                  <button class="btn btn-secondary" type="reset" (click)="onReset()">Clear</button>
+          &ndash;&gt;
+          <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+        </div>
+      </form>
+    </div>
+  </div>
+  -->
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Amount</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of products">
+      <th><img [src]="src(product)"/></th>
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.amount}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="checkUser">
+  <h1>Users manager</h1>
+  <div class="d-flex flex-row-reverse">
+    <button type="button" class="btn btn-success" (click)="create()">Create</button>
+  </div>
+  <div *ngIf="checkCreate" class="card-body">
+    <form [formGroup]="createUser" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label>User Name</label>
+          <input type="text" formControlName="userName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
+          <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+            <div *ngIf="f.userName.errors.required">First Name is required</div>
+          </div>
+        </div>
+        <div class="form-group col-6">
+          <label>Full Name</label>
+          <input type="text" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" />
+          <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+            <div *ngIf="f.fullName.errors.required">Last Name is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>cer Swift Sf314 54 38J3 I3 8130U 4Gb 1Tb
+          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Role:</label>
+        <select formControlName="role" class="form-control">
+          <option selected>USER</option>
+          <option value="2">SELLER</option>
+          <option value="3">MARKETING</option>
+          <option value="4">MANAGER</option>
+        </select>
+      </div>
+
+      <div class="text-center">
+        <button class="btn btn-primary mr-1">Create</button>
+        <!--
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Clear</button>
+        -->
+        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+      </div>
+    </form>
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Create time</th>
+      <th scope="col">Last access</th>
+      <th scope="col">Role</th>
+      <th scope="col" colspan="2">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.userName}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.createTime | date}}</td>
+      <td>{{user.lastAccess | date}}</td>
+      <td>{{user.roles[user.roles.length - 1].roleName}}</td>
+      <td>
+        <button (click)="edit(user)" class="btn btn-lnk fas fa-edit"></button>
+      </td>
+      <td>
+        <button (click)="remove(user.userName)" class="btn btn-lnk fas fa-trash-alt"></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>

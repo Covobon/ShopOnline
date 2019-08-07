@@ -24,9 +24,14 @@ import { ForbeddenComponent } from './forbedden/forbedden.component';
 import { VerifyComponent } from './verify/verify.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ProfileComponent } from './profile/profile.component';
+import {ToastrModule} from 'ngx-toastr';
+import { FileSelectDirective } from 'ng2-file-upload';
 
-import {NgbdSortableHeader} from "@app/_helpers/sortable.directive";
-import {NgbdTableComplete} from "@app/demo/table-complete";
+import { CategoryComponent } from './category/category.component';
+import { UploadComponent } from './upload/upload.component';
+import {CommonModule} from "@angular/common";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,10 @@ import {NgbdTableComplete} from "@app/demo/table-complete";
     VerifyComponent,
     ResetPasswordComponent,
     ProfileComponent,
-    NgbdTableComplete, NgbdSortableHeader
+    CategoryComponent,
+    UploadComponent,
+    FileSelectDirective,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -55,11 +63,14 @@ import {NgbdTableComplete} from "@app/demo/table-complete";
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
-  bootstrap: [AppComponent, NgbdTableComplete]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

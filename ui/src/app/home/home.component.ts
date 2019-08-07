@@ -12,12 +12,19 @@ export class HomeComponent implements OnInit {
   loading = false;
   products: Product[];
   urlProduct: string;
+
   collectionSize: number;
+  urlPhone: string;
+  urlLaptop: string;
+  urlTablet: string;
 
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
     this.loading = true;
     this.urlProduct = `${environment.apiUrl}/api/product?`;
+    this.urlPhone = `${environment.apiUrl}/api/product?category=Phone&`;
+    this.urlLaptop = `${environment.apiUrl}/api/product?category=Laptop&`;
+    this.urlTablet = `${environment.apiUrl}/api/product?category=Tablet&`;
   }
 }

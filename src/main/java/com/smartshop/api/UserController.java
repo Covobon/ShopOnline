@@ -181,9 +181,12 @@ public class UserController {
 
     @PostMapping("/setpassword")
     public ResponseEntity setPassword(@RequestBody User user) {
+        CurrentUserService curren = currentUserService;
         User theUser = userService.findByUserName(user.getUserName());
-        if (theUser != null && currentUserService.get().getUserName().equals(user.getUserName())
-                && userService.verifyAccount(user.getUserName(), user.getPassword())) {
+
+        boolean check = theUser != null && currentUserService.get().getUserName().equals(user.getUserName())
+                && userService.verifyAccount(user.getUserName(), user.getAddress()); // Front end send current password in address
+        if (check) {
             userService.setPassword(theUser, user.getPassword());
             return null;
         }

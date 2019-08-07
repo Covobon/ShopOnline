@@ -63,16 +63,20 @@ export class ResetPasswordComponent implements OnInit {
     } else {
       this.theUser = this.authenticationService.currentUserValue;
       this.theUser.password = this.f.password.value;
+      const currentAddress =  this.theUser.address;
+      this.theUser.address = this.f.currentPassword.value; // save current password to address to send to server
       this.userService.setPassword(this.theUser).subscribe(data => {
-
+        console.log('data' + data);
+        this.theUser.authdata = window.btoa(this.theUser.userName + ":" + this.theUser.password);
+        this.theUser.address = currentAddress;
+        localStorage.setItem('currentUser', JSON.stringify(this.theUser));
+        this.router.navigate(['/'])
+        alert("Change password success");
       }, error => {
+        console.log('error' + error);
         this.error = 'Current password invalid!';
         return;
       });
-      this.theUser.authdata = window.btoa(this.theUser.userName + ":" + this.theUser.password);
-      localStorage.setItem('currentUser', JSON.stringify(this.theUser));
-      alert("Change password success, to home page");
-      this.router.navigate(['/'])
     }
   }
 }

@@ -1,10 +1,12 @@
 <div class="card">
   <a [routerLink]="['/products', product.productId]">
-  <img class="card-img-top" [src]="src" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">{{product.name}}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
+    <img class="card-img-top" [src]="src" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{product.name | slice: 0: 30}}</h5>
+    </div>
   </a>
-    <button (click)="addToCart(product)" class="btn btn-primary">Add to cart</button>
+  <p class="card-text ml-3 font-weight-bold text-dark">Amount: {{product.amount}}</p>
+  <p class="card-text ml-3 font-weight-bold text-danger">Price: {{product.price}}</p>
+  <button (click)="addToCart(product)" class="btn btn-primary">Add to cart
+  </button>
 </div>

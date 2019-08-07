@@ -2,36 +2,88 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="909db6bb-627f-4035-957b-0ff875536d4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/other/631929649c.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/_helpers/sortable.directive.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/demo/countries.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/demo/country.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/demo/country.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/demo/table-complete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/demo/table-complete.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/profile/profile.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/profile/profile.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/profile/profile.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/app/profile/profile.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/model/OrdersProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/_models/orders-product.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/_models/orders.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/_models/users.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/category/category.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/category/category.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/category/category.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/category/category.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/history/history.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/history/history.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/history/history.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/history/history.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/upload/upload.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/upload/upload.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/upload/upload.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/app/upload/upload.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/api/RestUploadImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/api/RestUploadImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/api/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/api/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/api/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/api/OrdersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/api/UploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/api/UploadController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/api/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/api/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/service/StorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/service/StorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/api/RestUploadImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/api/RestUploadImage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/configuration/interceptor/Interceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/configuration/interceptor/Interceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/configuration/interceptor/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/configuration/interceptor/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/model/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/model/Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/repositories/OrdersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/repositories/OrdersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/service/CartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/service/CurrentUserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/service/CurrentUserServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartshop/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartshop/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/api/UploadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/api/UploadController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/api/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/api/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/service/StorageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/service/StorageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/smartshop/service/CurrentUserServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartshop/service/CurrentUserServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/animations.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/animations.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/browser.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/browser.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/browser/browser.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/browser/browser.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/browser/testing.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/browser/testing.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/browser/testing/testing.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/browser/testing/testing.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations-browser-testing.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations-browser-testing.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations-browser-testing.umd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations-browser-testing.umd.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations-browser-testing.umd.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations-browser-testing.umd.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations-browser.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations-browser.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations-browser.umd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations-browser.umd.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations-browser.umd.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations-browser.umd.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations.umd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations.umd.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations.umd.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/bundles/animations.umd.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/esm2015/src/version.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/esm2015/src/version.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/esm5/src/version.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/esm5/src/version.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/fesm2015/animations.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/fesm2015/animations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/fesm2015/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/fesm2015/browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/fesm2015/browser/testing.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/fesm2015/browser/testing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/fesm5/animations.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/fesm5/animations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/fesm5/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/fesm5/browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/fesm5/browser/testing.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/fesm5/browser/testing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/node_modules/@angular/animations/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/node_modules/@angular/animations/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/_services/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/_services/authentication.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/_services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/_services/user.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/cart/cart.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/cart/cart.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/cart/cart.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/cart/cart.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/demo/countries.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/demo/country.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/demo/country.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/demo/table-complete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/demo/table-complete.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/home/home.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/list-product/list-product.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/list-product/list-product.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/manager/manager.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/manager/manager.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/manager/manager.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/manager/manager.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/product/product.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/product/product.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/product/product.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/product/product.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/register/register.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/app/reset-password/reset-password.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/reset-password/reset-password.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/register/register.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/app/reset-password/reset-password.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/reset-password/reset-password.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,8 +109,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="TypeScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -163,8 +215,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.SmartshopApplication" />
-        <item itemvalue="HTTP Request.SmartshopApplication#1" />
         <item itemvalue="Application.InitializerData" />
+        <item itemvalue="HTTP Request.SmartshopApplication#1" />
       </list>
     </recent_temporary>
   </component>
@@ -202,6 +254,9 @@
       <workItem from="1564964567361" duration="12607000" />
       <workItem from="1565006019110" duration="13086000" />
       <workItem from="1565059049175" duration="16102000" />
+      <workItem from="1565089710682" duration="5000" />
+      <workItem from="1565089858842" duration="23778000" />
+      <workItem from="1565133070311" duration="18145000" />
     </task>
     <servers />
   </component>
